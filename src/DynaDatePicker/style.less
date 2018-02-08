@@ -1,0 +1,127 @@
+@import (reference) "~dyna-ui-styles/media-queries/basic.less";
+
+.dyna-date-picker {
+
+	.dyna-ui-field-wrapper-container {
+		.ddp-input-control {
+			outline: none;
+			border: 0;
+			font-size: 16px;
+			line-height: 16px;
+			font-weight: bold;
+			background-color: transparent;
+		}
+	}
+
+	&.dyna-date-picker {
+
+		&-style- {
+
+			&INLINE_ROUNDED {
+
+				.dyna-ui-field-wrapper-footer {
+
+					.dyna-ui-picker-container {
+						z-index: 1;
+
+						.ddp-picker-container {
+
+							.ddp--calendar--label {
+								display: none;
+								@media (max-width: @media-tablet) {
+									display: block;
+								}
+							}
+
+							.ddp--calendar--button-bar {
+								padding: 0 8px 8px 8px;
+
+								.ddp--calendar--close-button {
+									text-align: center;
+									cursor: pointer;
+									font-weight: bold;
+									font-size: 18px;
+									line-height: 42px;
+								}
+							}
+						}
+
+						@media (max-width: @media-tablet) {
+							.ddp-picker-container {
+								position: absolute;
+								top: 0; bottom: 0; left: 0; right: 0;
+								display: flex;
+								flex-direction: column;
+								justify-content: space-between;
+								width: 100%;
+
+								.ddp--calendar--label {
+									display: none;
+									@media (max-width: @media-tablet) {
+										display: block;
+										h2 {
+											margin: 8px 8px 0 8px;
+										}
+									}
+								}
+
+								.ddp--calendar--button-bar {
+									display: flex;
+									flex-direction: column;
+									justify-content: flex-end;
+								}
+							}
+
+						}
+
+					}
+
+				}
+			}
+
+		}
+
+		&-size- {
+			&XSMALL {
+				.dyna-ui-picker-container{
+					font-size: 11px;
+					@size: 192px;
+					width: @size;
+					.dyna-month-calendar{
+						height: @size;
+					}
+				}
+			}
+			&SMALL {
+				.dyna-ui-picker-container{
+					font-size: 14px;
+					@size: 256px;
+					width: @size;
+					.dyna-month-calendar{
+						height: @size;
+					}
+				}
+			}
+			&MEDIUM {
+				font-size: 16px;
+				.dyna-ui-picker-container{
+					@size: 320px;
+					width: @size;
+					.dyna-month-calendar{
+						height: @size;
+					}
+				}
+			}
+			&LARGE {
+				font-size: 18px;
+				.dyna-ui-picker-container{
+					@size: 448px;
+					width: @size;
+					.dyna-month-calendar{
+						height: @size;
+					}
+				}
+			}
+		}
+	}
+}
