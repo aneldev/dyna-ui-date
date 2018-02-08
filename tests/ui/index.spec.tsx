@@ -14,6 +14,8 @@ describe('Home', () => {
     wrapper = enzyme.shallow(
       (
         <DynaDatePicker
+          name="Departure date"
+          onChange={()=>undefined}
         />
       ),
       {}

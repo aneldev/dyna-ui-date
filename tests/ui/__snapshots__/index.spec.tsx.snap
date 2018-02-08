@@ -1,13 +1,104 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Home has expected content with deep render 1`] = `
-<a
-  className="dyna-button dnbtn-style-ROUNDED dnbtn-color-WHITE_BLACK dnbtn-size-MEDIUM"
-  href={null}
-  onClick={[Function]}
+<div
+  className="dyna-date-picker dyna-date-picker-mode-EDIT dyna-date-picker-style-INLINE_ROUNDED dyna-date-picker-color-WHITE_BLACK dyna-date-picker-size-MEDIUM"
 >
-  <button>
-    My button
-  </button>
-</a>
+  <DynaFieldWrapper
+    className={null}
+    color="WHITE_BLACK"
+    footer={
+      <DynaPickerContainer
+        color="WHITE_BLACK"
+        responsive={true}
+        show={false}
+        style="INLINE_ROUNDED"
+      >
+        <div
+          className="ddp-picker-container"
+        >
+          <div
+            className="ddp--calendar--label"
+          >
+            <h2 />
+          </div>
+          <DynaMonthCalendar
+            color="WHITE_BLACK"
+            end={null}
+            max={null}
+            min={null}
+            months={
+              Array [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December",
+              ]
+            }
+            name="Departure date"
+            onChange={[Function]}
+            renderPickerDay={[Function]}
+            renderPickerMonthYear={[Function]}
+            renderPickerWeekDay={[Function]}
+            staringFromWeekDay={1}
+            start={null}
+            value={null}
+            values={Array []}
+            weekDays={
+              Array [
+                "Su",
+                "Mo",
+                "Tu",
+                "We",
+                "Th",
+                "Fr",
+                "Sa",
+              ]
+            }
+          />
+          <div
+            className="ddp--calendar--button-bar"
+          >
+            <div
+              className="ddp--calendar--close-button"
+              onClick={[Function]}
+            >
+              <span>
+                <i
+                  aria-hidden="true"
+                  className="fa fa-check"
+                />
+                 Ok
+              </span>
+            </div>
+          </div>
+        </div>
+      </DynaPickerContainer>
+    }
+    inputElementSelector=".ddp-input-control"
+    isLoading={null}
+    label={null}
+    mode="EDIT"
+    required={null}
+    style="INLINE_ROUNDED"
+    validationMessage={null}
+  >
+    <input
+      className="ddp-input-control"
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      readOnly={true}
+      value=""
+    />
+  </DynaFieldWrapper>
+</div>
 `;

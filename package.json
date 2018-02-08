@@ -1,7 +1,7 @@
 {
   "name": "dyna-ui-date",
   "version": "1.0.2",
-  "description": "Date controls",
+  "description": "React Date controls",
   "repository": {
     "type": "git",
     "url": "https://github.com/aneldev/dyna-ui-date"
