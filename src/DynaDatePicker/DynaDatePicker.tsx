@@ -5,13 +5,15 @@ import {DynaPickerContainer} from "dyna-ui-picker-container";
 
 import {DynaMonthCalendar} from "../DynaMonthCalendar/DynaMonthCalendar";
 
+import {ESize} from "../";
+
 import {monthsLongNames, weekDaysShortNames} from "../utils/utils";
 
 import {faIcon} from "../utils/faIcon";
 
 import "./style.less";
 import "./color.less";
-import {ESize} from "../";
+
 
 export {EMode}
 
