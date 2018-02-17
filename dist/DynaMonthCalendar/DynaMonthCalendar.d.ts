@@ -1,4 +1,5 @@
 import * as React from "react";
+import { EMode } from "dyna-ui-field-wrapper";
 import { EColor, TContent } from "../interfaces/interfaces";
 import "./layout.less";
 import "./color.less";
@@ -11,6 +12,7 @@ export declare enum EInRange {
 }
 export interface IDynaMonthCalendarProps {
     name: string;
+    mode?: EMode;
     color?: EColor;
     start?: Date;
     end?: Date;
