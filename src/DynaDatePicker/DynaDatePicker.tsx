@@ -14,7 +14,6 @@ import {faIcon} from "../utils/faIcon";
 import "./style.less";
 import "./color.less";
 
-
 export {EMode}
 
 export enum EStyle {
