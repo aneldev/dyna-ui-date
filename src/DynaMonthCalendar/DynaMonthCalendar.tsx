@@ -1,6 +1,7 @@
 import * as React from "react";
 import moment = require("moment");
 import {Moment} from "moment";
+import {EMode} from "dyna-ui-field-wrapper";
 
 import {EColor, TContent} from "../interfaces/interfaces";
 
@@ -21,6 +22,7 @@ export enum EInRange {
 
 export interface IDynaMonthCalendarProps {
   name: string;
+  mode?: EMode;
   color?: EColor;
   start?: Date;
   end?: Date;
@@ -57,6 +59,7 @@ export interface IUICalendarTableDayCell {
 export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, IDynaMonthCalendarState> {
   static defaultProps: IDynaMonthCalendarProps = {
     name: null,
+    mode: EMode.EDIT,
     color: EColor.WHITE_BLACK,
     start: null,
     end: null,
@@ -174,6 +177,7 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
   }
 
   private handleNavMonth(direction: number): void {
+    if (this.props.mode === EMode.VIEW) return;
     this.setState({
         viewport: moment(this.state.viewport).add(direction, 'months').toDate()
       }
@@ -183,6 +187,7 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
   }
 
   private handleDaySelect(calendarCell: IUICalendarTableDayCell): void {
+    if (this.props.mode === EMode.VIEW) return;
     if (calendarCell.disabled) return;
     const {name, onChange} = this.props;
     onChange(name, calendarCell.date);
@@ -190,6 +195,7 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
 
   public render(): JSX.Element {
     const {
+      mode,
       color,
       staringFromWeekDay,
       renderPickerWeekDay,
@@ -204,6 +210,7 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
 
     const className: string = [
       'dyna-month-calendar',
+      `dyna-month-calendar--mode-${mode}`,
       `dyna-month-calendar--color-${color}`,
     ].join(' ').trim();
 

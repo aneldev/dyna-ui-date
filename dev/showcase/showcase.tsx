@@ -40,6 +40,7 @@ export default {
 
         interface IMyTestComponentProps {
           color?: EColor,
+          mode?: EMode,
         }
 
         interface IMyTestComponentState {
@@ -47,7 +48,7 @@ export default {
           end: Date;
         }
 
-        class MyTestCompoent extends React.Component<IMyTestComponentProps, IMyTestComponentState> {
+        class MyTestComponent extends React.Component<IMyTestComponentProps, IMyTestComponentState> {
           constructor(props: IMyTestComponentProps) {
             super(props);
             this.state = {
@@ -64,10 +65,11 @@ export default {
           }
 
           public render(): JSX.Element {
-            const {color} = this.props;
+            const {mode,color} = this.props;
             const {start, end} = this.state;
             return (
               <DynaMonthCalendar
+                mode={mode}
                 color={color}
                 name="date"
                 min={new Date("2017-12-05")}
@@ -81,7 +83,7 @@ export default {
           }
         }
 
-        return <MyTestCompoent/>
+        return <MyTestComponent/>
 
       })(),
       wrapperStyle: {
@@ -91,12 +93,15 @@ export default {
       props: (() => {
         const output: any[] = [];
         Object.keys(EColor).map((color: EColor) => {
-          output.push({
-            slug: `color-${color}`,
-            title: `Date picker in ${color.replace(/_/g, ' ').toLowerCase()} color`,
-            props: {
-              color,
-            }
+          Object.keys(EMode).map((mode: EMode) => {
+            output.push({
+              slug: `color-${color}-mode-${mode}`,
+              title: `Date picker in ${color.replace(/_/g, ' ').toLowerCase()} color, ${mode} mode`,
+              props: {
+                color,
+                mode,
+              }
+            });
           });
         });
         return output
