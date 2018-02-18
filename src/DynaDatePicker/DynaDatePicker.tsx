@@ -1,11 +1,9 @@
 import * as React from "react";
 import moment = require("moment");
-import {DynaFieldWrapper, EMode} from "dyna-ui-field-wrapper";
+import {DynaFieldWrapper, EColor, EMode, EStyle, ESize} from "dyna-ui-field-wrapper";
 import {DynaPickerContainer} from "dyna-ui-picker-container";
 
 import {DynaMonthCalendar} from "../DynaMonthCalendar/DynaMonthCalendar";
-
-import {ESize} from "../";
 
 import {monthsLongNames, weekDaysShortNames} from "../utils/utils";
 
@@ -15,19 +13,6 @@ import "./style.less";
 import "./color.less";
 
 export {EMode}
-
-export enum EStyle {
-  INLINE_ROUNDED = "INLINE_ROUNDED",
-}
-
-export enum EColor {
-  WHITE_BLACK = "WHITE_BLACK",
-  GRAY_WHITE_BLACK = "GRAY_WHITE_BLACK",
-  WHITE_RED = "WHITE_RED",
-  BLACK_WHITE = "BLACK_WHITE",
-  ORANGE_WHITE = "ORANGE_WHITE",
-  TRANSPARENT_WHITE = "TRANSPARENT_WHITE",
-}
 
 export type TContent = JSX.Element | string;
 

@@ -1,6 +1,6 @@
 {
   "name": "dyna-ui-date",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "React Date controls",
   "repository": {
     "type": "git",
@@ -28,7 +28,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "dyna-ui-field-wrapper": "^1.2.1",
+    "dyna-ui-field-wrapper": "^1.5.1",
     "dyna-ui-picker-container": "^1.0.6",
     "moment": "^2.20.1",
     "react": "^16.0.0",

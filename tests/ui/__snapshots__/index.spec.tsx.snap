@@ -27,6 +27,7 @@ exports[`Home has expected content with deep render 1`] = `
             end={null}
             max={null}
             min={null}
+            mode="EDIT"
             months={
               Array [
                 "January",
@@ -87,7 +88,9 @@ exports[`Home has expected content with deep render 1`] = `
     isLoading={null}
     label={null}
     mode="EDIT"
+    onFocus={[Function]}
     required={null}
+    size="MEDIUM"
     style="INLINE_ROUNDED"
     validationMessage={null}
   >

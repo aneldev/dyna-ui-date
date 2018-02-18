@@ -1,21 +1,2 @@
-export enum EStyle {
-  INLINE_ROUNDED = "INLINE_ROUNDED",
-}
-
-export enum EColor {
-  WHITE_BLACK = "WHITE_BLACK",
-  GRAY_WHITE_BLACK = "GRAY_WHITE_BLACK",
-  WHITE_RED = "WHITE_RED",
-  BLACK_WHITE = "BLACK_WHITE",
-  ORANGE_WHITE = "ORANGE_WHITE",
-  TRANSPARENT_WHITE = "TRANSPARENT_WHITE",
-}
-
 export type TContent = JSX.Element | string;
 
-export enum ESize {
-  XSMALL = "XSMALL",
-  SMALL = "SMALL",
-  MEDIUM = "MEDIUM",
-  LARGE = "LARGE",
-}
