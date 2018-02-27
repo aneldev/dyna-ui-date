@@ -12,6 +12,7 @@ export declare enum EInRange {
     MIDDLE = "MIDDLE",
 }
 export interface IDynaDatePickerProps {
+    className?: string;
     name: string;
     label?: TContent;
     mode?: EMode;

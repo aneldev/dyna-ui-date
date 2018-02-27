@@ -25,6 +25,7 @@ export enum EInRange {
 }
 
 export interface IDynaDatePickerProps {
+  className?: string;
   name: string;
   label?: TContent;
   mode?: EMode;
@@ -60,6 +61,7 @@ export interface IDynaDatePickerState {
 
 export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaDatePickerState> {
   static defaultProps: IDynaDatePickerProps = {
+    className: '',
     name: null,
     label: null,
     mode: EMode.EDIT,
@@ -192,6 +194,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
 
   public render(): JSX.Element {
     const {
+      className: cn,
       mode, style, color, size,
       label, required,
       validationMessage,
@@ -199,6 +202,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
 
     const className: string = [
       'dyna-date-picker',
+      cn,
       `dyna-date-picker-mode-${mode}`,
       `dyna-date-picker-style-${style}`,
       `dyna-date-picker-color-${color}`,

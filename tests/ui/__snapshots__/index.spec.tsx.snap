@@ -2,7 +2,7 @@
 
 exports[`Home has expected content with deep render 1`] = `
 <div
-  className="dyna-date-picker dyna-date-picker-mode-EDIT dyna-date-picker-style-INLINE_ROUNDED dyna-date-picker-color-WHITE_BLACK dyna-date-picker-size-MEDIUM"
+  className="dyna-date-picker  dyna-date-picker-mode-EDIT dyna-date-picker-style-INLINE_ROUNDED dyna-date-picker-color-WHITE_BLACK dyna-date-picker-size-MEDIUM"
 >
   <DynaFieldWrapper
     className={null}
@@ -88,6 +88,7 @@ exports[`Home has expected content with deep render 1`] = `
     isLoading={null}
     label={null}
     mode="EDIT"
+    onClick={[Function]}
     onFocus={[Function]}
     required={null}
     size="MEDIUM"

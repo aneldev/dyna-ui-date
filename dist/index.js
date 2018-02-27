@@ -19072,9 +19072,10 @@ var DynaDatePicker = /** @class */ (function (_super) {
             .join(', ');
     };
     DynaDatePicker.prototype.render = function () {
-        var _a = this.props, mode = _a.mode, style = _a.style, color = _a.color, size = _a.size, label = _a.label, required = _a.required, validationMessage = _a.validationMessage;
+        var _a = this.props, cn = _a.className, mode = _a.mode, style = _a.style, color = _a.color, size = _a.size, label = _a.label, required = _a.required, validationMessage = _a.validationMessage;
         var className = [
             'dyna-date-picker',
+            cn,
             "dyna-date-picker-mode-" + mode,
             "dyna-date-picker-style-" + style,
             "dyna-date-picker-color-" + color,
@@ -19085,6 +19086,7 @@ var DynaDatePicker = /** @class */ (function (_super) {
                 React.createElement("input", { className: "ddp-input-control", readOnly: true, value: this.renderInputDates(), onFocus: this.handlerUserCame.bind(this), onClick: this.handlerUserCame.bind(this), onKeyDown: this.handlerInputKeyPress.bind(this) }))));
     };
     DynaDatePicker.defaultProps = {
+        className: '',
         name: null,
         label: null,
         mode: dyna_ui_field_wrapper_1.EMode.EDIT,
