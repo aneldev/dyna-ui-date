@@ -1,5 +1,3 @@
-import { TContent } from "./interfaces/interfaces";
-import { EColor, ESize, EStyle } from "dyna-ui-field-wrapper";
-import { DynaMonthCalendar, IDynaMonthCalendarProps } from "./DynaMonthCalendar/DynaMonthCalendar";
-import { DynaDatePicker, IDynaDatePickerProps, EMode } from "./DynaDatePicker/DynaDatePicker";
-export { TContent, EColor, ESize, EStyle, EMode, DynaMonthCalendar, IDynaMonthCalendarProps, DynaDatePicker, IDynaDatePickerProps };
+export { TContent } from "./interfaces/interfaces";
+export { DynaMonthCalendar, IDynaMonthCalendarProps, EColor as EDynaMonthCalendarColor } from "./DynaMonthCalendar/DynaMonthCalendar";
+export { EMode, ESize, EStyle, DynaDatePicker, IDynaDatePickerProps, EColor as EDynaDatePickerColor } from "./DynaDatePicker/DynaDatePicker";

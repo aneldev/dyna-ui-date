@@ -1,8 +1,11 @@
 import * as React from "react";
-import { EColor, EMode } from "dyna-ui-field-wrapper";
+import { EMode } from "dyna-ui-field-wrapper";
 import { TContent } from "../interfaces/interfaces";
 import "./layout.less";
 import "./color.less";
+export declare enum EColor {
+    GREY_GREEN = "GREY_GREEN",
+}
 export declare enum EInRange {
     START = "START",
     END = "END",
