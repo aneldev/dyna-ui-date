@@ -1,16 +1,11 @@
 import * as React from "react";
-import { EColor } from "dyna-ui-styles";
 import { EMode, EStyle, ESize } from "dyna-ui-field-wrapper";
+import { EInRange } from "../DynaMonthCalendar/DynaMonthCalendar";
 import "./style.less";
-import "./color.less";
-export { EMode };
+export { EMode, ESize, EStyle, EInRange };
 export declare type TContent = JSX.Element | string;
-export declare enum EInRange {
-    START = "START",
-    END = "END",
-    START_END = "START_END",
-    OUT = "OUT",
-    MIDDLE = "MIDDLE",
+export declare enum EColor {
+    GREY_ORANGE_GREEN = "GREY_ORANGE_GREEN",
 }
 export interface IDynaDatePickerProps {
     className?: string;

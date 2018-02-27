@@ -4,7 +4,8 @@ import moment = require("moment");
 import {faIcon, IShowcase} from "dyna-showcase";
 
 import {
-  EMode, EColor, EStyle,
+  EMode, EStyle,
+  EDynaMonthCalendarColor, EDynaDatePickerColor,
   DynaMonthCalendar,
   DynaDatePicker, ESize,
 } from "../../src";
@@ -39,7 +40,7 @@ export default {
       component: (() => {
 
         interface IMyTestComponentProps {
-          color?: EColor,
+          color?: EDynaMonthCalendarColor,
           mode?: EMode,
         }
 
@@ -92,7 +93,7 @@ export default {
       },
       props: (() => {
         const output: any[] = [];
-        Object.keys(EColor).map((color: EColor) => {
+        Object.keys(EDynaMonthCalendarColor).map((color: EDynaMonthCalendarColor) => {
           Object.keys(EMode).map((mode: EMode) => {
             output.push({
               slug: `color-${color}-mode-${mode}`,
@@ -116,7 +117,7 @@ export default {
       component: (() => {
 
         interface IMyTestComponentProps {
-          color?: EColor,
+          color?: EDynaMonthCalendarColor,
         }
 
         interface IMyTestComponentState {
@@ -178,7 +179,7 @@ export default {
       },
       props: (() => {
         const output: any[] = [];
-        Object.keys(EColor).map((color: EColor) => {
+        Object.keys(EDynaMonthCalendarColor).map((color: EDynaMonthCalendarColor) => {
           output.push({
             slug: `color-${color}`,
             title: `Date picker in ${color.replace(/_/g, ' ').toLowerCase()} color`,
@@ -203,7 +204,7 @@ export default {
         interface IMyTestCompoentProps {
           mode?: EMode,
           style?: EStyle,
-          color?: EColor,
+          color?: EDynaDatePickerColor,
           size?: ESize,
         }
 
@@ -282,8 +283,8 @@ export default {
       props: (() => {
         const output: any[] = [];
         Object.keys(ESize).map((size: ESize) => {
-          Object.keys(EColor).map((color: EColor) => {
-            Object.keys(EMode).map((mode: EColor) => {
+          Object.keys(EDynaDatePickerColor).map((color: EDynaDatePickerColor) => {
+            Object.keys(EMode).map((mode: EMode) => {
               output.push({
                 slug: `inline-rounded-${color}-${mode}-${size}`,
                 title: `Date picker ${size.toLowerCase()} in ${color.replace(/_/g, ' ').toLowerCase()} color, ${mode.toLowerCase()}`,
@@ -311,7 +312,7 @@ export default {
         interface IMyTestCompoentProps {
           mode?: EMode,
           style?: EStyle,
-          color?: EColor,
+          color?: EDynaDatePickerColor,
           size?: ESize,
         }
 
@@ -379,8 +380,8 @@ export default {
       props: (() => {
         const output: any[] = [];
         Object.keys(ESize).map((size: ESize) => {
-          Object.keys(EColor).map((color: EColor) => {
-            Object.keys(EMode).map((mode: EColor) => {
+          Object.keys(EDynaDatePickerColor).map((color: EDynaDatePickerColor) => {
+            Object.keys(EMode).map((mode: EMode) => {
               output.push({
                 slug: `inline-rounded-${color}-${mode}-${size}`,
                 title: `Date picker ${size.toLowerCase()} in ${color.replace(/_/g, ' ').toLowerCase()} color, ${mode.toLowerCase()}`,

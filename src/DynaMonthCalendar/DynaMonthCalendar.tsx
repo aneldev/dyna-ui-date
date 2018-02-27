@@ -1,7 +1,7 @@
 import * as React from "react";
 import moment = require("moment");
 import {Moment} from "moment";
-import {EColor, EMode} from "dyna-ui-field-wrapper";
+import {EMode} from "dyna-ui-field-wrapper";
 
 import {TContent} from "../interfaces/interfaces";
 
@@ -11,6 +11,10 @@ import {faIcon} from "../utils/faIcon";
 
 import "./layout.less";
 import "./color.less";
+
+export enum EColor {
+  GREY_GREEN = "GREY_GREEN",
+}
 
 export enum EInRange {
   START = "START",
@@ -60,7 +64,7 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
   static defaultProps: IDynaMonthCalendarProps = {
     name: null,
     mode: EMode.EDIT,
-    color: EColor.WHITE_BLACK,
+    color: EColor.GREY_GREEN,
     start: null,
     end: null,
     value: new Date,

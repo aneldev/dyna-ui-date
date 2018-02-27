@@ -1,29 +1,26 @@
 import * as React from "react";
 import moment = require("moment");
-import {EColor} from "dyna-ui-styles";
-import {DynaFieldWrapper, EMode, EStyle, ESize} from "dyna-ui-field-wrapper";
-import {DynaButton, EStyle as EButtonStyle, ESize as EButtonSize} from "dyna-ui-button";
-import {DynaPickerContainer} from "dyna-ui-picker-container";
 
-import {DynaMonthCalendar} from "../DynaMonthCalendar/DynaMonthCalendar";
+import {DynaFieldWrapper, EMode, EStyle, ESize, EColor as EFieldColor} from "dyna-ui-field-wrapper";
+import {DynaButton, EStyle as EButtonStyle, ESize as EButtonSize, EColor as EPickerButtonColor} from "dyna-ui-button";
+import {DynaPickerContainer, EColor as EPickerContainerColor, EStyle as EPickerContainerStyle} from "dyna-ui-picker-container";
 
+import {DynaMonthCalendar, EColor as ECalendarColor, EInRange} from "../DynaMonthCalendar/DynaMonthCalendar";
 import {monthsLongNames, weekDaysShortNames} from "../utils/utils";
-
 import {faIcon} from "../utils/faIcon";
 
 import "./style.less";
-import "./color.less";
 
-export {EMode}
+export {
+  EMode,
+  ESize, EStyle,
+  EInRange,
+}
 
 export type TContent = JSX.Element | string;
 
-export enum EInRange {
-  START = "START",
-  END = "END",
-  START_END = "START_END",
-  OUT = "OUT",
-  MIDDLE = "MIDDLE",
+export enum EColor {
+  GREY_ORANGE_GREEN = "GREY_ORANGE_GREEN",
 }
 
 export interface IDynaDatePickerProps {
@@ -61,6 +58,26 @@ export interface IDynaDatePickerState {
   showPicker: boolean;
 }
 
+interface IColorMixer {
+  fieldColor?: EFieldColor;
+  calendarColor?: ECalendarColor,
+  pickerButtonColor?: EPickerButtonColor,
+  pickerContainerColor?: EPickerContainerColor,
+}
+
+const colorMixer = (color: EColor): IColorMixer => {
+  switch (color) {
+    case EColor.GREY_ORANGE_GREEN:
+    default:
+      return {
+        calendarColor: ECalendarColor.GREY_GREEN,
+        fieldColor: EFieldColor.ORANGE_WHITE,
+        pickerButtonColor: EPickerButtonColor.ORANGE_WHITE,
+        pickerContainerColor: EPickerContainerColor.WHITE_ORANGE,
+      }
+  }
+};
+
 export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaDatePickerState> {
   static defaultProps: IDynaDatePickerProps = {
     className: '',
@@ -73,7 +90,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
     pickerHeader: null,
     pickerFooter: null,
     style: EStyle.INLINE_ROUNDED,
-    color: EColor.WHITE_BLACK,
+    color: EColor.GREY_ORANGE_GREEN,
     start: null,
     end: null,
     value: null,
@@ -114,9 +131,12 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
     const {staringFromWeekDay, renderPickerMonthYear, renderPickerWeekDay, renderPickerDay} = this.props;
     const {showPicker} = this.state;
     const show: boolean = mode === EMode.EDIT && showPicker;
+    const colors: IColorMixer = colorMixer(color);
 
     return (
       <DynaPickerContainer
+        style={EPickerContainerStyle.ROUNDED}
+        color={colors.pickerContainerColor}
         show={show}
       >
         <div className="ddp-picker-container">
@@ -127,7 +147,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
           <DynaMonthCalendar
             ref={(component: DynaMonthCalendar) => this.monthCalendar = component}
             name={name}
-            color={color}
+            color={colors.calendarColor}
             start={start}
             end={end}
             value={value}
@@ -142,7 +162,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
             {showCloseButton ?
               <DynaButton
                 style={EButtonStyle.ROUNDED}
-                color={color}
+                color={colors.pickerButtonColor}
                 size={EButtonSize.LARGE}
                 onClick={this.handlerUserCame.bind(this)}
               >{closeButtonLabel}</DynaButton>
@@ -204,17 +224,17 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
   public render(): JSX.Element {
     const {
       className: cn,
-      mode, style, color, size,
+      mode, style, size, color,
       label, required,
       validationMessage,
     } = this.props;
+    const colors: IColorMixer = colorMixer(color);
 
     const className: string = [
       'dyna-date-picker',
       cn,
       `dyna-date-picker-mode-${mode}`,
       `dyna-date-picker-style-${style}`,
-      `dyna-date-picker-color-${color}`,
       `dyna-date-picker-size-${size}`,
     ].join(' ').trim();
 
@@ -223,7 +243,8 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
         <DynaFieldWrapper
           mode={mode}
           style={style}
-          color={color}
+          color={colors.fieldColor}
+          size={size}
           label={label}
           required={required}
           inputElementSelector=".ddp-input-control"
