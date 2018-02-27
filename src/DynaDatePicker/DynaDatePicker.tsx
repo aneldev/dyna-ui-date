@@ -108,7 +108,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
 
   private renderPicker(): JSX.Element {
     const {color, showCloseButton, closeButtonLabel} = this.props;
-    const {mode, label, name, value, values, start, end} = this.props;
+    const {mode, label, name, value, values, start, end, pickerHeader, pickerFooter} = this.props;
     const {staringFromWeekDay, renderPickerMonthYear, renderPickerWeekDay, renderPickerDay} = this.props;
     const {showPicker} = this.state;
     const show: boolean = mode === EMode.EDIT && showPicker;
@@ -121,6 +121,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
           <div className="ddp--calendar--label">
             <h2>{label}</h2>
           </div>
+          {pickerHeader}
           <DynaMonthCalendar
             ref={(component: DynaMonthCalendar) => this.monthCalendar = component}
             name={name}
@@ -140,6 +141,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
               <div className="ddp--calendar--close-button" onClick={this.handlerUserCame.bind(this)}>{closeButtonLabel}</div>
               : null}
           </div>
+          {pickerFooter}
         </div>
       </DynaPickerContainer>
     )
