@@ -1,6 +1,8 @@
 import * as React from "react";
 import moment = require("moment");
-import {DynaFieldWrapper, EColor, EMode, EStyle, ESize} from "dyna-ui-field-wrapper";
+import {EColor} from "dyna-ui-styles";
+import {DynaFieldWrapper, EMode, EStyle, ESize} from "dyna-ui-field-wrapper";
+import {DynaButton, EStyle as EButtonStyle, ESize as EButtonSize} from "dyna-ui-button";
 import {DynaPickerContainer} from "dyna-ui-picker-container";
 
 import {DynaMonthCalendar} from "../DynaMonthCalendar/DynaMonthCalendar";
@@ -138,7 +140,12 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
           />
           <div className="ddp--calendar--button-bar">
             {showCloseButton ?
-              <div className="ddp--calendar--close-button" onClick={this.handlerUserCame.bind(this)}>{closeButtonLabel}</div>
+              <DynaButton
+                style={EButtonStyle.ROUNDED}
+                color={color}
+                size={EButtonSize.LARGE}
+                onClick={this.handlerUserCame.bind(this)}
+              >{closeButtonLabel}</DynaButton>
               : null}
           </div>
           {pickerFooter}
