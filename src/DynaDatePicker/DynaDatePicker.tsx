@@ -143,12 +143,12 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
 
   private renderPicker(): JSX.Element {
     const {color, showCloseButton, closeButtonLabel} = this.props;
-    const {mode, label, name, value, values, start, end, pickerHeader, pickerFooter} = this.props;
+    const {mode, label, name, value, values, start, end, min, max, pickerHeader, pickerFooter} = this.props;
     const {staringFromWeekDay, renderPickerMonthYear, renderPickerWeekDay, renderPickerDay} = this.props;
     const {showPicker} = this.state;
     const show: boolean = mode === EMode.EDIT && showPicker;
     const colors: IColorMixer = colorMixer(color);
-console.log('colors', colors);
+
     return (
       <DynaPickerContainer
         style={EPickerContainerStyle.ROUNDED}
@@ -166,6 +166,8 @@ console.log('colors', colors);
             color={colors.calendarColor}
             start={start}
             end={end}
+            min={min}
+            max={max}
             value={value}
             values={values}
             staringFromWeekDay={staringFromWeekDay}

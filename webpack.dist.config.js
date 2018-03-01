@@ -14,6 +14,11 @@ const config = {
     path.resolve(__dirname, 'src/index.tsx')
   ],
   externals: [
+    "dyna-ui-button",
+    "dyna-ui-field-wrapper",
+    "dyna-ui-picker-container",
+    "dyna-ui-styles",
+    "moment",
     "react",
     "react-dom"
   ],
