@@ -19,10 +19,6 @@ export {
 
 export type TContent = JSX.Element | string;
 
-export enum EColor {
-  GREY_ORANGE_GREEN = "GREY_ORANGE_GREEN",
-}
-
 export interface IDynaDatePickerProps {
   className?: string;
   name: string;
@@ -54,8 +50,10 @@ export interface IDynaDatePickerProps {
   onChange: (name: string, data: Date) => void;
 }
 
-export interface IDynaDatePickerState {
-  showPicker: boolean;
+export enum EColor {
+  GREY_ORANGE_GREEN = "GREY_ORANGE_GREEN",
+  GREY_RED_GREEN = "GREY_RED_GREEN",
+  WHITE_BLACK = "WHITE_BLACK",
 }
 
 interface IColorMixer {
@@ -67,16 +65,34 @@ interface IColorMixer {
 
 const colorMixer = (color: EColor): IColorMixer => {
   switch (color) {
+    case EColor.GREY_RED_GREEN:
+      return {
+        calendarColor: ECalendarColor.GREY_GREEN,
+        fieldColor: EFieldColor.RED_WHITE,
+        pickerButtonColor: EPickerButtonColor.RED_WHITE,
+        pickerContainerColor: EPickerContainerColor.WHITE_RED,
+      };
     case EColor.GREY_ORANGE_GREEN:
-    default:
       return {
         calendarColor: ECalendarColor.GREY_GREEN,
         fieldColor: EFieldColor.ORANGE_WHITE,
         pickerButtonColor: EPickerButtonColor.ORANGE_WHITE,
         pickerContainerColor: EPickerContainerColor.WHITE_ORANGE,
-      }
+      };
+    default:
+    case EColor.WHITE_BLACK:
+      return {
+        calendarColor: ECalendarColor.GREY_GREEN,
+        fieldColor: EFieldColor.ORANGE_WHITE,
+        pickerButtonColor: EPickerButtonColor.WHITE_BLACK,
+        pickerContainerColor: EPickerContainerColor.WHITE_ORANGE,
+      };
   }
 };
+
+export interface IDynaDatePickerState {
+  showPicker: boolean;
+}
 
 export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaDatePickerState> {
   static defaultProps: IDynaDatePickerProps = {
@@ -132,7 +148,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
     const {showPicker} = this.state;
     const show: boolean = mode === EMode.EDIT && showPicker;
     const colors: IColorMixer = colorMixer(color);
-
+console.log('colors', colors);
     return (
       <DynaPickerContainer
         style={EPickerContainerStyle.ROUNDED}

@@ -4,9 +4,6 @@ import { EInRange } from "../DynaMonthCalendar/DynaMonthCalendar";
 import "./style.less";
 export { EMode, ESize, EStyle, EInRange };
 export declare type TContent = JSX.Element | string;
-export declare enum EColor {
-    GREY_ORANGE_GREEN = "GREY_ORANGE_GREEN",
-}
 export interface IDynaDatePickerProps {
     className?: string;
     name: string;
@@ -36,6 +33,11 @@ export interface IDynaDatePickerProps {
     renderPickerWeekDay?: (weekDay: number) => TContent;
     renderPickerDay?: (date: Date, dayInMonth: number, dayInWeek: number, inRange: EInRange) => TContent;
     onChange: (name: string, data: Date) => void;
+}
+export declare enum EColor {
+    GREY_ORANGE_GREEN = "GREY_ORANGE_GREEN",
+    GREY_RED_GREEN = "GREY_RED_GREEN",
+    WHITE_BLACK = "WHITE_BLACK",
 }
 export interface IDynaDatePickerState {
     showPicker: boolean;
