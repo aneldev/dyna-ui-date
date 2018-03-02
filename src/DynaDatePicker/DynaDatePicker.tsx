@@ -210,6 +210,12 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
     this.lastFocused = new Date;
   }
 
+  private handlerOutsideClick(): void {
+    this.setState({
+      showPicker:false,
+    });
+  }
+
   private handlerInputKeyPress(event: KeyboardEvent): void {
     switch (event.keyCode) {
       case 32: // space
@@ -268,6 +274,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
           inputElementSelector=".ddp-input-control"
           validationMessage={validationMessage}
           footer={this.renderPicker()}
+          onOutsideClick={this.handlerOutsideClick.bind(this)}
         >
           <input
             className="ddp-input-control"

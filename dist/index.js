@@ -1148,6 +1148,11 @@ var DynaDatePicker = /** @class */ (function (_super) {
             this.monthCalendar.setViewport(value);
         this.lastFocused = new Date;
     };
+    DynaDatePicker.prototype.handlerOutsideClick = function () {
+        this.setState({
+            showPicker: false,
+        });
+    };
     DynaDatePicker.prototype.handlerInputKeyPress = function (event) {
         switch (event.keyCode) {
             case 32: // space
@@ -1182,7 +1187,7 @@ var DynaDatePicker = /** @class */ (function (_super) {
             "dyna-date-picker-size-" + size,
         ].join(' ').trim();
         return (React.createElement("div", { className: className },
-            React.createElement(dyna_ui_field_wrapper_1.DynaFieldWrapper, { mode: mode, style: style, color: colors.fieldColor, size: size, label: label, required: required, inputElementSelector: ".ddp-input-control", validationMessage: validationMessage, footer: this.renderPicker() },
+            React.createElement(dyna_ui_field_wrapper_1.DynaFieldWrapper, { mode: mode, style: style, color: colors.fieldColor, size: size, label: label, required: required, inputElementSelector: ".ddp-input-control", validationMessage: validationMessage, footer: this.renderPicker(), onOutsideClick: this.handlerOutsideClick.bind(this) },
                 React.createElement("input", { className: "ddp-input-control", readOnly: true, value: this.renderInputDates(), onFocus: this.handlerUserCame.bind(this), onClick: this.handlerUserCame.bind(this), onKeyDown: this.handlerInputKeyPress.bind(this) }))));
     };
     DynaDatePicker.defaultProps = {

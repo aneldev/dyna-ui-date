@@ -50,6 +50,7 @@ export declare class DynaDatePicker extends React.Component<IDynaDatePickerProps
     private renderPicker();
     private lastFocused;
     private handlerUserCame();
+    private handlerOutsideClick();
     private handlerInputKeyPress(event);
     private renderInputDates();
     render(): JSX.Element;
