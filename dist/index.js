@@ -1117,7 +1117,7 @@ var DynaDatePicker = /** @class */ (function (_super) {
     };
     DynaDatePicker.prototype.renderPicker = function () {
         var _this = this;
-        var _a = this.props, color = _a.color, showCloseButton = _a.showCloseButton, closeButtonLabel = _a.closeButtonLabel;
+        var _a = this.props, color = _a.color, size = _a.size, showCloseButton = _a.showCloseButton, closeButtonLabel = _a.closeButtonLabel;
         var _b = this.props, mode = _b.mode, label = _b.label, name = _b.name, value = _b.value, values = _b.values, start = _b.start, end = _b.end, min = _b.min, max = _b.max, pickerHeader = _b.pickerHeader, pickerFooter = _b.pickerFooter;
         var _c = this.props, staringFromWeekDay = _c.staringFromWeekDay, renderPickerMonthYear = _c.renderPickerMonthYear, renderPickerWeekDay = _c.renderPickerWeekDay, renderPickerDay = _c.renderPickerDay;
         var showPicker = this.state.showPicker;
@@ -1130,7 +1130,7 @@ var DynaDatePicker = /** @class */ (function (_super) {
                 pickerHeader,
                 React.createElement(DynaMonthCalendar_1.DynaMonthCalendar, { ref: function (component) { return _this.monthCalendar = component; }, name: name, color: colors.calendarColor, start: start, end: end, min: min, max: max, value: value, values: values, staringFromWeekDay: staringFromWeekDay, onChange: this.handleDaySelect.bind(this), renderPickerDay: renderPickerDay, renderPickerWeekDay: renderPickerWeekDay, renderPickerMonthYear: renderPickerMonthYear }),
                 React.createElement("div", { className: "ddp--calendar--button-bar" }, showCloseButton ?
-                    React.createElement(dyna_ui_button_1.DynaButton, { style: dyna_ui_button_1.EStyle.ROUNDED, color: colors.pickerButtonColor, size: dyna_ui_button_1.ESize.LARGE, onClick: this.handlerUserCame.bind(this) }, closeButtonLabel)
+                    React.createElement(dyna_ui_button_1.DynaButton, { style: dyna_ui_button_1.EStyle.ROUNDED, color: colors.pickerButtonColor, size: size, onClick: this.handlerUserCame.bind(this) }, closeButtonLabel)
                     : null),
                 pickerFooter)));
     };
