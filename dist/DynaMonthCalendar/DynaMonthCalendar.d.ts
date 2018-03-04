@@ -30,7 +30,7 @@ export interface IDynaMonthCalendarProps {
     renderPickerMonthYear?: (month: number, year: number) => TContent;
     renderPickerWeekDay?: (weekDay: number) => TContent;
     renderPickerDay?: (date: Date, dayInMonth: number, dayInWeek: number, inRange: EInRange) => TContent;
-    onChange: (name: string, data: Date) => void;
+    onChange: (name: string, date: Date) => void;
 }
 export interface IDynaMonthCalendarState {
     viewport: Date;
