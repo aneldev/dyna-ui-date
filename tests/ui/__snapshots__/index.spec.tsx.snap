@@ -2,14 +2,14 @@
 
 exports[`Home has expected content with deep render 1`] = `
 <div
-  className="dyna-date-picker  dyna-date-picker-mode-EDIT dyna-date-picker-style-INLINE_ROUNDED dyna-date-picker-color-WHITE_BLACK dyna-date-picker-size-MEDIUM"
+  className="dyna-date-picker  dyna-date-picker-mode-EDIT dyna-date-picker-style-INLINE_ROUNDED dyna-date-picker-size-MEDIUM"
 >
   <DynaFieldWrapper
     className={null}
-    color="WHITE_BLACK"
+    color="ORANGE_WHITE"
     footer={
       <DynaPickerContainer
-        color="WHITE_BLACK"
+        color="WHITE_ORANGE"
         responsive={true}
         show={false}
         style="INLINE_ROUNDED"
@@ -23,7 +23,7 @@ exports[`Home has expected content with deep render 1`] = `
             <h2 />
           </div>
           <DynaMonthCalendar
-            color="WHITE_BLACK"
+            color="GREY_GREEN"
             end={null}
             max={null}
             min={null}
@@ -68,9 +68,14 @@ exports[`Home has expected content with deep render 1`] = `
           <div
             className="ddp--calendar--button-bar"
           >
-            <div
-              className="ddp--calendar--close-button"
+            <DynaButton
+              className=""
+              color="ORANGE_WHITE"
+              disabled={false}
+              href={null}
               onClick={[Function]}
+              size="MEDIUM"
+              style="ROUNDED"
             >
               <span>
                 <i
@@ -79,7 +84,7 @@ exports[`Home has expected content with deep render 1`] = `
                 />
                  Ok
               </span>
-            </div>
+            </DynaButton>
           </div>
         </div>
       </DynaPickerContainer>
@@ -90,6 +95,7 @@ exports[`Home has expected content with deep render 1`] = `
     mode="EDIT"
     onClick={[Function]}
     onFocus={[Function]}
+    onOutsideClick={[Function]}
     required={null}
     size="MEDIUM"
     style="INLINE_ROUNDED"

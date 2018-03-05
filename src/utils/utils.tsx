@@ -1,3 +1,5 @@
+import moment = require("moment");
+
 export const monthsLongNames: string[] = [
   'January',
   'February',
@@ -20,6 +22,12 @@ export function getFirstDateOfMonth(date: Date): Date {
   return new Date(dateString);
 }
 
+export const getDate0 = (date: Date): Date => {
+  if (date == null) return date;
+  return moment(date).startOf('day').toDate();
+};
+
+
 export function getDaysArray(date: Date): number {
   date = getFirstDateOfMonth(date);
   let month: number = date.getMonth();
@@ -34,6 +42,7 @@ export function getDaysArray(date: Date): number {
 export type TCalendarTable = Array<Array<Date>>;
 
 export function createCalendarTable(date: Date, startingFromWeekDay: number = 1): TCalendarTable {
+  date = getDate0(date);
   let firstMonthDate: Date = getFirstDateOfMonth(date);
   let startingMonthDay: number = firstMonthDate.getDay();
   let startingCalendarIndex: number = startingMonthDay - startingFromWeekDay;
@@ -45,8 +54,8 @@ export function createCalendarTable(date: Date, startingFromWeekDay: number = 1)
   let lineIndex: number = 0;
   let line: Array<Date> = Array(7).fill(null);
   for (let iDay: number = -startingCalendarIndex; iDay < monthDays; iDay++) {
-    let d: Date = new Date(firstMonthDate);
-    line[lineIndex] = new Date(d.setDate(d.getDate() + iDay));
+    let d: Date = getDate0(new Date(firstMonthDate));
+    line[lineIndex] = getDate0(new Date(d.setDate(d.getDate() + iDay)));
     lineIndex++;
     if (lineIndex > 6) {
       lines.push(line);
@@ -59,8 +68,8 @@ export function createCalendarTable(date: Date, startingFromWeekDay: number = 1)
   // fill the rest days
   const fillFromIndex: number = lines[lines.length - 1].indexOf(null);
   for (let iDay: number = fillFromIndex; iDay < 7; iDay++) {
-    let d: Date = new Date(firstMonthDate);
-    lines[lines.length - 1][iDay] = new Date(d.setDate(d.getDate() + (monthDays + iDay - fillFromIndex)));
+    let d: Date = getDate0(new Date(firstMonthDate));
+    lines[lines.length - 1][iDay] = getDate0(new Date(d.setDate(d.getDate() + (monthDays + iDay - fillFromIndex))));
   }
 
   return lines;

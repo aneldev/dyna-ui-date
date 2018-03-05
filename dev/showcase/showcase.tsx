@@ -7,7 +7,7 @@ import {
   EMode, EStyle,
   EDynaMonthCalendarColor, EDynaDatePickerColor,
   DynaMonthCalendar,
-  DynaDatePicker, ESize,
+  DynaDatePicker, ESize, EColor,
 } from "../../src";
 
 import {Logo} from "../logo";
@@ -194,10 +194,90 @@ export default {
     },
 
     {
+      slug: 'calendar-picker-now',
+      faIconName: 'flask',
+      title: 'Calendar range picker',
+      description: `Availabe range +/-3 days, select +/-2 days`,
+      center: true,
+      component: (() => {
+
+        interface IMyTestCompoentProps {
+        }
+
+        interface IMyTestCompoentState {
+          start: Date;
+          end: Date;
+        }
+
+        class MyTestCompoent extends React.Component<IMyTestCompoentProps, IMyTestCompoentState> {
+          constructor(props: IMyTestCompoentProps) {
+            super(props);
+            this.state = {
+              start: moment().subtract({days: 2}).toDate(),
+              end: moment().add({days: 2}).toDate(),
+            }
+          }
+
+          private handleChange(name: string, date: Date): void {
+            console.log('on change', name, date);
+            const newState: IMyTestCompoentState = {
+              ...this.state,
+              [name]: date,
+            };
+            if (newState.start > newState.end) {
+              let helper: Date = newState.end;
+              newState.end = newState.start;
+              newState.start = helper;
+            }
+            this.setState(newState);
+          }
+
+          public render(): JSX.Element {
+            const {start, end} = this.state;
+            return (
+              <div>
+                <DynaDatePicker
+                  label="From date"
+                  color={EColor.GREY_ORANGE_GREEN}
+                  size={ESize.MEDIUM}
+                  name="start"
+                  min={moment().subtract({days: 3}).toDate()}
+                  max={moment().add({days: 3}).toDate()}
+                  start={start}
+                  end={end}
+                  value={start}
+                  onChange={this.handleChange.bind(this)}
+                />
+                <DynaDatePicker
+                  label="To date"
+                  color={EColor.GREY_ORANGE_GREEN}
+                  size={ESize.MEDIUM}
+                  name="end"
+                  min={moment().subtract({days: 3}).toDate()}
+                  max={moment().add({days: 3}).toDate()}
+                  start={start}
+                  end={end}
+                  value={end}
+                  onChange={this.handleChange.bind(this)}
+                />
+              </div>
+            )
+          }
+        }
+
+        return <MyTestCompoent/>
+
+      })(),
+      wrapperStyle: {
+        width: '100%',
+      },
+    },
+
+    {
       slug: 'calendar-picker',
       faIconName: 'flask',
       title: 'Calendar range picker',
-      description: `Select a range between 13-12-2017 - 10-01-2018`,
+      description: `Available 05/12/17-13/01/15 selected 13/12/17-10/01/18`,
       center: true,
       component: (() => {
 

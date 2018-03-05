@@ -10,10 +10,9 @@ export {
 
 export {
   EMode,
-  ESize, EStyle,
+  ESize, EStyle, EColor,
   DynaDatePicker,
   IDynaDatePickerProps,
   EColor as EDynaDatePickerColor,
-
 } from "./DynaDatePicker/DynaDatePicker";
 

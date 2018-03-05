@@ -2,7 +2,7 @@ import * as React from "react";
 import moment = require("moment");
 
 import {DynaFieldWrapper, EMode, EStyle, ESize, EColor as EFieldColor} from "dyna-ui-field-wrapper";
-import {DynaButton, EStyle as EButtonStyle, ESize as EButtonSize, EColor as EPickerButtonColor} from "dyna-ui-button";
+import {DynaButton, EStyle as EButtonStyle, EColor as EPickerButtonColor} from "dyna-ui-button";
 import {DynaPickerContainer, EColor as EPickerContainerColor, EStyle as EPickerContainerStyle} from "dyna-ui-picker-container";
 
 import {DynaMonthCalendar, EColor as ECalendarColor, EInRange} from "../DynaMonthCalendar/DynaMonthCalendar";

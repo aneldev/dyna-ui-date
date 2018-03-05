@@ -5,7 +5,7 @@ import {EMode} from "dyna-ui-field-wrapper";
 
 import {TContent} from "../interfaces/interfaces";
 
-import {createCalendarTable, monthsLongNames, TCalendarTable, weekDaysShortNames} from "../utils/utils";
+import {createCalendarTable, getDate0, monthsLongNames, TCalendarTable, weekDaysShortNames} from "../utils/utils";
 
 import {faIcon} from "../utils/faIcon";
 
@@ -67,7 +67,7 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
     color: EColor.GREY_GREEN,
     start: null,
     end: null,
-    value: new Date,
+    value: moment().startOf('day').toDate(),
     values: [],
     min: null,
     max: null,
@@ -83,7 +83,7 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
   constructor(props: IDynaMonthCalendarProps) {
     super(props);
     this.state = {
-      viewport: this.props.value || this.props.values[0] || this.props.viewport || new Date,
+      viewport: getDate0(this.props.value || this.props.values[0] || this.props.viewport || new Date),
       calendarTable: null,
     }
   }
@@ -107,17 +107,24 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
   }
 
   private setStateCalendarTable(props: IDynaMonthCalendarProps): void {
-    const {min, max, start, end, value, values} = props;
-    const viewport:Date=this.state.viewport || this.props.value || this.props.values[0] || this.props.viewport || new Date
+    let {min, max, start, end, value, values} = props;
+    min = getDate0(min);
+    max = getDate0(max);
+    start = getDate0(start);
+    end = getDate0(end);
+    value = getDate0(value);
+    values = values.map(getDate0);
+    console.log('!denbug1 ', {min, max, start, end, value})
+    const viewport: Date = getDate0(this.state.viewport || this.props.value || this.props.values[0] || this.props.viewport || new Date);
     const uiCalendarTable: TUICalendarTable = [];
     const calendarTable: TCalendarTable = createCalendarTable(viewport, this.props.staringFromWeekDay);
 
     calendarTable.forEach((calendarLine: Date[]) => {
       const lineCells: IUICalendarTableDayCell[] = [];
-      calendarLine.forEach((cellDate: Date) => {
-        const date: Moment = moment(cellDate);
+      calendarLine.forEach((_cellDate: Date) => {
+        const cellDate: Moment = moment(_cellDate);
         const calendarDayCell: IUICalendarTableDayCell = {
-          date: cellDate,
+          date: cellDate.toDate(),
           selected: null,
           inCurrentMonth: null,
           weekend: null,
@@ -127,41 +134,41 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
 
         // selected updated
         calendarDayCell.selected =
-          date.isSame(value) ||
+          cellDate.isSame(value) ||
           values.reduce((acc: boolean, valuesDate: Date) => {
-            if (moment(valuesDate).isSame(date)) acc = true;
+            if (moment(valuesDate).isSame(cellDate)) acc = true;
             return acc;
           }, false);
 
         // inCurrentMonth
-        calendarDayCell.inCurrentMonth = date.month() === moment(viewport).month();
+        calendarDayCell.inCurrentMonth = cellDate.month() === moment(viewport).month();
 
         // disabled update
         calendarDayCell.disabled = false;
-        if (min && moment(cellDate).isBefore(min)) calendarDayCell.disabled = true;
-        if (max && moment(cellDate).isAfter(max)) calendarDayCell.disabled = true;
+        if (min && cellDate.isBefore(min)) calendarDayCell.disabled = true;
+        if (max && cellDate.isAfter(max)) calendarDayCell.disabled = true;
 
         // is weekend
-        calendarDayCell.weekend = [6, 0].includes(moment(cellDate).weekday());
+        calendarDayCell.weekend = [6, 0].includes(cellDate.weekday());
 
         // range update by start and end
         if (start) {
-          if (date.isBefore(start) || (end && date.isAfter(end))) {
+          if (cellDate.isBefore(start) || (end && cellDate.isAfter(end))) {
             calendarDayCell.inRange = EInRange.OUT;
           }
-          if (date.isSame(start)) {
+          if (cellDate.isSame(start)) {
             calendarDayCell.inRange = EInRange.START;
           }
-          if (end && date.isSame(end)) {
+          if (end && cellDate.isSame(end)) {
             calendarDayCell.inRange = EInRange.END;
           }
-          if (date.isSame(start) && end && date.isSame(end)) {
+          if (cellDate.isSame(start) && end && cellDate.isSame(end)) {
             calendarDayCell.inRange = EInRange.START_END;
           }
-          if (date.isAfter(start) && end && date.isBefore(end)) {
+          if (cellDate.isAfter(start) && end && cellDate.isBefore(end)) {
             calendarDayCell.inRange = EInRange.MIDDLE;
           }
-          if (!end && date.isAfter(start)) {
+          if (!end && cellDate.isAfter(start)) {
             calendarDayCell.inRange = EInRange.OUT;
           }
         }
