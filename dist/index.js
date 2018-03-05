@@ -7,7 +7,7 @@
 		exports["dyna-ui-date"] = factory(require("react"), require("moment"), require("dyna-ui-field-wrapper"), require("dyna-ui-button"), require("dyna-ui-picker-container"));
 	else
 		root["dyna-ui-date"] = factory(root["react"], root["moment"], root["dyna-ui-field-wrapper"], root["dyna-ui-button"], root["dyna-ui-picker-container"]);
-})(typeof self !== 'undefined' ? self : this, function(__WEBPACK_EXTERNAL_MODULE_0__, __WEBPACK_EXTERNAL_MODULE_4__, __WEBPACK_EXTERNAL_MODULE_5__, __WEBPACK_EXTERNAL_MODULE_16__, __WEBPACK_EXTERNAL_MODULE_17__) {
+})(typeof self !== 'undefined' ? self : this, function(__WEBPACK_EXTERNAL_MODULE_0__, __WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_5__, __WEBPACK_EXTERNAL_MODULE_16__, __WEBPACK_EXTERNAL_MODULE_17__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -81,6 +81,12 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_0__;
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_1__;
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -162,7 +168,7 @@ function toComment(sourceMap) {
 }
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -521,7 +527,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -538,7 +544,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(0);
-var moment = __webpack_require__(4);
+var moment = __webpack_require__(1);
 var dyna_ui_field_wrapper_1 = __webpack_require__(5);
 var utils_1 = __webpack_require__(6);
 var faIcon_1 = __webpack_require__(7);
@@ -561,7 +567,7 @@ var DynaMonthCalendar = /** @class */ (function (_super) {
     function DynaMonthCalendar(props) {
         var _this = _super.call(this, props) || this;
         _this.state = {
-            viewport: _this.props.value || _this.props.values[0] || _this.props.viewport || new Date,
+            viewport: utils_1.getDate0(_this.props.value || _this.props.values[0] || _this.props.viewport || new Date),
             calendarTable: null,
         };
         return _this;
@@ -583,15 +589,21 @@ var DynaMonthCalendar = /** @class */ (function (_super) {
     };
     DynaMonthCalendar.prototype.setStateCalendarTable = function (props) {
         var min = props.min, max = props.max, start = props.start, end = props.end, value = props.value, values = props.values;
-        var viewport = this.state.viewport || this.props.value || this.props.values[0] || this.props.viewport || new Date;
+        min = utils_1.getDate0(min);
+        max = utils_1.getDate0(max);
+        start = utils_1.getDate0(start);
+        end = utils_1.getDate0(end);
+        value = utils_1.getDate0(value);
+        values = values.map(utils_1.getDate0);
+        var viewport = utils_1.getDate0(this.state.viewport || this.props.value || this.props.values[0] || this.props.viewport || new Date);
         var uiCalendarTable = [];
         var calendarTable = utils_1.createCalendarTable(viewport, this.props.staringFromWeekDay);
         calendarTable.forEach(function (calendarLine) {
             var lineCells = [];
-            calendarLine.forEach(function (cellDate) {
-                var date = moment(cellDate);
+            calendarLine.forEach(function (_cellDate) {
+                var cellDate = moment(_cellDate);
                 var calendarDayCell = {
-                    date: cellDate,
+                    date: cellDate.toDate(),
                     selected: null,
                     inCurrentMonth: null,
                     weekend: null,
@@ -600,40 +612,40 @@ var DynaMonthCalendar = /** @class */ (function (_super) {
                 };
                 // selected updated
                 calendarDayCell.selected =
-                    date.isSame(value) ||
+                    cellDate.isSame(value) ||
                         values.reduce(function (acc, valuesDate) {
-                            if (moment(valuesDate).isSame(date))
+                            if (moment(valuesDate).isSame(cellDate))
                                 acc = true;
                             return acc;
                         }, false);
                 // inCurrentMonth
-                calendarDayCell.inCurrentMonth = date.month() === moment(viewport).month();
+                calendarDayCell.inCurrentMonth = cellDate.month() === moment(viewport).month();
                 // disabled update
                 calendarDayCell.disabled = false;
-                if (min && moment(cellDate).isBefore(min))
+                if (min && cellDate.isBefore(min))
                     calendarDayCell.disabled = true;
-                if (max && moment(cellDate).isAfter(max))
+                if (max && cellDate.isAfter(max))
                     calendarDayCell.disabled = true;
                 // is weekend
-                calendarDayCell.weekend = [6, 0].includes(moment(cellDate).weekday());
+                calendarDayCell.weekend = [6, 0].includes(cellDate.weekday());
                 // range update by start and end
                 if (start) {
-                    if (date.isBefore(start) || (end && date.isAfter(end))) {
+                    if (cellDate.isBefore(start) || (end && cellDate.isAfter(end))) {
                         calendarDayCell.inRange = EInRange.OUT;
                     }
-                    if (date.isSame(start)) {
+                    if (cellDate.isSame(start)) {
                         calendarDayCell.inRange = EInRange.START;
                     }
-                    if (end && date.isSame(end)) {
+                    if (end && cellDate.isSame(end)) {
                         calendarDayCell.inRange = EInRange.END;
                     }
-                    if (date.isSame(start) && end && date.isSame(end)) {
+                    if (cellDate.isSame(start) && end && cellDate.isSame(end)) {
                         calendarDayCell.inRange = EInRange.START_END;
                     }
-                    if (date.isAfter(start) && end && date.isBefore(end)) {
+                    if (cellDate.isAfter(start) && end && cellDate.isBefore(end)) {
                         calendarDayCell.inRange = EInRange.MIDDLE;
                     }
-                    if (!end && date.isAfter(start)) {
+                    if (!end && cellDate.isAfter(start)) {
                         calendarDayCell.inRange = EInRange.OUT;
                     }
                 }
@@ -708,7 +720,7 @@ var DynaMonthCalendar = /** @class */ (function (_super) {
         color: EColor.GREY_GREEN,
         start: null,
         end: null,
-        value: new Date,
+        value: moment().startOf('day').toDate(),
         values: [],
         min: null,
         max: null,
@@ -729,12 +741,6 @@ exports.DynaMonthCalendar = DynaMonthCalendar;
 
 
 /***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_4__;
-
-/***/ }),
 /* 5 */
 /***/ (function(module, exports) {
 
@@ -747,6 +753,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_5__;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+var moment = __webpack_require__(1);
 exports.monthsLongNames = [
     'January',
     'February',
@@ -767,6 +774,11 @@ function getFirstDateOfMonth(date) {
     return new Date(dateString);
 }
 exports.getFirstDateOfMonth = getFirstDateOfMonth;
+exports.getDate0 = function (date) {
+    if (date == null)
+        return date;
+    return moment(date).startOf('day').toDate();
+};
 function getDaysArray(date) {
     date = getFirstDateOfMonth(date);
     var month = date.getMonth();
@@ -780,6 +792,7 @@ function getDaysArray(date) {
 exports.getDaysArray = getDaysArray;
 function createCalendarTable(date, startingFromWeekDay) {
     if (startingFromWeekDay === void 0) { startingFromWeekDay = 1; }
+    date = exports.getDate0(date);
     var firstMonthDate = getFirstDateOfMonth(date);
     var startingMonthDay = firstMonthDate.getDay();
     var startingCalendarIndex = startingMonthDay - startingFromWeekDay;
@@ -791,8 +804,8 @@ function createCalendarTable(date, startingFromWeekDay) {
     var lineIndex = 0;
     var line = Array(7).fill(null);
     for (var iDay = -startingCalendarIndex; iDay < monthDays; iDay++) {
-        var d = new Date(firstMonthDate);
-        line[lineIndex] = new Date(d.setDate(d.getDate() + iDay));
+        var d = exports.getDate0(new Date(firstMonthDate));
+        line[lineIndex] = exports.getDate0(new Date(d.setDate(d.getDate() + iDay)));
         lineIndex++;
         if (lineIndex > 6) {
             lines.push(line);
@@ -805,8 +818,8 @@ function createCalendarTable(date, startingFromWeekDay) {
     // fill the rest days
     var fillFromIndex = lines[lines.length - 1].indexOf(null);
     for (var iDay = fillFromIndex; iDay < 7; iDay++) {
-        var d = new Date(firstMonthDate);
-        lines[lines.length - 1][iDay] = new Date(d.setDate(d.getDate() + (monthDays + iDay - fillFromIndex)));
+        var d = exports.getDate0(new Date(firstMonthDate));
+        lines[lines.length - 1][iDay] = exports.getDate0(new Date(d.setDate(d.getDate() + (monthDays + iDay - fillFromIndex))));
     }
     return lines;
 }
@@ -841,13 +854,14 @@ module.exports = __webpack_require__(9);
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var DynaMonthCalendar_1 = __webpack_require__(3);
+var DynaMonthCalendar_1 = __webpack_require__(4);
 exports.DynaMonthCalendar = DynaMonthCalendar_1.DynaMonthCalendar;
 exports.EDynaMonthCalendarColor = DynaMonthCalendar_1.EColor;
 var DynaDatePicker_1 = __webpack_require__(15);
 exports.EMode = DynaDatePicker_1.EMode;
 exports.ESize = DynaDatePicker_1.ESize;
 exports.EStyle = DynaDatePicker_1.EStyle;
+exports.EColor = DynaDatePicker_1.EColor;
 exports.DynaDatePicker = DynaDatePicker_1.DynaDatePicker;
 exports.EDynaDatePickerColor = DynaDatePicker_1.EColor;
 
@@ -867,7 +881,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(2)(content, options);
+var update = __webpack_require__(3)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -887,7 +901,7 @@ if(false) {
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
@@ -1007,7 +1021,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(2)(content, options);
+var update = __webpack_require__(3)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -1027,7 +1041,7 @@ if(false) {
 /* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
@@ -1055,14 +1069,14 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(0);
-var moment = __webpack_require__(4);
+var moment = __webpack_require__(1);
 var dyna_ui_field_wrapper_1 = __webpack_require__(5);
 exports.EMode = dyna_ui_field_wrapper_1.EMode;
 exports.EStyle = dyna_ui_field_wrapper_1.EStyle;
 exports.ESize = dyna_ui_field_wrapper_1.ESize;
 var dyna_ui_button_1 = __webpack_require__(16);
 var dyna_ui_picker_container_1 = __webpack_require__(17);
-var DynaMonthCalendar_1 = __webpack_require__(3);
+var DynaMonthCalendar_1 = __webpack_require__(4);
 exports.EInRange = DynaMonthCalendar_1.EInRange;
 var utils_1 = __webpack_require__(6);
 var faIcon_1 = __webpack_require__(7);
@@ -1257,7 +1271,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(2)(content, options);
+var update = __webpack_require__(3)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -1277,7 +1291,7 @@ if(false) {
 /* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
