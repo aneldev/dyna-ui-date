@@ -114,7 +114,7 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
     end = getDate0(end);
     value = getDate0(value);
     values = values.map(getDate0);
-    console.log('!denbug1 ', {min, max, start, end, value})
+
     const viewport: Date = getDate0(this.state.viewport || this.props.value || this.props.values[0] || this.props.viewport || new Date);
     const uiCalendarTable: TUICalendarTable = [];
     const calendarTable: TCalendarTable = createCalendarTable(viewport, this.props.staringFromWeekDay);
