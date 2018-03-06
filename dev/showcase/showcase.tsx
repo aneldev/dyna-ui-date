@@ -124,7 +124,7 @@ export default {
           dates: Date[];
         }
 
-        class MyTestCompoent extends React.Component<IMyTestComponentProps, IMyTestComponentState> {
+        class MyTestComponent extends React.Component<IMyTestComponentProps, IMyTestComponentState> {
           constructor(props: IMyTestComponentProps) {
             super(props);
             this.state = {
@@ -170,7 +170,7 @@ export default {
           }
         }
 
-        return <MyTestCompoent/>
+        return <MyTestComponent/>
 
       })(),
       wrapperStyle: {
@@ -197,20 +197,20 @@ export default {
       slug: 'calendar-picker-now',
       faIconName: 'flask',
       title: 'Calendar range picker',
-      description: `Availabe range +/-3 days, select +/-2 days`,
+      description: `Available range +/-3 days, select +/-2 days`,
       center: true,
       component: (() => {
 
-        interface IMyTestCompoentProps {
+        interface IMyTestComponentProps {
         }
 
-        interface IMyTestCompoentState {
+        interface IMyTestComponentState {
           start: Date;
           end: Date;
         }
 
-        class MyTestCompoent extends React.Component<IMyTestCompoentProps, IMyTestCompoentState> {
-          constructor(props: IMyTestCompoentProps) {
+        class MyTestComponent extends React.Component<IMyTestComponentProps, IMyTestComponentState> {
+          constructor(props: IMyTestComponentProps) {
             super(props);
             this.state = {
               start: moment().subtract({days: 2}).toDate(),
@@ -220,7 +220,7 @@ export default {
 
           private handleChange(name: string, date: Date): void {
             console.log('on change', name, date);
-            const newState: IMyTestCompoentState = {
+            const newState: IMyTestComponentState = {
               ...this.state,
               [name]: date,
             };
@@ -265,9 +265,119 @@ export default {
           }
         }
 
-        return <MyTestCompoent/>
+        return <MyTestComponent/>
 
       })(),
+      wrapperStyle: {
+        width: '100%',
+      },
+    },
+
+    {
+      slug: 'calendar-picker-string-inputs',
+      faIconName: 'flask',
+      title: 'Calendar string inputs',
+      center: true,
+      component: (() => {
+
+        interface IMyTestComponentProps {
+          start?: Date;
+          end?: Date;
+        }
+
+        interface IMyTestComponentState {
+          start: Date;
+          end: Date;
+        }
+
+        class MyTestComponent extends React.Component<IMyTestComponentProps, IMyTestComponentState> {
+          constructor(props: IMyTestComponentProps) {
+            super(props);
+            this.state = {
+              start: this.props.start,
+              end: this.props.end,
+            }
+          }
+
+          public componentWillReceiveProps(nextProps:IMyTestComponentProps):void{
+            this.setState({
+              start: nextProps.start,
+              end: nextProps.end,
+            })
+          }
+
+          private handleChange(name: string, date: Date): void {
+            console.log('on change', name, date);
+            const newState: IMyTestComponentState = {
+              ...this.state,
+              [name]: date,
+            };
+            if (newState.start > newState.end) {
+              let helper: Date = newState.end;
+              newState.end = newState.start;
+              newState.start = helper;
+            }
+            this.setState(newState);
+          }
+
+          public render(): JSX.Element {
+            const {start, end} = this.state;
+            return (
+              <div>
+                <DynaDatePicker
+                  label="From date"
+                  color={EColor.GREY_ORANGE_GREEN}
+                  size={ESize.MEDIUM}
+                  name="start"
+                  start={start}
+                  end={end}
+                  value={start}
+                  onChange={this.handleChange.bind(this)}
+                />
+                <DynaDatePicker
+                  label="To date"
+                  color={EColor.GREY_ORANGE_GREEN}
+                  size={ESize.MEDIUM}
+                  name="end"
+                  start={start}
+                  end={end}
+                  value={end}
+                  onChange={this.handleChange.bind(this)}
+                />
+              </div>
+            )
+          }
+        }
+
+        return <MyTestComponent/>
+
+      })(),
+      props:[
+        {
+          slug: 'yyyy-mm-dd',
+          title: 'yyyy-mm-dd format',
+          props:{
+            start: '2017-12-01',
+            end: '2017-12-31',
+          },
+        },
+        {
+          slug: 'iso-string',
+          title: 'iso string',
+          props:{
+            start: (new Date('2017-12-01')).toISOString(),
+            end: (new Date('2017-12-31')).toISOString(),
+          },
+        },
+        {
+          slug: 'number',
+          title: 'number',
+          props:{
+            start: Number(new Date('2017-12-01')),
+            end: Number(new Date('2017-12-31')),
+          },
+        },
+      ],
       wrapperStyle: {
         width: '100%',
       },
@@ -281,20 +391,20 @@ export default {
       center: true,
       component: (() => {
 
-        interface IMyTestCompoentProps {
+        interface IMyTestComponentProps {
           mode?: EMode,
           style?: EStyle,
           color?: EDynaDatePickerColor,
           size?: ESize,
         }
 
-        interface IMyTestCompoentState {
+        interface IMyTestComponentState {
           start: Date;
           end: Date;
         }
 
-        class MyTestCompoent extends React.Component<IMyTestCompoentProps, IMyTestCompoentState> {
-          constructor(props: IMyTestCompoentProps) {
+        class MyTestComponent extends React.Component<IMyTestComponentProps, IMyTestComponentState> {
+          constructor(props: IMyTestComponentProps) {
             super(props);
             this.state = {
               start: new Date('2017-12-13'),
@@ -304,7 +414,7 @@ export default {
 
           private handleChange(name: string, date: Date): void {
             console.log('on change', name, date);
-            const newState: IMyTestCompoentState = {
+            const newState: IMyTestComponentState = {
               ...this.state,
               [name]: date,
             };
@@ -354,7 +464,7 @@ export default {
           }
         }
 
-        return <MyTestCompoent/>
+        return <MyTestComponent/>
 
       })(),
       wrapperStyle: {
@@ -389,19 +499,19 @@ export default {
       center: true,
       component: (() => {
 
-        interface IMyTestCompoentProps {
+        interface IMyTestComponentProps {
           mode?: EMode,
           style?: EStyle,
           color?: EDynaDatePickerColor,
           size?: ESize,
         }
 
-        interface IMyTestCompoentState {
+        interface IMyTestComponentState {
           dates: Date[];
         }
 
-        class MyTestCompoent extends React.Component<IMyTestCompoentProps, IMyTestCompoentState> {
-          constructor(props: IMyTestCompoentProps) {
+        class MyTestComponent extends React.Component<IMyTestComponentProps, IMyTestComponentState> {
+          constructor(props: IMyTestComponentProps) {
             super(props);
             this.state = {
               dates: [],
@@ -451,7 +561,7 @@ export default {
           }
         }
 
-        return <MyTestCompoent/>
+        return <MyTestComponent/>
 
       })(),
       wrapperStyle: {

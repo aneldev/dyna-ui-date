@@ -238,6 +238,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
     return []
       .concat(value, values)
       .filter(d => !!d)
+      .map((d: any) => new Date(d))
       .map((d: Date) => Number(d))
       .sort((a: number, b: number) => a - b)
       .map((n: number) => new Date(n))
