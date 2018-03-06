@@ -1184,6 +1184,7 @@ var DynaDatePicker = /** @class */ (function (_super) {
         return []
             .concat(value, values)
             .filter(function (d) { return !!d; })
+            .map(function (d) { return new Date(d); })
             .map(function (d) { return Number(d); })
             .sort(function (a, b) { return a - b; })
             .map(function (n) { return new Date(n); })
