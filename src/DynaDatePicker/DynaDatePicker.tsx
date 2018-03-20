@@ -37,8 +37,6 @@ export interface IDynaDatePickerProps {
   values?: Date[];
   min?: Date;
   max?: Date;
-  weekDays?: string[];
-  months?: string[];
   showCloseButton?: boolean,
   closeOnSelect?: boolean;
   closeButtonLabel?: TContent,
@@ -113,8 +111,6 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
     values: [],
     min: null,
     max: null,
-    weekDays: weekDaysShortNames,
-    months: monthsLongNames,
     staringFromWeekDay: 1,
     showCloseButton: true,
     closeOnSelect: true,

@@ -24,8 +24,6 @@ export interface IDynaMonthCalendarProps {
     value?: Date;
     values?: Date[];
     viewport?: Date;
-    weekDays?: string[];
-    months?: string[];
     staringFromWeekDay?: number;
     renderPickerMonthYear?: (month: number, year: number) => TContent;
     renderPickerWeekDay?: (weekDay: number) => TContent;

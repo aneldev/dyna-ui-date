@@ -22,8 +22,6 @@ export interface IDynaDatePickerProps {
     values?: Date[];
     min?: Date;
     max?: Date;
-    weekDays?: string[];
-    months?: string[];
     showCloseButton?: boolean;
     closeOnSelect?: boolean;
     closeButtonLabel?: TContent;

@@ -28,22 +28,6 @@ exports[`Home has expected content with deep render 1`] = `
             max={null}
             min={null}
             mode="EDIT"
-            months={
-              Array [
-                "January",
-                "February",
-                "March",
-                "April",
-                "May",
-                "June",
-                "July",
-                "August",
-                "September",
-                "October",
-                "November",
-                "December",
-              ]
-            }
             name="Departure date"
             onChange={[Function]}
             renderPickerDay={[Function]}
@@ -53,17 +37,6 @@ exports[`Home has expected content with deep render 1`] = `
             start={null}
             value={null}
             values={Array []}
-            weekDays={
-              Array [
-                "Su",
-                "Mo",
-                "Tu",
-                "We",
-                "Th",
-                "Fr",
-                "Sa",
-              ]
-            }
           />
           <div
             className="ddp--calendar--button-bar"

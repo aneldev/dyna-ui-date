@@ -35,8 +35,6 @@ export interface IDynaMonthCalendarProps {
   value?: Date;
   values?: Date[];
   viewport?: Date;      // for the first render only!
-  weekDays?: string[];  // week days (2 chars)
-  months?: string[];    // month names
   staringFromWeekDay?: number; // 0 = Sunday... default = 1 (Monday)
   renderPickerMonthYear?: (month: number, year: number) => TContent;
   renderPickerWeekDay?: (weekDay: number) => TContent;
@@ -71,8 +69,6 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
     values: [],
     min: null,
     max: null,
-    weekDays: weekDaysShortNames,
-    months: monthsLongNames,
     staringFromWeekDay: 1,
     renderPickerMonthYear: (month: number, year: number) => <div>{monthsLongNames[month]} {year}</div>,
     renderPickerWeekDay: (weekDay: number) => <div>{weekDaysShortNames[weekDay]}</div>,
