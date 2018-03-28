@@ -1168,11 +1168,11 @@ var DynaDatePicker = /** @class */ (function (_super) {
     DynaDatePicker.prototype.handlerInputKeyPress = function (event) {
         switch (event.keyCode) {
             case 32: // space
-            case 13:// enter
+            case 13: // enter
                 this.setState({ showPicker: !this.state.showPicker });
                 break;
             case 27: // escape
-            case 9:// tab
+            case 9: // tab
                 this.setState({ showPicker: false });
                 break;
         }
