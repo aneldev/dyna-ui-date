@@ -16,66 +16,59 @@
 	&.dyna-date-picker {
 		outline: none;
 
-		&-style- {
+		.dyna-ui-field-wrapper-footer {
 
-			&INLINE_ROUNDED {
+			.dyna-ui-picker-container {
+				z-index: 1;
 
-				.dyna-ui-field-wrapper-footer {
+				.ddp-picker-container {
 
-					.dyna-ui-picker-container {
-						z-index: 1;
-
-						.ddp-picker-container {
-
-							.ddp--calendar--label {
-								display: none;
-								@media (max-width: @media-tablet) {
-									display: block;
-								}
-							}
-
-							.ddp--calendar--button-bar {
-								padding: 0 8px 8px 8px;
-								.dyna-button button{
-									width: 100%;
-								}
-							}
-						}
-
+					.ddp--calendar--label {
+						display: none;
 						@media (max-width: @media-tablet) {
-							.ddp-picker-container {
-								position: absolute;
-								top: 0;
-								bottom: 0;
-								left: 0;
-								right: 0;
-								display: flex;
-								flex-direction: column;
-								justify-content: space-between;
-								width: 100%;
+							display: block;
+						}
+					}
 
-								.ddp--calendar--label {
-									display: none;
-									@media (max-width: @media-tablet) {
-										display: block;
-										h2 {
-											margin: 8px 8px 0 8px;
-										}
-									}
-								}
+					.ddp--calendar--button-bar {
+						padding: 0 8px 8px 8px;
+						.dyna-button button{
+							width: 100%;
+						}
+					}
+				}
 
-								.ddp--calendar--button-bar {
-									display: flex;
-									flex-direction: column;
-									justify-content: flex-end;
+				@media (max-width: @media-tablet) {
+					.ddp-picker-container {
+						position: absolute;
+						top: 0;
+						bottom: 0;
+						left: 0;
+						right: 0;
+						display: flex;
+						flex-direction: column;
+						justify-content: space-between;
+						width: 100%;
+
+						.ddp--calendar--label {
+							display: none;
+							@media (max-width: @media-tablet) {
+								display: block;
+								h2 {
+									margin: 8px 8px 0 8px;
 								}
 							}
-
 						}
 
+						.ddp--calendar--button-bar {
+							display: flex;
+							flex-direction: column;
+							justify-content: flex-end;
+						}
 					}
 
 				}
+
 			}
 
 		}

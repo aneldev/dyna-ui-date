@@ -66,7 +66,7 @@ export default {
           }
 
           public render(): JSX.Element {
-            const {mode,color} = this.props;
+            const {mode, color} = this.props;
             const {start, end} = this.state;
             return (
               <DynaMonthCalendar
@@ -299,7 +299,7 @@ export default {
             }
           }
 
-          public componentWillReceiveProps(nextProps:IMyTestComponentProps):void{
+          public componentWillReceiveProps(nextProps: IMyTestComponentProps): void {
             this.setState({
               start: nextProps.start,
               end: nextProps.end,
@@ -352,11 +352,11 @@ export default {
         return <MyTestComponent/>
 
       })(),
-      props:[
+      props: [
         {
           slug: 'yyyy-mm-dd',
           title: 'yyyy-mm-dd format',
-          props:{
+          props: {
             start: '2017-12-01',
             end: '2017-12-31',
           },
@@ -364,7 +364,7 @@ export default {
         {
           slug: 'iso-string',
           title: 'iso string',
-          props:{
+          props: {
             start: (new Date('2017-12-01')).toISOString(),
             end: (new Date('2017-12-31')).toISOString(),
           },
@@ -372,7 +372,7 @@ export default {
         {
           slug: 'number',
           title: 'number',
-          props:{
+          props: {
             start: Number(new Date('2017-12-01')),
             end: Number(new Date('2017-12-31')),
           },
@@ -472,18 +472,20 @@ export default {
       },
       props: (() => {
         const output: any[] = [];
-        Object.keys(ESize).map((size: ESize) => {
-          Object.keys(EDynaDatePickerColor).map((color: EDynaDatePickerColor) => {
-            Object.keys(EMode).map((mode: EMode) => {
-              output.push({
-                slug: `inline-rounded-${color}-${mode}-${size}`,
-                title: `Date picker ${size.toLowerCase()} in ${color.replace(/_/g, ' ').toLowerCase()} color, ${mode.toLowerCase()}`,
-                props: {
-                  mode,
-                  style: EStyle.INLINE_ROUNDED,
-                  color,
-                  size,
-                }
+        Object.keys(EStyle).map((style: EStyle) => {
+          Object.keys(ESize).map((size: ESize) => {
+            Object.keys(EDynaDatePickerColor).map((color: EDynaDatePickerColor) => {
+              Object.keys(EMode).map((mode: EMode) => {
+                output.push({
+                  slug: `inline-rounded-${color}-${mode}-${size}-${style}`,
+                  title: `Date picker ${size.toLowerCase()} in ${color.replace(/_/g, ' ').toLowerCase()} color, with ${style.replace(/_/g, ' ').toLowerCase()} style, ${mode.toLowerCase()}`,
+                  props: {
+                    mode,
+                    style,
+                    color,
+                    size,
+                  }
+                });
               });
             });
           });
