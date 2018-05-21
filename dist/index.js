@@ -1135,6 +1135,7 @@ var DynaDatePicker = /** @class */ (function (_super) {
         var showPicker = this.state.showPicker;
         var show = mode === dyna_ui_field_wrapper_1.EMode.EDIT && showPicker;
         var colors = colorMixer(color);
+        var todayButtonDisabled = moment().isBefore(min || new Date) || moment().isAfter(max || new Date);
         return (React.createElement(dyna_ui_picker_container_1.DynaPickerContainer, { style: dyna_ui_picker_container_1.EStyle.ROUNDED, color: colors.pickerContainerColor, show: show },
             React.createElement("div", { className: "ddp-picker-container" },
                 React.createElement("div", { className: "ddp--calendar--label" },
@@ -1143,7 +1144,7 @@ var DynaDatePicker = /** @class */ (function (_super) {
                 React.createElement(DynaMonthCalendar_1.DynaMonthCalendar, { ref: function (component) { return _this.monthCalendar = component; }, name: name, color: colors.calendarColor, start: start, end: end, min: min, max: max, value: value, values: values, staringFromWeekDay: staringFromWeekDay, onChange: this.handleDaySelect.bind(this), renderPickerDay: renderPickerDay, renderPickerWeekDay: renderPickerWeekDay, renderPickerMonthYear: renderPickerMonthYear }),
                 React.createElement("div", { className: "ddp--calendar--button-bar" },
                     showTodayButton ?
-                        React.createElement(dyna_ui_button_1.DynaButton, { style: dyna_ui_button_1.EStyle.ROUNDED, color: colors.pickerButtonColor, size: size, onClick: this.handlerTodayClick.bind(this) }, todayButtonLabel)
+                        React.createElement(dyna_ui_button_1.DynaButton, { style: dyna_ui_button_1.EStyle.ROUNDED, color: colors.pickerButtonColor, size: size, disabled: todayButtonDisabled, onClick: this.handlerTodayClick.bind(this) }, todayButtonLabel)
                         : null,
                     showCloseButton ?
                         React.createElement(dyna_ui_button_1.DynaButton, { style: dyna_ui_button_1.EStyle.ROUNDED, color: colors.pickerButtonColor, size: size, onClick: this.handlerUserCame.bind(this) }, closeButtonLabel)

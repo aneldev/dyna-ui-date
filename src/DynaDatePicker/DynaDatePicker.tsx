@@ -148,6 +148,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
     const {showPicker} = this.state;
     const show: boolean = mode === EMode.EDIT && showPicker;
     const colors: IColorMixer = colorMixer(color);
+    const todayButtonDisabled: boolean = moment().isBefore(min || new Date) || moment().isAfter(max || new Date);
 
     return (
       <DynaPickerContainer
@@ -182,6 +183,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
                 style={EButtonStyle.ROUNDED}
                 color={colors.pickerButtonColor}
                 size={size}
+                disabled={todayButtonDisabled}
                 onClick={this.handlerTodayClick.bind(this)}
               >{todayButtonLabel}</DynaButton>
               : null}
