@@ -45,11 +45,11 @@ exports[`Home has expected content with deep render 1`] = `
               className=""
               color="ORANGE_WHITE"
               disabled={false}
-              href={null}
-              onClick={[Function]}
+  href={null}
+  onClick={[Function]}
               size="MEDIUM"
               style="ROUNDED"
-            >
+>
               <span>
                 <i
                   aria-hidden="true"

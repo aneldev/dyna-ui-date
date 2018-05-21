@@ -2,140 +2,140 @@
 
 .dyna-date-picker {
 
-	.dyna-ui-field-wrapper-container {
-		.ddp-input-control {
-			outline: none;
-			border: 0;
-			font-size: 16px;
-			line-height: 16px;
-			font-weight: bold;
-			background-color: transparent;
-		}
-	}
+  .dyna-ui-field-wrapper-container {
+    .ddp-input-control {
+      outline: none;
+      border: 0;
+      font-size: 16px;
+      line-height: 16px;
+      font-weight: bold;
+      background-color: transparent;
+    }
+  }
 
-	&.dyna-date-picker {
-		outline: none;
+  &.dyna-date-picker {
+    outline: none;
 
-		.dyna-ui-field-wrapper-footer {
+    .dyna-ui-field-wrapper-footer {
 
-			.dyna-ui-picker-container {
-				z-index: 1;
+      .dyna-ui-picker-container {
+        z-index: 1;
 
-				.ddp-picker-container {
+        .ddp-picker-container {
 
-					.ddp--calendar--label {
-						display: none;
-						@media (max-width: @media-tablet) {
-							display: block;
-						}
-					}
+          .ddp--calendar--label {
+            display: none;
+            @media (max-width: @media-tablet) {
+              display: block;
+            }
+          }
 
-					.ddp--calendar--button-bar {
-						padding: 0 8px 8px 8px;
-						.dyna-button button{
-							margin-top: 8px;
-							width: 100%;
-						}
-					}
-				}
+          .ddp--calendar--button-bar {
+            padding: 0 8px 8px 8px;
+            .dyna-button button {
+              margin-top: 8px;
+              width: 100%;
+            }
+          }
+        }
 
-				@media (max-width: @media-tablet) {
-					.ddp-picker-container {
-						position: absolute;
-						top: 0;
-						bottom: 0;
-						left: 0;
-						right: 0;
-						display: flex;
-						flex-direction: column;
-						justify-content: space-between;
-						width: 100%;
+        @media (max-width: @media-tablet) {
+          .ddp-picker-container {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
 
-						.ddp--calendar--label {
-							display: none;
-							@media (max-width: @media-tablet) {
-								display: block;
-								h2 {
-									margin: 8px 8px 0 8px;
-								}
-							}
-						}
+            .ddp--calendar--label {
+              display: none;
+              @media (max-width: @media-tablet) {
+                display: block;
+                h2 {
+                  margin: 8px 8px 0 8px;
+                }
+              }
+            }
 
-						.ddp--calendar--button-bar {
-							display: flex;
-							flex-direction: column;
-							justify-content: flex-end;
-						}
-					}
+            .ddp--calendar--button-bar {
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-end;
+            }
+          }
 
-				}
+        }
 
-			}
+      }
 
-		}
+    }
 
-		&-size- {
-			&XSMALL {
-				@media (min-width: @media-tablet) {
-					.dyna-ui-picker-container {
-						font-size: 11px;
-						.dyna-month-calendar {
-							@size: 192px;
-							width: @size;
-							height: @size;
-						}
-					}
-				}
-			}
+    &-size- {
+      &XSMALL {
+        @media (min-width: @media-tablet) {
+          .dyna-ui-picker-container {
+            font-size: 11px;
+            .dyna-month-calendar {
+              @size: 192px;
+              width: @size;
+              height: @size;
+            }
+          }
+        }
+      }
 
-			&SMALL {
-				@media (min-width: @media-tablet) {
-					.dyna-ui-picker-container {
-						font-size: 14px;
-						.dyna-month-calendar {
-							@size: 256px;
-							width: @size;
-							height: @size;
-						}
-					}
-				}
-			}
+      &SMALL {
+        @media (min-width: @media-tablet) {
+          .dyna-ui-picker-container {
+            font-size: 14px;
+            .dyna-month-calendar {
+              @size: 256px;
+              width: @size;
+              height: @size;
+            }
+          }
+        }
+      }
 
-			&MEDIUM {
-				@media (min-width: @media-tablet) {
-					.dyna-ui-picker-container {
-						font-size: 16px;
-						.dyna-month-calendar {
-							@size: 320px;
-							width: @size;
-							height: @size;
-						}
-					}
-				}
-			}
+      &MEDIUM {
+        @media (min-width: @media-tablet) {
+          .dyna-ui-picker-container {
+            font-size: 16px;
+            .dyna-month-calendar {
+              @size: 320px;
+              width: @size;
+              height: @size;
+            }
+          }
+        }
+      }
 
-			&LARGE {
-				@media (min-width: @media-tablet) {
-					.dyna-ui-picker-container {
-						font-size: 18px;
-						.dyna-month-calendar {
-							@size: 448px;
-							width: @size;
-							height: @size;
-						}
-					}
-				}
-			}
-		}
-		@media (max-width: @media-tablet) {
-			.dyna-month-calendar {
-				width: 98%;
-				padding: 1%;
-				height: 50%;
-			}
+      &LARGE {
+        @media (min-width: @media-tablet) {
+          .dyna-ui-picker-container {
+            font-size: 18px;
+            .dyna-month-calendar {
+              @size: 448px;
+              width: @size;
+              height: @size;
+            }
+          }
+        }
+      }
+    }
+    @media (max-width: @media-tablet) {
+      .dyna-month-calendar {
+        width: 98%;
+        padding: 1%;
+        height: 50%;
+      }
 
-		}
+    }
 
-	}
+  }
 }
 

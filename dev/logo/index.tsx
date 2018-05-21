@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {faIcon} from "../../src/utils/faIcon";
+import {faIcon} from "dyna-showcase";
 
 const styles = require('./index.module.less');
 
