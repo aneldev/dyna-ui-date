@@ -22,9 +22,11 @@ export interface IDynaDatePickerProps {
     values?: Date[];
     min?: Date;
     max?: Date;
+    showTodayButton?: boolean;
     showCloseButton?: boolean;
     closeOnSelect?: boolean;
     closeButtonLabel?: TContent;
+    todayButtonLabel?: TContent;
     staringFromWeekDay?: number;
     renderInputDate?: (value: Date) => string;
     renderPickerMonthYear?: (month: number, year: number) => TContent;
@@ -47,6 +49,7 @@ export declare class DynaDatePicker extends React.Component<IDynaDatePickerProps
     private handleDaySelect(name, date);
     private renderPicker();
     private lastFocused;
+    private handlerTodayClick();
     private handlerUserCame();
     private handlerOutsideClick();
     private handlerInputKeyPress(event);
