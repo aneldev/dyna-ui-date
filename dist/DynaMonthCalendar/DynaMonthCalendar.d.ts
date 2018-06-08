@@ -4,14 +4,14 @@ import { TContent } from "../interfaces/interfaces";
 import "./layout.less";
 import "./color.less";
 export declare enum EColor {
-    GREY_GREEN = "GREY_GREEN",
+    GREY_GREEN = "GREY_GREEN"
 }
 export declare enum EInRange {
     START = "START",
     END = "END",
     START_END = "START_END",
     OUT = "OUT",
-    MIDDLE = "MIDDLE",
+    MIDDLE = "MIDDLE"
 }
 export interface IDynaMonthCalendarProps {
     name: string;
@@ -49,8 +49,8 @@ export declare class DynaMonthCalendar extends React.Component<IDynaMonthCalenda
     componentDidMount(): void;
     componentWillReceiveProps(nextProps: IDynaMonthCalendarProps): void;
     setViewport(viewport: Date): void;
-    private setStateCalendarTable(props);
-    private handleNavMonth(direction);
-    private handleDaySelect(calendarCell);
+    private setStateCalendarTable;
+    private handleNavMonth;
+    private handleDaySelect;
     render(): JSX.Element;
 }

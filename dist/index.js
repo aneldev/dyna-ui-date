@@ -1144,10 +1144,10 @@ var DynaDatePicker = /** @class */ (function (_super) {
                 React.createElement(DynaMonthCalendar_1.DynaMonthCalendar, { ref: function (component) { return _this.monthCalendar = component; }, name: name, color: colors.calendarColor, start: start, end: end, min: min, max: max, value: value, values: values, staringFromWeekDay: staringFromWeekDay, onChange: this.handleDaySelect.bind(this), renderPickerDay: renderPickerDay, renderPickerWeekDay: renderPickerWeekDay, renderPickerMonthYear: renderPickerMonthYear }),
                 React.createElement("div", { className: "ddp--calendar--button-bar" },
                     showTodayButton ?
-                        React.createElement(dyna_ui_button_1.DynaButton, { style: dyna_ui_button_1.EStyle.ROUNDED, color: colors.pickerButtonColor, size: size, disabled: todayButtonDisabled, onClick: this.handlerTodayClick.bind(this) }, todayButtonLabel)
+                        React.createElement(dyna_ui_button_1.DynaButton, { style: dyna_ui_button_1.EStyle.ROUNDED, color: colors.pickerButtonColor, size: dyna_ui_field_wrapper_1.ESize.LARGE, disabled: todayButtonDisabled, touchTimeout: 0, onClick: this.handlerTodayClick.bind(this) }, todayButtonLabel)
                         : null,
                     showCloseButton ?
-                        React.createElement(dyna_ui_button_1.DynaButton, { style: dyna_ui_button_1.EStyle.ROUNDED, color: colors.pickerButtonColor, size: size, onClick: this.handlerUserCame.bind(this) }, closeButtonLabel)
+                        React.createElement(dyna_ui_button_1.DynaButton, { style: dyna_ui_button_1.EStyle.ROUNDED, color: colors.pickerButtonColor, size: dyna_ui_field_wrapper_1.ESize.LARGE, touchTimeout: 0, onClick: this.handlerUserCame.bind(this) }, closeButtonLabel)
                         : null),
                 pickerFooter)));
     };

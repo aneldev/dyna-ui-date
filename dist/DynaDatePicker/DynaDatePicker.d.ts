@@ -2,7 +2,7 @@ import * as React from "react";
 import { EMode, EStyle, ESize } from "dyna-ui-field-wrapper";
 import { EInRange } from "../DynaMonthCalendar/DynaMonthCalendar";
 import "./style.less";
-export { EMode, ESize, EStyle, EInRange };
+export { EMode, ESize, EStyle, EInRange, };
 export declare type TContent = JSX.Element | string;
 export interface IDynaDatePickerProps {
     className?: string;
@@ -37,7 +37,7 @@ export interface IDynaDatePickerProps {
 export declare enum EColor {
     GREY_ORANGE_GREEN = "GREY_ORANGE_GREEN",
     GREY_RED_GREEN = "GREY_RED_GREEN",
-    WHITE_BLACK = "WHITE_BLACK",
+    WHITE_BLACK = "WHITE_BLACK"
 }
 export interface IDynaDatePickerState {
     showPicker: boolean;
@@ -46,13 +46,13 @@ export declare class DynaDatePicker extends React.Component<IDynaDatePickerProps
     static defaultProps: IDynaDatePickerProps;
     private monthCalendar;
     constructor(props: IDynaDatePickerProps);
-    private handleDaySelect(name, date);
-    private renderPicker();
+    private handleDaySelect;
+    private renderPicker;
     private lastFocused;
-    private handlerTodayClick();
-    private handlerUserCame();
-    private handlerOutsideClick();
-    private handlerInputKeyPress(event);
-    private renderInputDates();
+    private handlerTodayClick;
+    private handlerUserCame;
+    private handlerOutsideClick;
+    private handlerInputKeyPress;
+    private renderInputDates;
     render(): JSX.Element;
 }
