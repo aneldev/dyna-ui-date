@@ -184,7 +184,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
                 color={colors.pickerButtonColor}
                 size={ESize.LARGE}
                 disabled={todayButtonDisabled}
-                touchTimeout={0}
+                touchTimeout={50}
                 onClick={this.handlerTodayClick.bind(this)}
               >{todayButtonLabel}</DynaButton>
               : null}
@@ -193,7 +193,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
                 style={EButtonStyle.ROUNDED}
                 color={colors.pickerButtonColor}
                 size={ESize.LARGE}
-                touchTimeout={0}
+                touchTimeout={50}
                 onClick={this.handlerUserCame.bind(this)}
               >{closeButtonLabel}</DynaButton>
               : null}
