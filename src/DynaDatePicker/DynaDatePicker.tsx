@@ -1,12 +1,13 @@
 import * as React from "react";
 import moment = require("moment");
 
-import {DynaFieldWrapper, EMode, EStyle, ESize, EColor as EFieldColor} from "dyna-ui-field-wrapper";
-import {DynaButton, EStyle as EButtonStyle, EColor as EPickerButtonColor} from "dyna-ui-button";
-import {DynaPickerContainer, EColor as EPickerContainerColor, EStyle as EPickerContainerStyle} from "dyna-ui-picker-container";
+import {DynaFieldWrapper, EMode, EStyle, ESize} from "dyna-ui-field-wrapper";
+import {DynaButton, EStyle as EButtonStyle} from "dyna-ui-button";
+import {DynaPickerContainer, EStyle as EPickerContainerStyle} from "dyna-ui-picker-container";
 
-import {DynaMonthCalendar, EColor as ECalendarColor, EInRange} from "../DynaMonthCalendar/DynaMonthCalendar";
+import {DynaMonthCalendar, EInRange} from "../DynaMonthCalendar/DynaMonthCalendar";
 import {getDate0, monthsLongNames, weekDaysShortNames} from "../utils/utils";
+import {colorMixer, EColor, IColorMixer} from "../colorMixer";
 import {faIcon} from "../utils/faIcon";
 
 import "./style.less";
@@ -49,46 +50,6 @@ export interface IDynaDatePickerProps {
   renderPickerDay?: (date: Date, dayInMonth: number, dayInWeek: number, inRange: EInRange) => TContent;
   onChange: (name: string, date: Date) => void;
 }
-
-export enum EColor {
-  GREY_ORANGE_GREEN = "GREY_ORANGE_GREEN",
-  GREY_RED_GREEN = "GREY_RED_GREEN",
-  WHITE_BLACK = "WHITE_BLACK",
-}
-
-interface IColorMixer {
-  fieldColor?: EFieldColor;
-  calendarColor?: ECalendarColor,
-  pickerButtonColor?: EPickerButtonColor,
-  pickerContainerColor?: EPickerContainerColor,
-}
-
-const colorMixer = (color: EColor): IColorMixer => {
-  switch (color) {
-    case EColor.GREY_RED_GREEN:
-      return {
-        calendarColor: ECalendarColor.GREY_GREEN,
-        fieldColor: EFieldColor.RED_WHITE,
-        pickerButtonColor: EPickerButtonColor.RED_WHITE,
-        pickerContainerColor: EPickerContainerColor.WHITE_RED,
-      };
-    case EColor.GREY_ORANGE_GREEN:
-      return {
-        calendarColor: ECalendarColor.GREY_GREEN,
-        fieldColor: EFieldColor.ORANGE_WHITE,
-        pickerButtonColor: EPickerButtonColor.ORANGE_WHITE,
-        pickerContainerColor: EPickerContainerColor.WHITE_ORANGE,
-      };
-    default:
-    case EColor.WHITE_BLACK:
-      return {
-        calendarColor: ECalendarColor.GREY_GREEN,
-        fieldColor: EFieldColor.ORANGE_WHITE,
-        pickerButtonColor: EPickerButtonColor.WHITE_BLACK,
-        pickerContainerColor: EPickerContainerColor.WHITE_ORANGE,
-      };
-  }
-};
 
 export interface IDynaDatePickerState {
   showPicker: boolean;
