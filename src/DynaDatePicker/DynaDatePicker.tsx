@@ -140,21 +140,25 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
           />
           <div className="ddp--calendar--button-bar">
             {showTodayButton ?
-              <DynaButton
-                style={EButtonStyle.ROUNDED}
-                color={colors.pickerButtonColor}
-                size={ESize.LARGE}
-                disabled={todayButtonDisabled}
-                onClick={this.handlerTodayClick.bind(this)}
-              >{todayButtonLabel}</DynaButton>
+              <div>
+                <DynaButton
+                  style={EButtonStyle.ROUNDED}
+                  color={colors.pickerButtonColor}
+                  size={ESize.LARGE}
+                  disabled={todayButtonDisabled}
+                  onClick={this.handlerTodayClick.bind(this)}
+                >{todayButtonLabel}</DynaButton>
+              </div>
               : null}
             {showCloseButton ?
-              <DynaButton
-                style={EButtonStyle.ROUNDED}
-                color={colors.pickerButtonColor}
-                size={ESize.LARGE}
-                onClick={this.handlerUserCame.bind(this)}
-              >{closeButtonLabel}</DynaButton>
+              <div>
+                <DynaButton
+                  style={EButtonStyle.ROUNDED}
+                  color={colors.pickerButtonColor}
+                  size={ESize.LARGE}
+                  onClick={this.handlerUserCame.bind(this)}
+                >{closeButtonLabel}</DynaButton>
+              </div>
               : null}
           </div>
           {pickerFooter}
