@@ -142,7 +142,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
   }
 
   private renderPicker(): JSX.Element {
-    const {color, size, showTodayButton, showCloseButton, todayButtonLabel, closeButtonLabel} = this.props;
+    const {color, showTodayButton, showCloseButton, todayButtonLabel, closeButtonLabel} = this.props;
     const {mode, label, name, value, values, start, end, min, max, pickerHeader, pickerFooter} = this.props;
     const {staringFromWeekDay, renderPickerMonthYear, renderPickerWeekDay, renderPickerDay} = this.props;
     const {showPicker} = this.state;
@@ -232,15 +232,29 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
   }
 
   private handlerInputKeyPress(event: KeyboardEvent): void {
-    switch (event.keyCode) {
-      case 32: // space
-      case 13: // enter
+    if (event.keyCode !== undefined) {
+      switch (event.keyCode) {
+        case 32: // space
+        case 13: // enter
         this.setState({showPicker: !this.state.showPicker});
-        break;
-      case 27: // escape
-      case 9: // tab
+          break;
+        case 27: // escape
+        case 9: // tab
         this.setState({showPicker: false});
-        break;
+          break;
+      }
+    }
+    else {
+      switch (event.code) {
+        case 'Space':
+        case 'Enter':
+          this.setState({ showPicker: !this.state.showPicker });
+          break;
+        case 'Escape':
+        case 'Tab':
+          this.setState({ showPicker: false });
+          break;
+      }
     }
   }
 
