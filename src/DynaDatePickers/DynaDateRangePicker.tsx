@@ -101,44 +101,57 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
   private handleHoverDate = (name: string, date: Date): void => {
     let hoverOn: Date = undefined;
     if (this.state.targetDate === EEditDate.END) hoverOn = date;
+    if (hoverOn && hoverOn.valueOf() < this.props.start.valueOf()) hoverOn = undefined;
     if (hoverOn !== this.state.hoverOn) this.setState({ hoverOn });
   };
 
   private handleDaySelect = (name: string, date: Date): void => {
-    const { start: prevStart, end: prevEnd, onChange } = this.props;
-    const { targetDate } = this.state;
+    const { start: prevStart, onChange } = this.props;
+    const { targetDate: prevTargetDate } = this.state;
     let start: Date, end: Date;
-    let finalStart: number, finalEnd: number;
+    let targetDate: EEditDate;
 
-    switch (targetDate) {
+    switch (prevTargetDate) {
       case EEditDate.START:
         start = date;
         end = date;
-        this.setState({
-          targetDate: EEditDate.END,
-        });
+        targetDate = EEditDate.END;
         break;
       case EEditDate.END:
-        start = prevStart;
-        end = date;
-        this.setState({
-          targetDate: EEditDate.START,
-        });
+        if (date.valueOf() >= prevStart.valueOf()) {
+          start = prevStart;
+          end = date;
+          targetDate = EEditDate.START;
+        }
+        else { // is prior than start, behave like start is selected
+          start = date;
+          end = date;
+          targetDate = EEditDate.END;
+        }
         break;
     }
-    [finalStart, finalEnd] = [start.valueOf(), end.valueOf()].sort();
 
-    onChange(name, new Date(finalStart), new Date(finalEnd));
+    onChange(name, start, end);
+
+    this.setState({ targetDate });
   };
 
+  private get viewport(): Date {
+    const { start, end, editDate } = this.props;
+    return editDate === EEditDate.START ? start : end;
+  }
+
   private renderPicker(): JSX.Element {
-    const { color, showTodayButton, showCloseButton, todayButtonLabel, closeButtonLabel } = this.props;
-    const { mode, label, name, start, end, min, max, pickerHeader, pickerFooter } = this.props;
-    const { staringFromWeekDay, renderPickerMonthYear, renderPickerWeekDay, renderPickerDay } = this.props;
-    const { showPicker, hoverOn } = this.state;
+    const {
+      color, showTodayButton, showCloseButton, todayButtonLabel, closeButtonLabel,
+      mode, label, name, start, end, min, max, pickerHeader, pickerFooter,
+      staringFromWeekDay, renderPickerMonthYear, renderPickerWeekDay, renderPickerDay,
+    } = this.props;
+    const {
+      showPicker, hoverOn,
+    } = this.state;
     const show: boolean = mode === EMode.EDIT && showPicker;
     const colors: IColorMixer = colorMixer(color);
-    const todayButtonDisabled: boolean = moment().isBefore(min || new Date) || moment().isAfter(max || new Date);
 
     return (
       <DynaPickerContainer
@@ -175,7 +188,6 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
                   style={EButtonStyle.ROUNDED}
                   color={colors.pickerButtonColor}
                   size={ESize.LARGE}
-                  disabled={todayButtonDisabled}
                   onClick={this.handlerTodayClick}
                 >{todayButtonLabel}</DynaButton>
               </div>
@@ -215,7 +227,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
       showPicker,
     });
 
-    if (showPicker) this.monthCalendar.setViewport(start);
+    if (showPicker) this.monthCalendar.setViewport(this.viewport);
 
     this.lastFocused = new Date;
   };

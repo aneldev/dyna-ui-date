@@ -43,7 +43,6 @@ export interface IDynaMonthCalendarProps {
   hoverOn?: Date;       // On which day the user is hovering (the hover might came from another calendar)
   value?: Date;
   values?: Date[];
-  viewport?: Date;      // for the first render only!
   staringFromWeekDay?: number; // 0 = Sunday... default = 1 (Monday)
   renderPickerMonthYear?: (month: number, year: number) => TContent;
   renderPickerWeekDay?: (weekDay: number) => TContent;
@@ -94,7 +93,7 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
   constructor(props: IDynaMonthCalendarProps) {
     super(props);
     this.state = {
-      viewport: startOfDayDate(this.props.value || this.props.values[0] || this.props.viewport || new Date),
+      viewport: null,
       calendarTable: null,
     }
   }
@@ -118,8 +117,8 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
     }
   }
 
-  public setViewport(viewport:Date):void{
-    this.setState({viewport},()=>this.setStateCalendarTable(this.props));
+  public setViewport(viewport: Date): void {
+    this.setState({ viewport }, () => this.setStateCalendarTable(this.props));
   }
 
   private setStateCalendarTable(props: IDynaMonthCalendarProps): void {
@@ -138,7 +137,7 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
     value = startOfDayDate(value);
     values = values.map(startOfDayDate);
 
-    const viewport: Date = startOfDayDate(this.state.viewport || this.props.value || this.props.values[0] || this.props.viewport || new Date);
+    const viewport: Date = startOfDayDate(this.state.viewport || this.props.value || this.props.values[0] || new Date);
     const uiCalendarTable: TUICalendarTable = [];
     const calendarTable: TCalendarTable = createCalendarTable(viewport, this.props.staringFromWeekDay);
 
