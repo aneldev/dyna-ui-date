@@ -223,7 +223,7 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
     return output;
   }
 
-  private handleNavMonth(direction: number): void {
+  private moveMonth(direction: number): void {
     if (this.props.mode === EMode.VIEW) return;
     this.setState({
         viewport: moment(this.state.viewport).add(direction, 'months').toDate()
@@ -232,6 +232,14 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
         this.setStateCalendarTable(this.props);
       })
   }
+
+  private handleNavMonthPrev = (): void => {
+    this.moveMonth(-1);
+  };
+
+  private handleNavMonthNext = (): void => {
+    this.moveMonth(+1);
+  };
 
   private handleHoverDayCell(calendarCell: IUICalendarTableDayCell) {
     const {
@@ -273,9 +281,9 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
       <div className={className}>
         <div className="dmc--header">
           <div
-            className="dmc--header--nav-prev" onClick={this.handleNavMonth.bind(this, -1)}>{faIcon('caret-left')}</div>
+            className="dmc--header--nav-prev" onClick={this.handleNavMonthPrev}>{faIcon('caret-left')}</div>
           <div className="dmc--header--label">{renderPickerMonthYear(moment(viewport).month(), moment(viewport).year())}</div>
-          <div className="dmc--header--nav-next" onClick={this.handleNavMonth.bind(this, +1)}>{faIcon('caret-right')}</div>
+          <div className="dmc--header--nav-next" onClick={this.handleNavMonthNext}>{faIcon('caret-right')}</div>
         </div>
         <div className="dmc--week-days-header">
           {Array(7).fill(null).map((v: any, index: number) => {

@@ -62,20 +62,20 @@ export default {
             }
           }
 
-          private handleHover(name: string, date: Date): void {
+          private handleHover = (name: string, date: Date): void => {
             this.setState({
               hoverOn: date,
             });
             console.debug('hover on', date.toString());
-          }
+          };
 
-          private handleChange(name: string, date: Date): void {
+          private handleChange = (name: string, date: Date): void => {
             this.setState({
               start: date,
               end: date,
               hoverStart: date,
             })
-          }
+          };
 
           public render(): JSX.Element {
             const {mode, color} = this.props;
@@ -92,8 +92,8 @@ export default {
                 value={start}
                 hoverStart={hoverStart}
                 hoverOn={hoverOn}
-                onHover={this.handleHover.bind(this)}
-                onChange={this.handleChange.bind(this)}
+                onHover={this.handleHover}
+                onChange={this.handleChange}
               />
             )
           }
@@ -160,7 +160,7 @@ export default {
             });
           }
 
-          private handleChange(name: string, date: Date): void {
+          private handleChange = (name: string, date: Date): void => {
             if (this.existDate(date, this.state.dates)) {
               this.setState({
                 dates: this.removeDate(date, this.state.dates)
@@ -169,7 +169,7 @@ export default {
               const dates: Date[] = [].concat(this.state.dates, date);
               this.setState({dates});
             }
-          }
+          };
 
           public render(): JSX.Element {
             const {color} = this.props;
@@ -179,7 +179,7 @@ export default {
                 color={color}
                 name="date"
                 values={dates}
-                onChange={this.handleChange.bind(this)}
+                onChange={this.handleChange}
               />
             )
           }
@@ -233,7 +233,7 @@ export default {
             }
           }
 
-          private handleChange(name: string, date: Date): void {
+          private handleChange = (name: string, date: Date): void => {
             console.log('on change', name, date);
             const newState: IMyTestComponentState = {
               ...this.state,
@@ -245,7 +245,7 @@ export default {
               newState.start = helper;
             }
             this.setState(newState);
-          }
+          };
 
           public render(): JSX.Element {
             const {start, end} = this.state;
@@ -261,7 +261,7 @@ export default {
                   start={start}
                   end={end}
                   value={start}
-                  onChange={this.handleChange.bind(this)}
+                  onChange={this.handleChange}
                 />
                 <DynaDatePicker
                   label="To date"
@@ -273,7 +273,7 @@ export default {
                   start={start}
                   end={end}
                   value={end}
-                  onChange={this.handleChange.bind(this)}
+                  onChange={this.handleChange}
                 />
               </div>
             )
@@ -321,7 +321,7 @@ export default {
             })
           }
 
-          private handleChange(name: string, date: Date): void {
+          private handleChange = (name: string, date: Date): void => {
             console.log('on change', name, date);
             const newState: IMyTestComponentState = {
               ...this.state,
@@ -333,7 +333,7 @@ export default {
               newState.start = helper;
             }
             this.setState(newState);
-          }
+          };
 
           public render(): JSX.Element {
             const {start, end} = this.state;
@@ -347,7 +347,7 @@ export default {
                   start={start}
                   end={end}
                   value={start}
-                  onChange={this.handleChange.bind(this)}
+                  onChange={this.handleChange}
                 />
                 <DynaDatePicker
                   label="To date"
@@ -357,7 +357,7 @@ export default {
                   start={start}
                   end={end}
                   value={end}
-                  onChange={this.handleChange.bind(this)}
+                  onChange={this.handleChange}
                 />
               </div>
             )
@@ -427,7 +427,7 @@ export default {
             }
           }
 
-          private handleChange(name: string, date: Date): void {
+          private handleChange = (name: string, date: Date): void => {
             console.log('on change', name, date);
             const newState: IMyTestComponentState = {
               ...this.state,
@@ -439,7 +439,7 @@ export default {
               newState.start = helper;
             }
             this.setState(newState);
-          }
+          };
 
           public render(): JSX.Element {
             const {mode, style, color, size} = this.props;
@@ -458,7 +458,7 @@ export default {
                   start={start}
                   end={end}
                   value={start}
-                  onChange={this.handleChange.bind(this)}
+                  onChange={this.handleChange}
                 />
                 <DynaDatePicker
                   mode={mode}
@@ -472,7 +472,7 @@ export default {
                   start={start}
                   end={end}
                   value={end}
-                  onChange={this.handleChange.bind(this)}
+                  onChange={this.handleChange}
                 />
               </div>
             )
@@ -548,7 +548,7 @@ export default {
             });
           }
 
-          private handleChange(name: string, date: Date): void {
+          private handleChange = (name: string, date: Date): void => {
             if (this.existDate(date, this.state.dates)) {
               this.setState({
                 dates: this.removeDate(date, this.state.dates)
@@ -557,7 +557,7 @@ export default {
               const dates: Date[] = [].concat(this.state.dates, date);
               this.setState({dates});
             }
-          }
+          };
 
           public render(): JSX.Element {
             const {mode, style, color, size} = this.props;
@@ -572,7 +572,7 @@ export default {
                 name="start"
                 values={dates}
                 closeOnSelect={false}
-                onChange={this.handleChange.bind(this)}
+                onChange={this.handleChange}
               />
             )
           }

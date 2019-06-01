@@ -11,6 +11,7 @@ import {colorMixer, EColor, IColorMixer} from "../colorMixer";
 import {faIcon} from "../utils/faIcon";
 
 import "./style.less";
+import {KeyboardEvent} from "react";
 
 export {
   EMode,
@@ -96,11 +97,11 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
     }
   }
 
-  private handleDaySelect(name:string, date:Date): void {
+  private handleDaySelect = (name: string, date: Date): void => {
     if (this.props.closeOnSelect) this.setState({showPicker: false});
     const {onChange} = this.props;
     onChange(name, date);
-  }
+  };
 
   private renderPicker(): JSX.Element {
     const {color, showTodayButton, showCloseButton, todayButtonLabel, closeButtonLabel} = this.props;
@@ -133,7 +134,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
             value={value}
             values={values}
             staringFromWeekDay={staringFromWeekDay}
-            onChange={this.handleDaySelect.bind(this)}
+            onChange={this.handleDaySelect}
             renderPickerDay={renderPickerDay}
             renderPickerWeekDay={renderPickerWeekDay}
             renderPickerMonthYear={renderPickerMonthYear}
@@ -146,7 +147,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
                   color={colors.pickerButtonColor}
                   size={ESize.LARGE}
                   disabled={todayButtonDisabled}
-                  onClick={this.handlerTodayClick.bind(this)}
+                  onClick={this.handlerTodayClick}
                 >{todayButtonLabel}</DynaButton>
               </div>
               : null}
@@ -156,7 +157,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
                   style={EButtonStyle.ROUNDED}
                   color={colors.pickerButtonColor}
                   size={ESize.LARGE}
-                  onClick={this.handlerUserCame.bind(this)}
+                  onClick={this.handlerUserCame}
                 >{closeButtonLabel}</DynaButton>
               </div>
               : null}
@@ -169,12 +170,12 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
 
   private lastFocused: Date = null;
 
-  private handlerTodayClick():void{
+  private handlerTodayClick = (): void => {
     const {name} = this.props;
     this.handleDaySelect(name, startOfDayDate(new Date));
-  }
+  };
 
-  private handlerUserCame(): void {
+  private handlerUserCame = (): void => {
     if (this.props.mode === EMode.VIEW) return;
     if (this.lastFocused && Number(new Date) - Number(this.lastFocused) < 300) return;
 
@@ -188,15 +189,15 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
     if (showPicker) this.monthCalendar.setViewport(value);
 
     this.lastFocused = new Date;
-  }
+  };
 
-  private handlerOutsideClick(): void {
+  private handlerOutsideClick = (): void => {
     this.setState({
       showPicker:false,
     });
-  }
+  };
 
-  private handlerInputKeyPress(event: KeyboardEvent): void {
+  private handlerInputKeyPress = (event: KeyboardEvent<HTMLInputElement>): void => {
     if (event.keyCode !== undefined) {
       switch (event.keyCode) {
         case 32: // space
@@ -210,7 +211,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
       }
     }
     else {
-      switch (event.code) {
+      switch ((event as any).code) {
         case 'Space':
         case 'Enter':
           this.setState({ showPicker: !this.state.showPicker });
@@ -221,7 +222,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
           break;
       }
     }
-  }
+  };
 
   private renderInputDates(): string {
     const {
@@ -269,15 +270,15 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
           inputElementSelector=".ddp-input-control"
           validationMessage={validationMessage}
           footer={this.renderPicker()}
-          onOutsideClick={this.handlerOutsideClick.bind(this)}
+          onOutsideClick={this.handlerOutsideClick}
         >
           <input
             className="ddp-input-control"
             readOnly
             value={this.renderInputDates()}
-            onFocus={this.handlerUserCame.bind(this)}
-            onClick={this.handlerUserCame.bind(this)}
-            onKeyDown={this.handlerInputKeyPress.bind(this)}
+            onFocus={this.handlerUserCame}
+            onClick={this.handlerUserCame}
+            onKeyDown={this.handlerInputKeyPress}
           />
         </DynaFieldWrapper>
       </div>
