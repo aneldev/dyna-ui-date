@@ -5,8 +5,8 @@ import {DynaFieldWrapper, EMode, EStyle, ESize} from "dyna-ui-field-wrapper";
 import {DynaButton, EStyle as EButtonStyle} from "dyna-ui-button";
 import {DynaPickerContainer, EStyle as EPickerContainerStyle} from "dyna-ui-picker-container";
 
-import {DynaMonthCalendar, EInRange} from "../DynaMonthCalendar/DynaMonthCalendar";
-import {getDate0, monthsLongNames, weekDaysShortNames} from "../utils/utils";
+import {DynaMonthCalendar, ERangePointMode} from "../DynaMonthCalendar/DynaMonthCalendar";
+import {startOfDayDate, monthsLongNames, weekDaysShortNames} from "../utils/utils";
 import {colorMixer, EColor, IColorMixer} from "../colorMixer";
 import {faIcon} from "../utils/faIcon";
 
@@ -15,7 +15,7 @@ import "./style.less";
 export {
   EMode,
   ESize, EStyle,
-  EInRange,
+  ERangePointMode,
 }
 
 export type TContent = JSX.Element | string;
@@ -47,7 +47,7 @@ export interface IDynaDatePickerProps {
   renderInputDate?: (value: Date) => string;
   renderPickerMonthYear?: (month: number, year: number) => TContent;
   renderPickerWeekDay?: (weekDay: number) => TContent;
-  renderPickerDay?: (date: Date, dayInMonth: number, dayInWeek: number, inRange: EInRange) => TContent;
+  renderPickerDay?: (date: Date, dayInMonth: number, dayInWeek: number, inRange: ERangePointMode) => TContent;
   onChange: (name: string, date: Date) => void;
 }
 
@@ -83,7 +83,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
     renderInputDate: (date: Date) => moment(date).format('dd DD MMM YY'),
     renderPickerMonthYear: (month: number, year: number) => <div>{monthsLongNames[month]} {year}</div>,
     renderPickerWeekDay: (weekDay: number) => <div>{weekDaysShortNames[weekDay]}</div>,
-    renderPickerDay: (date: Date, dayInMonth: number, dayInWeek: number, inRange: EInRange) => <div>{dayInMonth}</div>,
+    renderPickerDay: (date: Date, dayInMonth: number, dayInWeek: number, inRange: ERangePointMode) => <div>{dayInMonth}</div>,
     onChange: (name: string, date: Date) => undefined,
   };
 
@@ -171,7 +171,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
 
   private handlerTodayClick():void{
     const {name} = this.props;
-    this.handleDaySelect(name, getDate0(new Date));
+    this.handleDaySelect(name, startOfDayDate(new Date));
   }
 
   private handlerUserCame(): void {

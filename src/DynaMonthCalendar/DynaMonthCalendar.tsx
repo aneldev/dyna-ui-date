@@ -5,7 +5,14 @@ import {EMode} from "dyna-ui-field-wrapper";
 
 import {TContent} from "../interfaces/interfaces";
 
-import {createCalendarTable, getDate0, monthsLongNames, TCalendarTable, weekDaysShortNames} from "../utils/utils";
+import {
+  createCalendarTable,
+  startOfDayMoment,
+  startOfDayDate,
+  monthsLongNames,
+  TCalendarTable,
+  weekDaysShortNames
+} from "../utils/utils";
 
 import {faIcon} from "../utils/faIcon";
 
@@ -16,7 +23,7 @@ export enum EColor {
   GREY_GREEN = "GREY_GREEN",
 }
 
-export enum EInRange {
+export enum ERangePointMode {
   START = "START",
   END = "END",
   START_END = "START_END",
@@ -32,13 +39,16 @@ export interface IDynaMonthCalendarProps {
   end?: Date;
   min?: Date;
   max?: Date;
+  hoverStart?: Date;    // From which day the hover will start
+  hoverOn?: Date;       // On which day the user is hovering (the hover might came from another calendar)
   value?: Date;
   values?: Date[];
   viewport?: Date;      // for the first render only!
   staringFromWeekDay?: number; // 0 = Sunday... default = 1 (Monday)
   renderPickerMonthYear?: (month: number, year: number) => TContent;
   renderPickerWeekDay?: (weekDay: number) => TContent;
-  renderPickerDay?: (date: Date, dayInMonth: number, dayInWeek: number, inRange: EInRange) => TContent;
+  renderPickerDay?: (date: Date, dayInMonth: number, dayInWeek: number, inRange: ERangePointMode, hovered: ERangePointMode) => TContent;
+  onHover: (name: string, date: Date) => void;
   onChange: (name: string, date: Date) => void;
 }
 
@@ -55,7 +65,8 @@ export interface IUICalendarTableDayCell {
   disabled: boolean;
   weekend: boolean; // is Sat or Sun
   inCurrentMonth: boolean;
-  inRange: EInRange;
+  inRange: ERangePointMode;
+  hovered: ERangePointMode;
 }
 
 export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, IDynaMonthCalendarState> {
@@ -69,17 +80,21 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
     values: [],
     min: null,
     max: null,
+    hoverStart: null,
+    hoverOn: null,
     staringFromWeekDay: 1,
     renderPickerMonthYear: (month: number, year: number) => <div>{monthsLongNames[month]} {year}</div>,
     renderPickerWeekDay: (weekDay: number) => <div>{weekDaysShortNames[weekDay]}</div>,
-    renderPickerDay: (date: Date, dayInMonth: number, dayInWeek: number, inRange: EInRange) => <div>{dayInMonth}</div>,
+    renderPickerDay: (date: Date, dayInMonth: number, dayInWeek: number, inRange: ERangePointMode) =>
+      <div>{dayInMonth}</div>,
+    onHover: (name: string, date: Date) => undefined,
     onChange: (name: string, date: Date) => undefined,
   };
 
   constructor(props: IDynaMonthCalendarProps) {
     super(props);
     this.state = {
-      viewport: getDate0(this.props.value || this.props.values[0] || this.props.viewport || new Date),
+      viewport: startOfDayDate(this.props.value || this.props.values[0] || this.props.viewport || new Date),
       calendarTable: null,
     }
   }
@@ -92,7 +107,8 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
     if (nextProps.value !== this.props.value ||
       JSON.stringify(nextProps.values) !== JSON.stringify(this.props.values) ||
       nextProps.start !== this.props.start ||
-      nextProps.end !== this.props.end
+      nextProps.end !== this.props.end ||
+      nextProps.hoverOn !== this.props.hoverOn
     ) {
       this.setStateCalendarTable(nextProps);
     }
@@ -103,15 +119,22 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
   }
 
   private setStateCalendarTable(props: IDynaMonthCalendarProps): void {
-    let {min, max, start, end, value, values} = props;
-    min = getDate0(min);
-    max = getDate0(max);
-    start = getDate0(start);
-    end = getDate0(end);
-    value = getDate0(value);
-    values = values.map(getDate0);
+    let {
+      min, max,
+      start: rs, end: re,
+      hoverStart: hf, hoverOn: ho,
+      value, values,
+    } = props;
+    min = startOfDayDate(min);
+    max = startOfDayDate(max);
+    const rangeStart = startOfDayMoment(rs);
+    const rangeEnd =  startOfDayMoment(re);
+    const hoverStart = startOfDayMoment(hf);
+    const hoverOn = startOfDayMoment(ho);
+    value = startOfDayDate(value);
+    values = values.map(startOfDayDate);
 
-    const viewport: Date = getDate0(this.state.viewport || this.props.value || this.props.values[0] || this.props.viewport || new Date);
+    const viewport: Date = startOfDayDate(this.state.viewport || this.props.value || this.props.values[0] || this.props.viewport || new Date);
     const uiCalendarTable: TUICalendarTable = [];
     const calendarTable: TCalendarTable = createCalendarTable(viewport, this.props.staringFromWeekDay);
 
@@ -126,6 +149,7 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
           weekend: null,
           disabled: null,
           inRange: null,
+          hovered: null,
         };
 
         // selected updated
@@ -147,30 +171,9 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
         // is weekend
         calendarDayCell.weekend = [6, 0].includes(cellDate.weekday());
 
-        // range update by start and end
-        if (start) {
-          if (cellDate.isBefore(start) || (end && cellDate.isAfter(end))) {
-            calendarDayCell.inRange = EInRange.OUT;
-          }
-          if (cellDate.isSame(start)) {
-            calendarDayCell.inRange = EInRange.START;
-          }
-          if (end && cellDate.isSame(end)) {
-            calendarDayCell.inRange = EInRange.END;
-          }
-          if (cellDate.isSame(start) && end && cellDate.isSame(end)) {
-            calendarDayCell.inRange = EInRange.START_END;
-          }
-          if (cellDate.isAfter(start) && end && cellDate.isBefore(end)) {
-            calendarDayCell.inRange = EInRange.MIDDLE;
-          }
-          if (!end && cellDate.isAfter(start)) {
-            calendarDayCell.inRange = EInRange.OUT;
-          }
-        }
-        else {
-          calendarDayCell.inRange = EInRange.OUT;
-        }
+        // range update by start and end of the range
+        calendarDayCell.inRange = DynaMonthCalendar.getRangePointMode(rangeStart, rangeEnd, cellDate);
+        calendarDayCell.hovered = DynaMonthCalendar.getRangePointMode(hoverStart, hoverOn, cellDate);
 
         lineCells.push(calendarDayCell);
       });
@@ -183,6 +186,43 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
     });
   }
 
+  static getRangePointMode(start: Moment, end: Moment, now: Moment): ERangePointMode {
+    if (!start) return ERangePointMode.OUT;
+
+    if (end.isBefore(start)) {
+      const h = end;
+      end = start;
+      start = h;
+    }
+
+    let output: ERangePointMode;
+    if (start) {
+      if (now.isBefore(start) || (end && now.isAfter(end))) {
+        output = ERangePointMode.OUT;
+      }
+      if (now.isSame(start)) {
+        output = ERangePointMode.START;
+      }
+      if (end && now.isSame(end)) {
+        output = ERangePointMode.END;
+      }
+      if (now.isSame(start) && end && now.isSame(end)) {
+        output = ERangePointMode.START_END;
+      }
+      if (now.isAfter(start) && end && now.isBefore(end)) {
+        output = ERangePointMode.MIDDLE;
+      }
+      if (!end && now.isAfter(start)) {
+        output = ERangePointMode.OUT;
+      }
+    }
+    else {
+      output = ERangePointMode.OUT;
+    }
+
+    return output;
+  }
+
   private handleNavMonth(direction: number): void {
     if (this.props.mode === EMode.VIEW) return;
     this.setState({
@@ -192,6 +232,14 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
         this.setStateCalendarTable(this.props);
       })
   }
+
+  private handleHoverDayCell(calendarCell: IUICalendarTableDayCell) {
+    const {
+      name,
+      onHover,
+    } = this.props;
+    onHover(name, calendarCell.date);
+  };
 
   private handleDaySelect(calendarCell: IUICalendarTableDayCell): void {
     if (this.props.mode === EMode.VIEW) return;
@@ -224,7 +272,8 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
     return (
       <div className={className}>
         <div className="dmc--header">
-          <div className="dmc--header--nav-prev" onClick={this.handleNavMonth.bind(this, -1)}>{faIcon('caret-left')}</div>
+          <div
+            className="dmc--header--nav-prev" onClick={this.handleNavMonth.bind(this, -1)}>{faIcon('caret-left')}</div>
           <div className="dmc--header--label">{renderPickerMonthYear(moment(viewport).month(), moment(viewport).year())}</div>
           <div className="dmc--header--nav-next" onClick={this.handleNavMonth.bind(this, +1)}>{faIcon('caret-right')}</div>
         </div>
@@ -248,10 +297,16 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
                     calendarCell.disabled ? "dmc--calendar--cell--disabled" : "",
                     calendarCell.weekend ? "dmc--calendar--cell--weekend" : "",
                     `dmc--calendar--cell--range-${calendarCell.inRange}`,
+                    `dmc--calendar--cell--hover-${calendarCell.hovered}`,
                   ].join(' ').trim();
                   return (
-                    <div key={index} className={className} onClick={() => this.handleDaySelect(calendarCell)}>
-                      {renderPickerDay(date.toDate(), date.get('D'), date.day(), calendarCell.inRange)}
+                    <div
+                      key={index}
+                      className={className}
+                      onMouseEnter={() => this.handleHoverDayCell(calendarCell)}
+                      onClick={() => this.handleDaySelect(calendarCell)}
+                    >
+                      {renderPickerDay(date.toDate(), date.get('D'), date.day(), calendarCell.inRange, calendarCell.hovered)}
                     </div>
                   );
                 })}

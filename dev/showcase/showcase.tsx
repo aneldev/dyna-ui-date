@@ -47,6 +47,8 @@ export default {
         interface IMyTestComponentState {
           start: Date;
           end: Date;
+          hoverOn: Date;
+          hoverStart: Date;
         }
 
         class MyTestComponent extends React.Component<IMyTestComponentProps, IMyTestComponentState> {
@@ -55,19 +57,29 @@ export default {
             this.state = {
               start: new Date('2017-12-13'),
               end: new Date('2018-01-10'),
+              hoverOn: undefined,
+              hoverStart: undefined,
             }
+          }
+
+          private handleHover(name: string, date: Date): void {
+            this.setState({
+              hoverOn: date,
+            });
+            console.debug('hover on', date.toString());
           }
 
           private handleChange(name: string, date: Date): void {
             this.setState({
               start: date,
               end: date,
+              hoverStart: date,
             })
           }
 
           public render(): JSX.Element {
             const {mode, color} = this.props;
-            const {start, end} = this.state;
+            const {start, end, hoverOn, hoverStart} = this.state;
             return (
               <DynaMonthCalendar
                 mode={mode}
@@ -78,6 +90,9 @@ export default {
                 start={start}
                 end={end}
                 value={start}
+                hoverStart={hoverStart}
+                hoverOn={hoverOn}
+                onHover={this.handleHover.bind(this)}
                 onChange={this.handleChange.bind(this)}
               />
             )

@@ -1,4 +1,5 @@
 import moment = require("moment");
+import {Moment} from "moment";
 
 export const monthsLongNames: string[] = [
   'January',
@@ -22,9 +23,14 @@ export function getFirstDateOfMonth(date: Date): Date {
   return new Date(dateString);
 }
 
-export const getDate0 = (date: Date): Date => {
-  if (date == null) return date;
+export const startOfDayDate = (date: Date): Date => {
+  if (!date) return null;
   return moment(date).startOf('day').toDate();
+};
+
+export const startOfDayMoment = (date: Date | Moment | null): Moment | null => {
+  if (!date) return null;
+  return moment(date).startOf('day');
 };
 
 
@@ -42,7 +48,7 @@ export function getDaysArray(date: Date): number {
 export type TCalendarTable = Array<Array<Date>>;
 
 export function createCalendarTable(date: Date, startingFromWeekDay: number = 1): TCalendarTable {
-  date = getDate0(date);
+  date = startOfDayDate(date);
   let firstMonthDate: Date = getFirstDateOfMonth(date);
   let startingMonthDay: number = firstMonthDate.getDay();
   let startingCalendarIndex: number = startingMonthDay - startingFromWeekDay;
@@ -54,8 +60,8 @@ export function createCalendarTable(date: Date, startingFromWeekDay: number = 1)
   let lineIndex: number = 0;
   let line: Array<Date> = Array(7).fill(null);
   for (let iDay: number = -startingCalendarIndex; iDay < monthDays; iDay++) {
-    let d: Date = getDate0(new Date(firstMonthDate));
-    line[lineIndex] = getDate0(new Date(d.setDate(d.getDate() + iDay)));
+    let d: Date = startOfDayDate(new Date(firstMonthDate));
+    line[lineIndex] = startOfDayDate(new Date(d.setDate(d.getDate() + iDay)));
     lineIndex++;
     if (lineIndex > 6) {
       lines.push(line);
@@ -68,8 +74,8 @@ export function createCalendarTable(date: Date, startingFromWeekDay: number = 1)
   // fill the rest days
   const fillFromIndex: number = lines[lines.length - 1].indexOf(null);
   for (let iDay: number = fillFromIndex; iDay < 7; iDay++) {
-    let d: Date = getDate0(new Date(firstMonthDate));
-    lines[lines.length - 1][iDay] = getDate0(new Date(d.setDate(d.getDate() + (monthDays + iDay - fillFromIndex))));
+    let d: Date = startOfDayDate(new Date(firstMonthDate));
+    lines[lines.length - 1][iDay] = startOfDayDate(new Date(d.setDate(d.getDate() + (monthDays + iDay - fillFromIndex))));
   }
 
   return lines;
