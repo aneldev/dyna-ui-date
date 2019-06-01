@@ -191,7 +191,7 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
   }
 
   static getRangePointMode(start: Moment, end: Moment, now: Moment): ERangePointMode {
-    if (!start) return ERangePointMode.OUT;
+    if (!start || !end) return ERangePointMode.OUT;
 
     if (end.isBefore(start)) {
       const h = end;

@@ -4,10 +4,16 @@ import moment = require("moment");
 import {faIcon, IShowcase} from "dyna-showcase";
 
 import {
-  EMode, EStyle,
-  EDynaMonthCalendarColor, EDynaDatePickerColor,
+  EColor,
+  EMode,
+  ESize,
+  EStyle,
+  EEditDate,
+  DynaDatePicker,
+  DynaDateRangePicker,
   DynaMonthCalendar,
-  DynaDatePicker, ESize, EColor,
+  EDynaDatePickerColor,
+  EDynaMonthCalendarColor,
 } from "../../src";
 
 import {Logo} from "../logo";
@@ -436,18 +442,9 @@ export default {
             }
           }
 
-          private handleChange = (name: string, date: Date): void => {
-            console.log('on change', name, date);
-            const newState: IMyTestComponentState = {
-              ...this.state,
-              [name]: date,
-            };
-            if (newState.start > newState.end) {
-              let helper: Date = newState.end;
-              newState.end = newState.start;
-              newState.start = helper;
-            }
-            this.setState(newState);
+          private handleChange = (name: string, start: Date, end: Date): void => {
+            console.log('on change', name, start, end);
+            this.setState({start, end});
           };
 
           public render(): JSX.Element {
@@ -455,8 +452,9 @@ export default {
             const {start, end} = this.state;
             return (
               <div>
-                <DynaDatePicker
+                <DynaDateRangePicker
                   mode={mode}
+                  editDate={EEditDate.START}
                   label="From date"
                   style={style}
                   color={color}
@@ -466,11 +464,11 @@ export default {
                   max={new Date("2018-01-13")}
                   start={start}
                   end={end}
-                  value={start}
                   onChange={this.handleChange}
                 />
-                <DynaDatePicker
+                <DynaDateRangePicker
                   mode={mode}
+                  editDate={EEditDate.END}
                   label="To date"
                   style={style}
                   color={color}
@@ -480,7 +478,6 @@ export default {
                   max={new Date("2018-01-13")}
                   start={start}
                   end={end}
-                  value={end}
                   onChange={this.handleChange}
                 />
               </div>

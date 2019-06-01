@@ -6,8 +6,9 @@
 			@selected-foreground: white;
 			@range-color--ordinary: #3bad3b;
 			@range-color--weekend: #44c844;
-			@hovered-color--ordinary: @range-color--ordinary;
-			@hovered-color--weekend: @range-color--weekend;
+			@hovered-color--ordinary: #45cb45;
+			@hovered-color--weekend: #4ce04c;
+			@round-range: 16px;
 
 			.dmc--header {
 				background-color: #191919;
@@ -44,6 +45,7 @@
 						color: black;
 
 						transition:
+										border-radius 150ms ease-in-out,
 										color 150ms ease-in-out,
 										background-color 150ms ease-in-out,
 										opacity ease-in-out 200ms;
@@ -69,7 +71,7 @@
 						}
 						&--range- {
 							&START {
-								border-radius: 4px 0 0 4px;
+								border-radius: @round-range 0 0 @round-range;
 								background-color: @range-color--ordinary;
 								&.dmc--calendar--cell--weekend {
 									background-color: @range-color--weekend;
@@ -82,14 +84,14 @@
 								}
 							}
 							&END {
-								border-radius: 0 4px 4px 0;
+								border-radius: 0 @round-range @round-range 0;
 								background-color: @range-color--ordinary;
 								&.dmc--calendar--cell--weekend {
 									background-color: @range-color--weekend;
 								}
 							}
 							&START_END {
-								border-radius: 4px;
+								border-radius: @round-range;
 								background-color: @range-color--ordinary;
 								&.dmc--calendar--cell--weekend {
 									background-color: @range-color--weekend;

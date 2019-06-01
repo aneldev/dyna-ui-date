@@ -1,4 +1,5 @@
 import * as React from "react";
+import {KeyboardEvent} from "react";
 import moment = require("moment");
 
 import {DynaFieldWrapper, EMode, EStyle, ESize} from "dyna-ui-field-wrapper";
@@ -9,9 +10,10 @@ import {DynaMonthCalendar, ERangePointMode} from "../DynaMonthCalendar/DynaMonth
 import {startOfDayDate, monthsLongNames, weekDaysShortNames} from "../utils/utils";
 import {colorMixer, EColor, IColorMixer} from "../colorMixer";
 import {faIcon} from "../utils/faIcon";
+import {getShowPickerOnKeyPress} from "./utils";
+
 
 import "./style.less";
-import {KeyboardEvent} from "react";
 
 export {
   EMode,
@@ -198,30 +200,8 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
   };
 
   private handlerInputKeyPress = (event: KeyboardEvent<HTMLInputElement>): void => {
-    if (event.keyCode !== undefined) {
-      switch (event.keyCode) {
-        case 32: // space
-        case 13: // enter
-        this.setState({showPicker: !this.state.showPicker});
-          break;
-        case 27: // escape
-        case 9: // tab
-        this.setState({showPicker: false});
-          break;
-      }
-    }
-    else {
-      switch ((event as any).code) {
-        case 'Space':
-        case 'Enter':
-          this.setState({ showPicker: !this.state.showPicker });
-          break;
-        case 'Escape':
-        case 'Tab':
-          this.setState({ showPicker: false });
-          break;
-      }
-    }
+    const showPicker = getShowPickerOnKeyPress(event, this.state.showPicker);
+    if (showPicker!==null) this.setState({showPicker});
   };
 
   private renderInputDates(): string {
