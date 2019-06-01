@@ -212,8 +212,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
   private lastFocused: Date = null;
 
   private handlerTodayClick = (): void => {
-    const { name } = this.props;
-    this.handleDaySelect(name, startOfDayDate(new Date));
+    this.monthCalendar.setViewport(new Date);
   };
 
   private handlerUserCame = (): void => {
