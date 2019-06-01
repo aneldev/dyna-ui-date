@@ -48,7 +48,6 @@ export interface IDynaDateRangePickerProps {
 export interface IDynaDatePickerState {
   showPicker: boolean;
   targetDate: EEditDate;
-  hoverStart: Date;
   hoverOn: Date;
 }
 
@@ -95,7 +94,6 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
     this.state = {
       showPicker: false,
       targetDate: props.editDate,
-      hoverStart: props.start,
       hoverOn: undefined,
     }
   }
@@ -117,7 +115,6 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
         start = date;
         end = date;
         this.setState({
-          hoverStart: date,
           targetDate: EEditDate.END,
         });
         break;
@@ -125,7 +122,6 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
         start = prevStart;
         end = date;
         this.setState({
-          hoverStart: undefined,
           targetDate: EEditDate.START,
         });
         break;
@@ -139,7 +135,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
     const { color, showTodayButton, showCloseButton, todayButtonLabel, closeButtonLabel } = this.props;
     const { mode, label, name, start, end, min, max, pickerHeader, pickerFooter } = this.props;
     const { staringFromWeekDay, renderPickerMonthYear, renderPickerWeekDay, renderPickerDay } = this.props;
-    const { showPicker, hoverStart, hoverOn } = this.state;
+    const { showPicker, hoverOn } = this.state;
     const show: boolean = mode === EMode.EDIT && showPicker;
     const colors: IColorMixer = colorMixer(color);
     const todayButtonDisabled: boolean = moment().isBefore(min || new Date) || moment().isAfter(max || new Date);
@@ -163,7 +159,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
             end={end}
             min={min}
             max={max}
-            hoverStart={hoverStart}
+            hoverStart={start}
             hoverOn={hoverOn}
             staringFromWeekDay={staringFromWeekDay}
             onHover={this.handleHoverDate}
