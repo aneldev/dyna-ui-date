@@ -314,7 +314,16 @@ export default {
             }
           }
 
-          public componentWillReceiveProps(nextProps: IMyTestComponentProps): void {
+          public componentDidMount(): void {
+            this.checkProps({} as any, this.props);
+          }
+
+          public componentDidUpdate(prevProps: Readonly<IMyTestComponentProps>, prevState: Readonly<IMyTestComponentProps>, snapshot?: any): void {
+            this.checkProps(prevProps, this.props);
+          }
+
+          private checkProps(prevProps: IMyTestComponentProps, nextProps: IMyTestComponentProps): void {
+            if (JSON.stringify(prevProps) === JSON.stringify(nextProps)) return;
             this.setState({
               start: nextProps.start,
               end: nextProps.end,

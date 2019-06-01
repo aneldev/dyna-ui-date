@@ -100,15 +100,19 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
   }
 
   public componentDidMount(): void {
-    this.setStateCalendarTable(this.props);
+    this.checkProps({} as any, this.props);
   }
 
-  public componentWillReceiveProps(nextProps: IDynaMonthCalendarProps): void {
-    if (nextProps.value !== this.props.value ||
-      JSON.stringify(nextProps.values) !== JSON.stringify(this.props.values) ||
-      nextProps.start !== this.props.start ||
-      nextProps.end !== this.props.end ||
-      nextProps.hoverOn !== this.props.hoverOn
+  public componentDidUpdate(prevProps: Readonly<IDynaMonthCalendarProps>, prevState: Readonly<IDynaMonthCalendarState>, snapshot?: any): void {
+    this.checkProps(prevProps, this.props);
+  }
+
+  private checkProps(prevProps: IDynaMonthCalendarProps, nextProps: IDynaMonthCalendarProps): void {
+    if (nextProps.value !== prevProps.value ||
+      JSON.stringify(nextProps.values) !== JSON.stringify(prevProps.values) ||
+      nextProps.start !== prevProps.start ||
+      nextProps.end !== prevProps.end ||
+      nextProps.hoverOn !== prevProps.hoverOn
     ) {
       this.setStateCalendarTable(nextProps);
     }
