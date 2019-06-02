@@ -60,7 +60,7 @@ export enum EEditDate {
 }
 
 export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerProps, IDynaDatePickerState> {
-  static defaultProps: IDynaDateRangePickerProps = {
+  static defaultProps: Partial<IDynaDateRangePickerProps> = {
     className: '',
     name: null,
     label: null,
@@ -76,7 +76,6 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
     end: null,
     min: null,
     max: null,
-    editDate: EEditDate.START,
     staringFromWeekDay: 1,
     showTodayButton: true,
     showCloseButton: true,
