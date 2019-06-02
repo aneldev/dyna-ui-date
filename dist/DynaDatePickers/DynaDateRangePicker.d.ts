@@ -1,10 +1,10 @@
 import * as React from "react";
 import { EMode, EStyle, ESize } from "dyna-ui-field-wrapper";
-import { EInRange } from "../DynaMonthCalendar/DynaMonthCalendar";
+import { ERangePointMode } from "../DynaMonthCalendar/DynaMonthCalendar";
+import { EColor } from "../colorMixer";
 import "./style.less";
-export { EMode, ESize, EStyle, EInRange, };
 export declare type TContent = JSX.Element | string;
-export interface IDynaDatePickerProps {
+export interface IDynaDateRangePickerProps {
     className?: string;
     name: string;
     label?: TContent;
@@ -18,35 +18,36 @@ export interface IDynaDatePickerProps {
     color?: EColor;
     start?: Date;
     end?: Date;
-    value?: Date;
-    values?: Date[];
     min?: Date;
     max?: Date;
+    editDate: EEditDate;
     showTodayButton?: boolean;
     showCloseButton?: boolean;
-    closeOnSelect?: boolean;
     closeButtonLabel?: TContent;
     todayButtonLabel?: TContent;
     staringFromWeekDay?: number;
     renderInputDate?: (value: Date) => string;
     renderPickerMonthYear?: (month: number, year: number) => TContent;
     renderPickerWeekDay?: (weekDay: number) => TContent;
-    renderPickerDay?: (date: Date, dayInMonth: number, dayInWeek: number, inRange: EInRange) => TContent;
-    onChange: (name: string, date: Date) => void;
-}
-export declare enum EColor {
-    GREY_ORANGE_GREEN = "GREY_ORANGE_GREEN",
-    GREY_RED_GREEN = "GREY_RED_GREEN",
-    WHITE_BLACK = "WHITE_BLACK"
+    renderPickerDay?: (date: Date, dayInMonth: number, dayInWeek: number, inRange: ERangePointMode) => TContent;
+    onChange: (name: string, start: Date, end: Date) => void;
 }
 export interface IDynaDatePickerState {
     showPicker: boolean;
+    targetDate: EEditDate;
+    hoverOn: Date;
 }
-export declare class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaDatePickerState> {
-    static defaultProps: IDynaDatePickerProps;
+export declare enum EEditDate {
+    START = "START",
+    END = "END"
+}
+export declare class DynaDateRangePicker extends React.Component<IDynaDateRangePickerProps, IDynaDatePickerState> {
+    static defaultProps: IDynaDateRangePickerProps;
     private monthCalendar;
-    constructor(props: IDynaDatePickerProps);
+    constructor(props: IDynaDateRangePickerProps);
+    private handleHoverDate;
     private handleDaySelect;
+    private readonly viewport;
     private renderPicker;
     private lastFocused;
     private handlerTodayClick;
