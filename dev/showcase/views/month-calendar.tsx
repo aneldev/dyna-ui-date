@@ -38,7 +38,6 @@ export const monthCalendar: IShowcaseView = {
         this.setState({
           hoverOn: date,
         });
-        console.debug('hover on', date.toString());
       };
 
       private handleChange = (name: string, date: Date): void => {

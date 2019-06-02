@@ -89,7 +89,8 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
     onChange: (name: string, date: Date) => undefined,
   };
 
-  private monthCalendar: DynaMonthCalendar;
+  private monthCalendarA: DynaMonthCalendar;
+  private monthCalendarB: DynaMonthCalendar;
 
   constructor(props: IDynaDateRangePickerProps) {
     super(props);
@@ -143,6 +144,19 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
     return editDate === EEditDate.START ? start : end;
   }
 
+  private setViewport(date: Date): void {
+    this.monthCalendarA.setViewport(date);
+    this.monthCalendarB.setViewport(moment(date).add(1, 'month').toDate());
+  }
+
+  private handleMonthCalendarAViewportChange = (name: string, date: Date): void => {
+    this.monthCalendarB.setViewport(moment(date).add(1, 'month').toDate());
+  };
+
+  private handleMonthCalendarBViewportChange = (name: string, date: Date): void => {
+    this.monthCalendarA.setViewport(moment(date).add(-1, 'month').toDate());
+  };
+
   private renderPicker(): JSX.Element {
     const {
       color, showTodayButton, showCloseButton, todayButtonLabel, closeButtonLabel,
@@ -167,23 +181,46 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
             <h2>{label}</h2>
           </div>
           {pickerHeader}
-          <DynaMonthCalendar
-            ref={(component: DynaMonthCalendar) => this.monthCalendar = component}
-            name={name}
-            color={colors.calendarColor}
-            start={start}
-            end={end}
-            min={min}
-            max={max}
-            hoverStart={start}
-            hoverOn={hoverOn}
-            staringFromWeekDay={staringFromWeekDay}
-            onHover={this.handleHoverDate}
-            onChange={this.handleDaySelect}
-            renderPickerDay={renderPickerDay}
-            renderPickerWeekDay={renderPickerWeekDay}
-            renderPickerMonthYear={renderPickerMonthYear}
-          />
+          <div className="ddp--double-calendar-container">
+            <DynaMonthCalendar
+              className="ddp--double-calendar-A"
+              ref={(component: DynaMonthCalendar) => this.monthCalendarA = component}
+              name={name}
+              color={colors.calendarColor}
+              start={start}
+              end={end}
+              min={min}
+              max={max}
+              hoverStart={start}
+              hoverOn={hoverOn}
+              staringFromWeekDay={staringFromWeekDay}
+              onViewportChange={this.handleMonthCalendarAViewportChange}
+              onHover={this.handleHoverDate}
+              onChange={this.handleDaySelect}
+              renderPickerDay={renderPickerDay}
+              renderPickerWeekDay={renderPickerWeekDay}
+              renderPickerMonthYear={renderPickerMonthYear}
+            />
+            <DynaMonthCalendar
+              className="ddp--double-calendar-B"
+              ref={(component: DynaMonthCalendar) => this.monthCalendarB = component}
+              name={name}
+              color={colors.calendarColor}
+              start={start}
+              end={end}
+              min={min}
+              max={max}
+              hoverStart={start}
+              hoverOn={hoverOn}
+              staringFromWeekDay={staringFromWeekDay}
+              onViewportChange={this.handleMonthCalendarBViewportChange}
+              onHover={this.handleHoverDate}
+              onChange={this.handleDaySelect}
+              renderPickerDay={renderPickerDay}
+              renderPickerWeekDay={renderPickerWeekDay}
+              renderPickerMonthYear={renderPickerMonthYear}
+            />
+          </div>
           <div className="ddp--calendar--button-bar">
             {showTodayButton ?
               <div>
@@ -215,7 +252,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
   private lastFocused: Date = null;
 
   private handlerTodayClick = (): void => {
-    this.monthCalendar.setViewport(new Date);
+    this.setViewport(new Date);
   };
 
   private handlerUserCame = (): void => {
@@ -230,7 +267,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
       targetDate: editDate,
     });
 
-    if (showPicker) this.monthCalendar.setViewport(this.viewport);
+    this.setViewport(this.viewport);
 
     this.lastFocused = new Date;
   };

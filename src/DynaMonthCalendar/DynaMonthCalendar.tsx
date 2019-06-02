@@ -32,6 +32,7 @@ export enum ERangePointMode {
 }
 
 export interface IDynaMonthCalendarProps {
+  className?: string;
   name: string;
   mode?: EMode;
   color?: EColor;
@@ -47,6 +48,7 @@ export interface IDynaMonthCalendarProps {
   renderPickerMonthYear?: (month: number, year: number) => TContent;
   renderPickerWeekDay?: (weekDay: number) => TContent;
   renderPickerDay?: (date: Date, dayInMonth: number, dayInWeek: number, inRange: ERangePointMode, hovered: ERangePointMode) => TContent;
+  onViewportChange: (name: string, date: Date) => void;
   onHover: (name: string, date: Date) => void;
   onChange: (name: string, date: Date) => void;
 }
@@ -86,6 +88,7 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
     renderPickerWeekDay: (weekDay: number) => <div>{weekDaysShortNames[weekDay]}</div>,
     renderPickerDay: (date: Date, dayInMonth: number, dayInWeek: number, inRange: ERangePointMode) =>
       <div>{dayInMonth}</div>,
+    onViewportChange: (name: string, date: Date) => undefined,
     onHover: (name: string, date: Date) => undefined,
     onChange: (name: string, date: Date) => undefined,
   };
@@ -118,10 +121,21 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
   }
 
   public setViewport(viewport: Date): void {
-    this.setState({ viewport }, () => this.setStateCalendarTable(this.props));
+    const { name, onViewportChange } = this.props;
+    if (moment(this.state.viewport).isSame(viewport, 'month')) return;
+
+    this.setState(
+      { viewport },
+      () => {
+        this.setStateCalendarTable(this.props, () => {
+          onViewportChange(name, viewport);
+        });
+
+      },
+    );
   }
 
-  private setStateCalendarTable(props: IDynaMonthCalendarProps): void {
+  private setStateCalendarTable(props: IDynaMonthCalendarProps, cbUpdated?: () => void): void {
     let {
       min, max,
       start: rs, end: re,
@@ -186,7 +200,7 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
     this.setState({
       viewport,
       calendarTable: uiCalendarTable,
-    });
+    }, cbUpdated);
   }
 
   static getRangePointMode(start: Moment, end: Moment, now: Moment): ERangePointMode {
@@ -228,12 +242,15 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
 
   private moveMonth(direction: number): void {
     if (this.props.mode === EMode.VIEW) return;
-    this.setState({
-        viewport: moment(this.state.viewport).add(direction, 'months').toDate()
-      }
-      , () => {
-        this.setStateCalendarTable(this.props);
-      })
+
+    const { name, onViewportChange } = this.props;
+    const viewport = moment(this.state.viewport).add(direction, 'months').toDate();
+    if (this.state.viewport === viewport) return;
+
+    this.setState({ viewport }, () => {
+      this.setStateCalendarTable(this.props);
+      onViewportChange(name, viewport);
+    });
   }
 
   private handleNavMonthPrev = (): void => {
@@ -261,6 +278,7 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
 
   public render(): JSX.Element {
     const {
+      className: userClassName,
       mode,
       color,
       staringFromWeekDay,
@@ -275,6 +293,7 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
     } = this.state;
 
     const className: string = [
+      userClassName,
       'dyna-month-calendar',
       `dyna-month-calendar--mode-${mode}`,
       `dyna-month-calendar--color-${color}`,

@@ -37,6 +37,24 @@
               width: 100%;
             }
           }
+
+          .ddp--double-calendar-container {
+            display: flex;
+
+            .ddp--double-calendar-A {
+              .dmc--header--nav-next {
+                visibility: hidden;
+              }
+            }
+
+            .ddp--double-calendar-B {
+              padding-left: 0;
+
+              .dmc--header--nav-prev {
+                visibility: hidden;
+              }
+            }
+          }
         }
 
         @media (max-width: @media-tablet) {
@@ -80,9 +98,8 @@
           .dyna-ui-picker-container {
             font-size: 11px;
             .dyna-month-calendar {
-              @size: 192px;
-              width: @size;
-              height: @size;
+              width: 192px;
+              height: 192px;
             }
           }
         }
@@ -93,9 +110,8 @@
           .dyna-ui-picker-container {
             font-size: 14px;
             .dyna-month-calendar {
-              @size: 256px;
-              width: @size;
-              height: @size;
+              width: 256px;
+              height: 256px;
             }
           }
         }
@@ -106,9 +122,8 @@
           .dyna-ui-picker-container {
             font-size: 16px;
             .dyna-month-calendar {
-              @size: 320px;
-              width: @size;
-              height: @size;
+              width: 320px;
+              height: 320px;
             }
           }
         }
@@ -119,23 +134,32 @@
           .dyna-ui-picker-container {
             font-size: 18px;
             .dyna-month-calendar {
-              @size: 448px;
-              width: @size;
-              height: @size;
+              width: 448px;
+              height: 448px;
             }
           }
         }
       }
     }
     @media (max-width: @media-tablet) {
-      .dyna-month-calendar {
+      .ddp--double-calendar-container {
         width: 98%;
         padding: 1%;
         height: 50%;
       }
 
+      .ddp--double-calendar-A {
+        .dmc--header--nav-next {
+          visibility: visible !important;
+        }
+      }
+
+      .ddp--double-calendar-B {
+        display: none;
+      }
     }
 
   }
 }
+
 
