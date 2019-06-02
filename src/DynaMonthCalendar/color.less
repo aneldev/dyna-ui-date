@@ -1,11 +1,14 @@
-@import (reference) "../common";
-
 .dyna-month-calendar {
 
 	&--color- {
 		&GREY_GREEN {
-			@range-color: #3bad3b;
+			@selected-background: #2c7e2c;
+			@selected-foreground: white;
+			@range-color--ordinary: #3bad3b;
 			@range-color--weekend: #44c844;
+			@hovered-color--ordinary: #45cb45;
+			@hovered-color--weekend: #4ce04c;
+			@round-range: 16px;
 
 			.dmc--header {
 				background-color: #191919;
@@ -16,7 +19,10 @@
 					background-color: #313131;
 					margin: 2px;
 					padding: 0 5px;
-					.hover();
+					transition: opacity ease-in-out 200ms;
+					&:hover{
+						opacity: 0.7;
+					}
 				}
 				&--label {
 					font-weight: bold;
@@ -38,14 +44,24 @@
 						margin: 1px;
 						color: black;
 
+						transition:
+										border-radius 150ms ease-in-out,
+										color 150ms ease-in-out,
+										background-color 150ms ease-in-out,
+										opacity ease-in-out 200ms;
+
 						&--month-in {
 							font-weight: bold;
 							background-color: #c3c3c3;
-							.hover();
+							&:hover{
+								opacity: 0.7;
+							}
 						}
 						&--month-out {
 							background-color: #f5f5f5;
-							.hover();
+							&:hover{
+								opacity: 0.7;
+							}
 						}
 						&.dmc--calendar--cell--weekend {
 							background-color: #ccbd88;
@@ -53,42 +69,70 @@
 						&--disabled {
 							color: #9c9c9c;
 						}
-						&--selected {
-							box-shadow: inset 0 0 0 2px #005000;
-							background-color: @range-color;
-							&.dmc--calendar--cell--weekend {
-								background-color: @range-color--weekend;
-							}
-						}
 						&--range- {
 							&START {
-								border-radius: 4px 0 0 4px;
-								background-color: @range-color;
+								border-radius: @round-range 0 0 @round-range;
+								background-color: @range-color--ordinary;
 								&.dmc--calendar--cell--weekend {
 									background-color: @range-color--weekend;
 								}
 							}
 							&MIDDLE {
-								background-color: @range-color;
+								background-color: @range-color--ordinary;
 								&.dmc--calendar--cell--weekend {
 									background-color: @range-color--weekend;
 								}
 							}
 							&END {
-								border-radius: 0 4px 4px 0;
-								background-color: @range-color;
+								border-radius: 0 @round-range @round-range 0;
+								background-color: @range-color--ordinary;
 								&.dmc--calendar--cell--weekend {
 									background-color: @range-color--weekend;
 								}
 							}
 							&START_END {
-								border-radius: 4px;
-								background-color: @range-color;
+								border-radius: @round-range;
+								background-color: @range-color--ordinary;
 								&.dmc--calendar--cell--weekend {
 									background-color: @range-color--weekend;
 								}
 							}
 							&OUT {
+							}
+						}
+						&--hover- {
+							&START {
+								background-color: @hovered-color--ordinary;
+								&.dmc--calendar--cell--weekend {
+									background-color: @hovered-color--weekend;
+								}
+							}
+							&MIDDLE {
+								background-color: @hovered-color--ordinary;
+								&.dmc--calendar--cell--weekend {
+									background-color: @hovered-color--weekend;
+								}
+							}
+							&END {
+								background-color: @hovered-color--ordinary;
+								&.dmc--calendar--cell--weekend {
+									background-color: @hovered-color--weekend;
+								}
+							}
+							&START_END {
+								background-color: @hovered-color--ordinary;
+								&.dmc--calendar--cell--weekend {
+									background-color: @hovered-color--weekend;
+								}
+							}
+							&OUT {
+							}
+						}
+						&--selected {
+							color: @selected-foreground;
+							background-color: @selected-background;
+							&.dmc--calendar--cell--weekend {
+								background-color: @range-color--weekend;
 							}
 						}
 					}

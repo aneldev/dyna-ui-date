@@ -13,7 +13,13 @@ export {
   ESize, EStyle,
   DynaDatePicker,
   IDynaDatePickerProps,
-} from "./DynaDatePicker/DynaDatePicker";
+} from "./DynaDatePickers/DynaDatePicker";
+
+export {
+  EEditDate,
+  DynaDateRangePicker,
+  IDynaDateRangePickerProps,
+} from "./DynaDatePickers/DynaDateRangePicker";
 
 export {
   EColor,
