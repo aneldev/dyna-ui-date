@@ -7,7 +7,7 @@ import {DynaButton, EStyle as EButtonStyle} from "dyna-ui-button";
 import {DynaPickerContainer, EStyle as EPickerContainerStyle} from "dyna-ui-picker-container";
 
 import {DynaMonthCalendar, ERangePointMode} from "../DynaMonthCalendar/DynaMonthCalendar";
-import {startOfDayDate, monthsLongNames, weekDaysShortNames} from "../utils/utils";
+import {monthsLongNames, weekDaysShortNames} from "../utils/utils";
 import {colorMixer, EColor, IColorMixer} from "../colorMixer";
 import {faIcon} from "../utils/faIcon";
 
@@ -219,11 +219,12 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
     if (this.props.mode === EMode.VIEW) return;
     if (this.lastFocused && Number(new Date) - Number(this.lastFocused) < 300) return;
 
-    const { start } = this.props;
-    const showPicker: boolean = !this.state.showPicker;
+    const { editDate } = this.props;
+    const showPicker = !this.state.showPicker;
 
     this.setState({
       showPicker,
+      targetDate: editDate,
     });
 
     if (showPicker) this.monthCalendar.setViewport(this.viewport);
