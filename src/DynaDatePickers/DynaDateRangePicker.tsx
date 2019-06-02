@@ -11,8 +11,10 @@ import {monthsLongNames, weekDaysShortNames} from "../utils/utils";
 import {colorMixer, EColor, IColorMixer} from "../colorMixer";
 import {faIcon} from "../utils/faIcon";
 
-import "./style.less";
-import {getShowPickerOnKeyPress} from "./utils"; // borrow the styles from the DynaDatePicker since the component is almost the same
+import {getShowPickerOnKeyPress} from "./utils";
+import {getButtonOneSizeUp} from "../utils/getButtonOneSizeUp";
+
+import "./style.less"; // borrow the styles from the DynaDatePicker since the component is almost the same
 
 export type TContent = JSX.Element | string;
 
@@ -144,7 +146,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
   private renderPicker(): JSX.Element {
     const {
       color, showTodayButton, showCloseButton, todayButtonLabel, closeButtonLabel,
-      mode, label, name, start, end, min, max, pickerHeader, pickerFooter,
+      mode, size, label, name, start, end, min, max, pickerHeader, pickerFooter,
       staringFromWeekDay, renderPickerMonthYear, renderPickerWeekDay, renderPickerDay,
     } = this.props;
     const {
@@ -187,7 +189,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
                 <DynaButton
                   style={EButtonStyle.ROUNDED}
                   color={colors.pickerButtonColor}
-                  size={ESize.LARGE}
+                  size={getButtonOneSizeUp(size)}
                   onClick={this.handlerTodayClick}
                 >{todayButtonLabel}</DynaButton>
               </div>
@@ -197,7 +199,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
                 <DynaButton
                   style={EButtonStyle.ROUNDED}
                   color={colors.pickerButtonColor}
-                  size={ESize.LARGE}
+                  size={getButtonOneSizeUp(size)}
                   onClick={this.handlerUserCame}
                 >{closeButtonLabel}</DynaButton>
               </div>

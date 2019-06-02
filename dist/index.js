@@ -952,6 +952,8 @@ var utils_2 = __webpack_require__(/*! ./utils */ "./src/DynaDatePickers/utils.ts
 
 __webpack_require__(/*! ./style.less */ "./src/DynaDatePickers/style.less");
 
+var getButtonOneSizeUp_1 = __webpack_require__(/*! ../utils/getButtonOneSizeUp */ "./src/utils/getButtonOneSizeUp.ts");
+
 var DynaDatePicker =
 /** @class */
 function (_super) {
@@ -1021,6 +1023,7 @@ function (_super) {
     var _b = this.props,
         mode = _b.mode,
         label = _b.label,
+        size = _b.size,
         name = _b.name,
         value = _b.value,
         values = _b.values,
@@ -1069,13 +1072,13 @@ function (_super) {
     }, showTodayButton ? React.createElement("div", null, React.createElement(dyna_ui_button_1.DynaButton, {
       style: dyna_ui_button_1.EStyle.ROUNDED,
       color: colors.pickerButtonColor,
-      size: dyna_ui_field_wrapper_1.ESize.LARGE,
+      size: getButtonOneSizeUp_1.getButtonOneSizeUp(size),
       disabled: todayButtonDisabled,
       onClick: this.handlerTodayClick
     }, todayButtonLabel)) : null, showCloseButton ? React.createElement("div", null, React.createElement(dyna_ui_button_1.DynaButton, {
       style: dyna_ui_button_1.EStyle.ROUNDED,
       color: colors.pickerButtonColor,
-      size: dyna_ui_field_wrapper_1.ESize.LARGE,
+      size: getButtonOneSizeUp_1.getButtonOneSizeUp(size),
       onClick: this.handlerUserCame
     }, closeButtonLabel)) : null), pickerFooter));
   };
@@ -1263,9 +1266,11 @@ var colorMixer_1 = __webpack_require__(/*! ../colorMixer */ "./src/colorMixer.ts
 
 var faIcon_1 = __webpack_require__(/*! ../utils/faIcon */ "./src/utils/faIcon.tsx");
 
-__webpack_require__(/*! ./style.less */ "./src/DynaDatePickers/style.less");
+var utils_2 = __webpack_require__(/*! ./utils */ "./src/DynaDatePickers/utils.ts");
 
-var utils_2 = __webpack_require__(/*! ./utils */ "./src/DynaDatePickers/utils.ts"); // borrow the styles from the DynaDatePicker since the component is almost the same
+var getButtonOneSizeUp_1 = __webpack_require__(/*! ../utils/getButtonOneSizeUp */ "./src/utils/getButtonOneSizeUp.ts");
+
+__webpack_require__(/*! ./style.less */ "./src/DynaDatePickers/style.less"); // borrow the styles from the DynaDatePicker since the component is almost the same
 
 
 var EEditDate;
@@ -1338,11 +1343,12 @@ function (_super) {
     _this.handlerUserCame = function () {
       if (_this.props.mode === dyna_ui_field_wrapper_1.EMode.VIEW) return;
       if (_this.lastFocused && Number(new Date()) - Number(_this.lastFocused) < 300) return;
-      var start = _this.props.start;
+      var editDate = _this.props.editDate;
       var showPicker = !_this.state.showPicker;
 
       _this.setState({
-        showPicker: showPicker
+        showPicker: showPicker,
+        targetDate: editDate
       });
 
       if (showPicker) _this.monthCalendar.setViewport(_this.viewport);
@@ -1399,6 +1405,7 @@ function (_super) {
         todayButtonLabel = _a.todayButtonLabel,
         closeButtonLabel = _a.closeButtonLabel,
         mode = _a.mode,
+        size = _a.size,
         label = _a.label,
         name = _a.name,
         start = _a.start,
@@ -1447,12 +1454,12 @@ function (_super) {
     }, showTodayButton ? React.createElement("div", null, React.createElement(dyna_ui_button_1.DynaButton, {
       style: dyna_ui_button_1.EStyle.ROUNDED,
       color: colors.pickerButtonColor,
-      size: dyna_ui_field_wrapper_1.ESize.LARGE,
+      size: getButtonOneSizeUp_1.getButtonOneSizeUp(size),
       onClick: this.handlerTodayClick
     }, todayButtonLabel)) : null, showCloseButton ? React.createElement("div", null, React.createElement(dyna_ui_button_1.DynaButton, {
       style: dyna_ui_button_1.EStyle.ROUNDED,
       color: colors.pickerButtonColor,
-      size: dyna_ui_field_wrapper_1.ESize.LARGE,
+      size: getButtonOneSizeUp_1.getButtonOneSizeUp(size),
       onClick: this.handlerUserCame
     }, closeButtonLabel)) : null), pickerFooter));
   };
@@ -2231,6 +2238,33 @@ exports.faIcon = function (awesomeFontIconName, className) {
     className: ("fa fa-" + awesomeFontIconName + " " + className).trim(),
     "aria-hidden": "true"
   });
+};
+
+/***/ }),
+
+/***/ "./src/utils/getButtonOneSizeUp.ts":
+/*!*****************************************!*\
+  !*** ./src/utils/getButtonOneSizeUp.ts ***!
+  \*****************************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var dyna_ui_button_1 = __webpack_require__(/*! dyna-ui-button */ "dyna-ui-button");
+
+exports.getButtonOneSizeUp = function (size) {
+  var sizes = Object.keys(dyna_ui_button_1.ESize);
+  var index = sizes.indexOf(size);
+  var newIndex = index + 1;
+  if (newIndex > sizes.length - 1) newIndex = sizes.length - 1;
+  return sizes[newIndex];
 };
 
 /***/ }),

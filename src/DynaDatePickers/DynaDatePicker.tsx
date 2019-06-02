@@ -11,7 +11,7 @@ import {startOfDayDate, monthsLongNames, weekDaysShortNames} from "../utils/util
 import {colorMixer, EColor, IColorMixer} from "../colorMixer";
 import {faIcon} from "../utils/faIcon";
 import {getShowPickerOnKeyPress} from "./utils";
-
+import {getButtonOneSizeUp} from "../utils/getButtonOneSizeUp";
 
 import "./style.less";
 
@@ -107,7 +107,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
 
   private renderPicker(): JSX.Element {
     const {color, showTodayButton, showCloseButton, todayButtonLabel, closeButtonLabel} = this.props;
-    const {mode, label, name, value, values, start, end, min, max, pickerHeader, pickerFooter} = this.props;
+    const {mode, label, size, name, value, values, start, end, min, max, pickerHeader, pickerFooter} = this.props;
     const {staringFromWeekDay, renderPickerMonthYear, renderPickerWeekDay, renderPickerDay} = this.props;
     const {showPicker} = this.state;
     const show: boolean = mode === EMode.EDIT && showPicker;
@@ -147,7 +147,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
                 <DynaButton
                   style={EButtonStyle.ROUNDED}
                   color={colors.pickerButtonColor}
-                  size={ESize.LARGE}
+                  size={getButtonOneSizeUp(size)}
                   disabled={todayButtonDisabled}
                   onClick={this.handlerTodayClick}
                 >{todayButtonLabel}</DynaButton>
@@ -158,7 +158,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
                 <DynaButton
                   style={EButtonStyle.ROUNDED}
                   color={colors.pickerButtonColor}
-                  size={ESize.LARGE}
+                  size={getButtonOneSizeUp(size)}
                   onClick={this.handlerUserCame}
                 >{closeButtonLabel}</DynaButton>
               </div>
