@@ -975,6 +975,8 @@ function (_super) {
     _this.handlerTodayClick = function () {
       var name = _this.props.name;
 
+      _this.monthCalendar.setViewport(new Date());
+
       _this.handleDaySelect(name, utils_1.startOfDayDate(new Date()));
     };
 
@@ -1024,6 +1026,7 @@ function (_super) {
         mode = _b.mode,
         label = _b.label,
         size = _b.size,
+        pickerSize = _b.pickerSize,
         name = _b.name,
         value = _b.value,
         values = _b.values,
@@ -1042,6 +1045,7 @@ function (_super) {
     var show = mode === dyna_ui_field_wrapper_1.EMode.EDIT && showPicker;
     var colors = colorMixer_1.colorMixer(color);
     var todayButtonDisabled = moment().isBefore(min || new Date()) || moment().isAfter(max || new Date());
+    var buttonSize = getButtonOneSizeUp_1.getButtonOneSizeUp(pickerSize || size);
     return React.createElement(dyna_ui_picker_container_1.DynaPickerContainer, {
       style: dyna_ui_picker_container_1.EStyle.ROUNDED,
       color: colors.pickerContainerColor,
@@ -1072,13 +1076,13 @@ function (_super) {
     }, showTodayButton ? React.createElement("div", null, React.createElement(dyna_ui_button_1.DynaButton, {
       style: dyna_ui_button_1.EStyle.ROUNDED,
       color: colors.pickerButtonColor,
-      size: getButtonOneSizeUp_1.getButtonOneSizeUp(size),
+      size: buttonSize,
       disabled: todayButtonDisabled,
       onClick: this.handlerTodayClick
     }, todayButtonLabel)) : null, showCloseButton ? React.createElement("div", null, React.createElement(dyna_ui_button_1.DynaButton, {
       style: dyna_ui_button_1.EStyle.ROUNDED,
       color: colors.pickerButtonColor,
-      size: getButtonOneSizeUp_1.getButtonOneSizeUp(size),
+      size: buttonSize,
       onClick: this.handlerUserCame
     }, closeButtonLabel)) : null), pickerFooter));
   };
@@ -1107,12 +1111,13 @@ function (_super) {
         mode = _a.mode,
         style = _a.style,
         size = _a.size,
+        pickerSize = _a.pickerSize,
         color = _a.color,
         label = _a.label,
         required = _a.required,
         validationMessage = _a.validationMessage;
     var colors = colorMixer_1.colorMixer(color);
-    var className = ['dyna-date-picker', userClassName, "dyna-date-picker-mode-" + mode, "dyna-date-picker-style-" + style, "dyna-date-picker-size-" + size].filter(Boolean).join(' ');
+    var className = ['dyna-date-picker', userClassName, "dyna-date-picker-mode-" + mode, "dyna-date-picker-style-" + style, "dyna-date-picker-size-" + (pickerSize || size)].filter(Boolean).join(' ');
     return React.createElement("div", {
       className: className
     }, React.createElement(dyna_ui_field_wrapper_1.DynaFieldWrapper, {
@@ -1406,6 +1411,7 @@ function (_super) {
         closeButtonLabel = _a.closeButtonLabel,
         mode = _a.mode,
         size = _a.size,
+        pickerSize = _a.pickerSize,
         label = _a.label,
         name = _a.name,
         start = _a.start,
@@ -1423,6 +1429,7 @@ function (_super) {
         hoverOn = _b.hoverOn;
     var show = mode === dyna_ui_field_wrapper_1.EMode.EDIT && showPicker;
     var colors = colorMixer_1.colorMixer(color);
+    var buttonSize = getButtonOneSizeUp_1.getButtonOneSizeUp(pickerSize || size);
     return React.createElement(dyna_ui_picker_container_1.DynaPickerContainer, {
       style: dyna_ui_picker_container_1.EStyle.ROUNDED,
       color: colors.pickerContainerColor,
@@ -1454,12 +1461,12 @@ function (_super) {
     }, showTodayButton ? React.createElement("div", null, React.createElement(dyna_ui_button_1.DynaButton, {
       style: dyna_ui_button_1.EStyle.ROUNDED,
       color: colors.pickerButtonColor,
-      size: getButtonOneSizeUp_1.getButtonOneSizeUp(size),
+      size: buttonSize,
       onClick: this.handlerTodayClick
     }, todayButtonLabel)) : null, showCloseButton ? React.createElement("div", null, React.createElement(dyna_ui_button_1.DynaButton, {
       style: dyna_ui_button_1.EStyle.ROUNDED,
       color: colors.pickerButtonColor,
-      size: getButtonOneSizeUp_1.getButtonOneSizeUp(size),
+      size: buttonSize,
       onClick: this.handlerUserCame
     }, closeButtonLabel)) : null), pickerFooter));
   };
@@ -1486,12 +1493,13 @@ function (_super) {
         mode = _a.mode,
         style = _a.style,
         size = _a.size,
+        pickerSize = _a.pickerSize,
         color = _a.color,
         label = _a.label,
         required = _a.required,
         validationMessage = _a.validationMessage;
     var colors = colorMixer_1.colorMixer(color);
-    var className = ['dyna-date-picker', userClassName, "dyna-date-picker-mode-" + mode, "dyna-date-picker-style-" + style, "dyna-date-picker-size-" + size].filter(Boolean).join(' ');
+    var className = ['dyna-date-picker', userClassName, "dyna-date-picker-mode-" + mode, "dyna-date-picker-style-" + style, "dyna-date-picker-size-" + (pickerSize || size)].filter(Boolean).join(' ');
     return React.createElement("div", {
       className: className
     }, React.createElement(dyna_ui_field_wrapper_1.DynaFieldWrapper, {

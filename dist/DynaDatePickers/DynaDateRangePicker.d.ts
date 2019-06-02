@@ -10,6 +10,7 @@ export interface IDynaDateRangePickerProps {
     label?: TContent;
     mode?: EMode;
     size?: ESize;
+    pickerSize?: ESize;
     required?: TContent;
     validationMessage?: TContent;
     pickerHeader?: TContent;
