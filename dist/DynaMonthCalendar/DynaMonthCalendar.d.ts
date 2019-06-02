@@ -15,6 +15,7 @@ export declare enum ERangePointMode {
     MIDDLE = "MIDDLE"
 }
 export interface IDynaMonthCalendarProps {
+    className?: string;
     name: string;
     mode?: EMode;
     color?: EColor;
@@ -30,6 +31,7 @@ export interface IDynaMonthCalendarProps {
     renderPickerMonthYear?: (month: number, year: number) => TContent;
     renderPickerWeekDay?: (weekDay: number) => TContent;
     renderPickerDay?: (date: Date, dayInMonth: number, dayInWeek: number, inRange: ERangePointMode, hovered: ERangePointMode) => TContent;
+    onViewportChange: (name: string, date: Date) => void;
     onHover: (name: string, date: Date) => void;
     onChange: (name: string, date: Date) => void;
 }
