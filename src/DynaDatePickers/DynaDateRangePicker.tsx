@@ -284,7 +284,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
       `dyna-date-picker-mode-${mode}`,
       `dyna-date-picker-style-${style}`,
       `dyna-date-picker-size-${size}`,
-    ].join(' ').trim();
+    ].filter(Boolean).join(' ');
 
     return (
       <div className={className}>

@@ -278,7 +278,7 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
       'dyna-month-calendar',
       `dyna-month-calendar--mode-${mode}`,
       `dyna-month-calendar--color-${color}`,
-    ].join(' ').trim();
+    ].filter(Boolean).join(' ');
 
     return (
       <div className={className}>
@@ -309,7 +309,7 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
                     calendarCell.weekend ? "dmc--calendar--cell--weekend" : "",
                     `dmc--calendar--cell--range-${calendarCell.inRange}`,
                     `dmc--calendar--cell--hover-${calendarCell.hovered}`,
-                  ].join(' ').trim();
+                  ].filter(Boolean).join(' ');
                   return (
                     <div
                       key={index}

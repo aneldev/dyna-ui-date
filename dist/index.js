@@ -950,9 +950,9 @@ var faIcon_1 = __webpack_require__(/*! ../utils/faIcon */ "./src/utils/faIcon.ts
 
 var utils_2 = __webpack_require__(/*! ./utils */ "./src/DynaDatePickers/utils.ts");
 
-__webpack_require__(/*! ./style.less */ "./src/DynaDatePickers/style.less");
-
 var getButtonOneSizeUp_1 = __webpack_require__(/*! ../utils/getButtonOneSizeUp */ "./src/utils/getButtonOneSizeUp.ts");
+
+__webpack_require__(/*! ./style.less */ "./src/DynaDatePickers/style.less");
 
 var DynaDatePicker =
 /** @class */
@@ -1112,7 +1112,7 @@ function (_super) {
         required = _a.required,
         validationMessage = _a.validationMessage;
     var colors = colorMixer_1.colorMixer(color);
-    var className = ['dyna-date-picker', userClassName, "dyna-date-picker-mode-" + mode, "dyna-date-picker-style-" + style, "dyna-date-picker-size-" + size].join(' ').trim();
+    var className = ['dyna-date-picker', userClassName, "dyna-date-picker-mode-" + mode, "dyna-date-picker-style-" + style, "dyna-date-picker-size-" + size].filter(Boolean).join(' ');
     return React.createElement("div", {
       className: className
     }, React.createElement(dyna_ui_field_wrapper_1.DynaFieldWrapper, {
@@ -1491,7 +1491,7 @@ function (_super) {
         required = _a.required,
         validationMessage = _a.validationMessage;
     var colors = colorMixer_1.colorMixer(color);
-    var className = ['dyna-date-picker', userClassName, "dyna-date-picker-mode-" + mode, "dyna-date-picker-style-" + style, "dyna-date-picker-size-" + size].join(' ').trim();
+    var className = ['dyna-date-picker', userClassName, "dyna-date-picker-mode-" + mode, "dyna-date-picker-style-" + style, "dyna-date-picker-size-" + size].filter(Boolean).join(' ');
     return React.createElement("div", {
       className: className
     }, React.createElement(dyna_ui_field_wrapper_1.DynaFieldWrapper, {
@@ -1928,7 +1928,7 @@ function (_super) {
     var _b = this.state,
         viewport = _b.viewport,
         calendarTable = _b.calendarTable;
-    var className = ['dyna-month-calendar', "dyna-month-calendar--mode-" + mode, "dyna-month-calendar--color-" + color].join(' ').trim();
+    var className = ['dyna-month-calendar', "dyna-month-calendar--mode-" + mode, "dyna-month-calendar--color-" + color].filter(Boolean).join(' ');
     return React.createElement("div", {
       className: className
     }, React.createElement("div", {
@@ -1958,7 +1958,7 @@ function (_super) {
         className: "dmc--calendar--line"
       }, calendarLine.map(function (calendarCell, index) {
         var date = moment(calendarCell.date);
-        var className = ["dmc--calendar--cell", calendarCell.selected ? "dmc--calendar--cell--selected" : "", calendarCell.inCurrentMonth ? "dmc--calendar--cell--month-in" : "dmc--calendar--cell--month-out", calendarCell.disabled ? "dmc--calendar--cell--disabled" : "", calendarCell.weekend ? "dmc--calendar--cell--weekend" : "", "dmc--calendar--cell--range-" + calendarCell.inRange, "dmc--calendar--cell--hover-" + calendarCell.hovered].join(' ').trim();
+        var className = ["dmc--calendar--cell", calendarCell.selected ? "dmc--calendar--cell--selected" : "", calendarCell.inCurrentMonth ? "dmc--calendar--cell--month-in" : "dmc--calendar--cell--month-out", calendarCell.disabled ? "dmc--calendar--cell--disabled" : "", calendarCell.weekend ? "dmc--calendar--cell--weekend" : "", "dmc--calendar--cell--range-" + calendarCell.inRange, "dmc--calendar--cell--hover-" + calendarCell.hovered].filter(Boolean).join(' ');
         return React.createElement("div", {
           key: index,
           className: className,

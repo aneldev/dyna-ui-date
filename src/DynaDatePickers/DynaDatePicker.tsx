@@ -236,7 +236,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
       `dyna-date-picker-mode-${mode}`,
       `dyna-date-picker-style-${style}`,
       `dyna-date-picker-size-${size}`,
-    ].join(' ').trim();
+    ].filter(Boolean).join(' ');
 
     return (
       <div className={className}>
