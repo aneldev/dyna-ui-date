@@ -43,7 +43,7 @@ export declare enum EEditDate {
     END = "END"
 }
 export declare class DynaDateRangePicker extends React.Component<IDynaDateRangePickerProps, IDynaDatePickerState> {
-    static defaultProps: IDynaDateRangePickerProps;
+    static defaultProps: Partial<IDynaDateRangePickerProps>;
     private monthCalendar;
     constructor(props: IDynaDateRangePickerProps);
     private handleHoverDate;
