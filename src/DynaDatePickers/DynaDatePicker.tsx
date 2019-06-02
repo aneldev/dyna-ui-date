@@ -29,6 +29,7 @@ export interface IDynaDatePickerProps {
   label?: TContent;
   mode?: EMode;
   size?: ESize;
+  pickerSize?: ESize;
   required?: TContent;
   validationMessage?: TContent;
   pickerHeader?: TContent;
@@ -107,12 +108,13 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
 
   private renderPicker(): JSX.Element {
     const {color, showTodayButton, showCloseButton, todayButtonLabel, closeButtonLabel} = this.props;
-    const {mode, label, size, name, value, values, start, end, min, max, pickerHeader, pickerFooter} = this.props;
+    const {mode, label, size, pickerSize, name, value, values, start, end, min, max, pickerHeader, pickerFooter} = this.props;
     const {staringFromWeekDay, renderPickerMonthYear, renderPickerWeekDay, renderPickerDay} = this.props;
     const {showPicker} = this.state;
     const show: boolean = mode === EMode.EDIT && showPicker;
     const colors: IColorMixer = colorMixer(color);
     const todayButtonDisabled: boolean = moment().isBefore(min || new Date) || moment().isAfter(max || new Date);
+    const buttonSize = getButtonOneSizeUp(pickerSize || size);
 
     return (
       <DynaPickerContainer
@@ -147,7 +149,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
                 <DynaButton
                   style={EButtonStyle.ROUNDED}
                   color={colors.pickerButtonColor}
-                  size={getButtonOneSizeUp(size)}
+                  size={buttonSize}
                   disabled={todayButtonDisabled}
                   onClick={this.handlerTodayClick}
                 >{todayButtonLabel}</DynaButton>
@@ -158,7 +160,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
                 <DynaButton
                   style={EButtonStyle.ROUNDED}
                   color={colors.pickerButtonColor}
-                  size={getButtonOneSizeUp(size)}
+                  size={buttonSize}
                   onClick={this.handlerUserCame}
                 >{closeButtonLabel}</DynaButton>
               </div>
@@ -174,6 +176,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
 
   private handlerTodayClick = (): void => {
     const {name} = this.props;
+    this.monthCalendar.setViewport(new Date);
     this.handleDaySelect(name, startOfDayDate(new Date));
   };
 
@@ -224,7 +227,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
   public render(): JSX.Element {
     const {
       className: userClassName,
-      mode, style, size, color,
+      mode, style, size, pickerSize, color,
       label, required,
       validationMessage,
     } = this.props;
@@ -235,7 +238,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
       userClassName,
       `dyna-date-picker-mode-${mode}`,
       `dyna-date-picker-style-${style}`,
-      `dyna-date-picker-size-${size}`,
+      `dyna-date-picker-size-${pickerSize || size}`,
     ].filter(Boolean).join(' ');
 
     return (

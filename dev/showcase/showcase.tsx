@@ -8,7 +8,7 @@ import {monthCalendarMulti} from "./views/month-calandar-multi";
 import {calendarPickerNow} from "./views/calendar-picker-now";
 import {calendarPickerStringInput} from "./views/calendar-picker-string-inputs";
 import {calendarPicker} from "./views/calendar-picker";
-import {calendarPickerMulti} from "./views/calendarPickerMulti";
+import {calendarPickerMulti} from "./views/calendar-picker-multi";
 
 require('./showcase.less');
 

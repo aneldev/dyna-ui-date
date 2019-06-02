@@ -24,6 +24,7 @@ export interface IDynaDateRangePickerProps {
   label?: TContent;
   mode?: EMode;
   size?: ESize;
+  pickerSize?: ESize;
   required?: TContent;
   validationMessage?: TContent;
   pickerHeader?: TContent;
@@ -146,7 +147,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
   private renderPicker(): JSX.Element {
     const {
       color, showTodayButton, showCloseButton, todayButtonLabel, closeButtonLabel,
-      mode, size, label, name, start, end, min, max, pickerHeader, pickerFooter,
+      mode, size, pickerSize, label, name, start, end, min, max, pickerHeader, pickerFooter,
       staringFromWeekDay, renderPickerMonthYear, renderPickerWeekDay, renderPickerDay,
     } = this.props;
     const {
@@ -154,6 +155,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
     } = this.state;
     const show: boolean = mode === EMode.EDIT && showPicker;
     const colors: IColorMixer = colorMixer(color);
+    const buttonSize = getButtonOneSizeUp(pickerSize || size);
 
     return (
       <DynaPickerContainer
@@ -189,7 +191,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
                 <DynaButton
                   style={EButtonStyle.ROUNDED}
                   color={colors.pickerButtonColor}
-                  size={getButtonOneSizeUp(size)}
+                  size={buttonSize}
                   onClick={this.handlerTodayClick}
                 >{todayButtonLabel}</DynaButton>
               </div>
@@ -199,7 +201,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
                 <DynaButton
                   style={EButtonStyle.ROUNDED}
                   color={colors.pickerButtonColor}
-                  size={getButtonOneSizeUp(size)}
+                  size={buttonSize}
                   onClick={this.handlerUserCame}
                 >{closeButtonLabel}</DynaButton>
               </div>
@@ -272,7 +274,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
   public render(): JSX.Element {
     const {
       className: userClassName,
-      mode, style, size, color,
+      mode, style, size, pickerSize, color,
       label, required,
       validationMessage,
     } = this.props;
@@ -283,7 +285,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
       userClassName,
       `dyna-date-picker-mode-${mode}`,
       `dyna-date-picker-style-${style}`,
-      `dyna-date-picker-size-${size}`,
+      `dyna-date-picker-size-${pickerSize || size}`,
     ].filter(Boolean).join(' ');
 
     return (
