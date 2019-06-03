@@ -113,6 +113,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
     const { targetDate: prevTargetDate } = this.state;
     let start: Date, end: Date;
     let targetDate: EEditDate;
+    let hoverOn = this.state.hoverOn;
 
     switch (prevTargetDate) {
       case EEditDate.START:
@@ -122,6 +123,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
         break;
       case EEditDate.END:
         if (date.valueOf() >= prevStart.valueOf()) {
+          hoverOn = undefined;
           start = prevStart;
           end = date;
           targetDate = EEditDate.START;
@@ -136,7 +138,10 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
 
     onChange(name, start, end);
 
-    this.setState({ targetDate });
+    this.setState({
+      targetDate,
+      hoverOn,
+    });
   };
 
   private get viewport(): Date {
