@@ -1309,6 +1309,7 @@ function (_super) {
       var prevTargetDate = _this.state.targetDate;
       var start, end;
       var targetDate;
+      var hoverOn = _this.state.hoverOn;
 
       switch (prevTargetDate) {
         case EEditDate.START:
@@ -1319,6 +1320,7 @@ function (_super) {
 
         case EEditDate.END:
           if (date.valueOf() >= prevStart.valueOf()) {
+            hoverOn = undefined;
             start = prevStart;
             end = date;
             targetDate = EEditDate.START;
@@ -1335,7 +1337,8 @@ function (_super) {
       onChange(name, start, end);
 
       _this.setState({
-        targetDate: targetDate
+        targetDate: targetDate,
+        hoverOn: hoverOn
       });
     };
 
