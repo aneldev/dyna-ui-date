@@ -1350,6 +1350,12 @@ function (_super) {
       _this.monthCalendarA.setViewport(moment(date).add(-1, 'month').toDate());
     };
 
+    _this.handleCalendarsMouseLeave = function () {
+      _this.setState({
+        hoverOn: null
+      });
+    };
+
     _this.lastFocused = null;
 
     _this.handlerTodayClick = function () {
@@ -1456,7 +1462,8 @@ function (_super) {
     }, React.createElement("div", {
       className: "ddp--calendar--label"
     }, React.createElement("h2", null, label)), pickerHeader, React.createElement("div", {
-      className: "ddp--double-calendar-container"
+      className: "ddp--double-calendar-container",
+      onMouseLeave: this.handleCalendarsMouseLeave
     }, React.createElement(DynaMonthCalendar_1.DynaMonthCalendar, {
       className: "ddp--double-calendar-A",
       ref: function ref(component) {

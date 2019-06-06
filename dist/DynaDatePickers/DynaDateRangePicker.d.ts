@@ -53,6 +53,7 @@ export declare class DynaDateRangePicker extends React.Component<IDynaDateRangeP
     private setViewport;
     private handleMonthCalendarAViewportChange;
     private handleMonthCalendarBViewportChange;
+    private handleCalendarsMouseLeave;
     private renderPicker;
     private lastFocused;
     private handlerTodayClick;
