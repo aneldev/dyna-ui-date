@@ -162,6 +162,10 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
     this.monthCalendarA.setViewport(moment(date).add(-1, 'month').toDate());
   };
 
+  private handleCalendarsMouseLeave = (): void => {
+    this.setState({ hoverOn: null });
+  };
+
   private renderPicker(): JSX.Element {
     const {
       color, showTodayButton, showCloseButton, todayButtonLabel, closeButtonLabel,
@@ -186,7 +190,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
             <h2>{label}</h2>
           </div>
           {pickerHeader}
-          <div className="ddp--double-calendar-container">
+          <div className="ddp--double-calendar-container" onMouseLeave={this.handleCalendarsMouseLeave}>
             <DynaMonthCalendar
               className="ddp--double-calendar-A"
               ref={(component: DynaMonthCalendar) => this.monthCalendarA = component}
