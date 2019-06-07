@@ -34,9 +34,9 @@ export const colorMixer = (color: EColor): IColorMixer => {
     case EColor.WHITE_BLACK:
       return {
         calendarColor: ECalendarColor.GREY_GREEN,
-        fieldColor: EFieldColor.ORANGE_WHITE,
-        pickerButtonColor: EPickerButtonColor.WHITE_BLACK,
-        pickerContainerColor: EPickerContainerColor.WHITE_ORANGE,
+        fieldColor: EFieldColor.BLACK_WHITE,
+        pickerButtonColor: EPickerButtonColor.BLACK_WHITE,
+        pickerContainerColor: EPickerContainerColor.WHITE_BLACK,
       };
   }
 };
