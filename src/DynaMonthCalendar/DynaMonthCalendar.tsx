@@ -63,6 +63,7 @@ export type TUICalendarTable = Array<Array<IUICalendarTableDayCell>>;
 
 export interface IUICalendarTableDayCell {
   date: Date;
+  isToday: boolean;
   selected: boolean;
   disabled: boolean;
   weekend: boolean; // is Sat or Sun
@@ -162,6 +163,7 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
         const cellDate: Moment = moment(_cellDate);
         const calendarDayCell: IUICalendarTableDayCell = {
           date: cellDate.toDate(),
+          isToday: false,
           selected: null,
           inCurrentMonth: null,
           weekend: null,
@@ -169,6 +171,9 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
           inRange: null,
           hovered: null,
         };
+
+        // is today
+        calendarDayCell.isToday = cellDate.isSame(new Date, 'day');
 
         // selected updated
         calendarDayCell.selected =
@@ -323,6 +328,7 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
                   const date: Moment = moment(calendarCell.date);
                   const className: string = [
                     "dmc--calendar--cell",
+                    calendarCell.isToday ? "dmc--calendar--cell--today" : "",
                     calendarCell.selected ? "dmc--calendar--cell--selected" : "",
                     calendarCell.inCurrentMonth ? "dmc--calendar--cell--month-in" : "dmc--calendar--cell--month-out",
                     calendarCell.disabled ? "dmc--calendar--cell--disabled" : "",

@@ -2223,8 +2223,8 @@ var EColor;
 exports.colorMixer = function (color) {
   switch (color) {
     // green calendar
+    case EColor.GREY_RED_GREEN_CALENDAR_GREEN:
     case EColor.GREY_RED_GREEN:
-    case EColor.GREY_ORANGE_GREEN_CALENDAR_GREEN:
       return {
         calendarColor: DynaMonthCalendar_1.EColor.GREY_GREEN,
         fieldColor: dyna_ui_styles_1.EColor.RED_WHITE,
@@ -2232,8 +2232,8 @@ exports.colorMixer = function (color) {
         pickerContainerColor: dyna_ui_styles_1.EColor.WHITE_RED
       };
 
+    case EColor.GREY_ORANGE_GREEN_CALENDAR_GREEN:
     case EColor.GREY_ORANGE_GREEN:
-    case EColor.GREY_RED_GREEN_CALENDAR_GREEN:
       return {
         calendarColor: DynaMonthCalendar_1.EColor.GREY_GREEN,
         fieldColor: dyna_ui_styles_1.EColor.ORANGE_WHITE,
@@ -2241,8 +2241,8 @@ exports.colorMixer = function (color) {
         pickerContainerColor: dyna_ui_styles_1.EColor.WHITE_ORANGE
       };
 
-    case EColor.WHITE_BLACK:
     case EColor.WHITE_BLACK_CALENDAR_GREEN:
+    case EColor.WHITE_BLACK:
       return {
         calendarColor: DynaMonthCalendar_1.EColor.GREY_GREEN,
         fieldColor: dyna_ui_styles_1.EColor.BLACK_WHITE,
@@ -2251,7 +2251,7 @@ exports.colorMixer = function (color) {
       };
     // clean calendar
 
-    case EColor.GREY_ORANGE_GREEN_CALENDAR_CYAN:
+    case EColor.GREY_RED_GREEN_CALENDAR_CYAN:
       return {
         calendarColor: DynaMonthCalendar_1.EColor.GREY_CYAN,
         fieldColor: dyna_ui_styles_1.EColor.RED_WHITE,
@@ -2259,7 +2259,7 @@ exports.colorMixer = function (color) {
         pickerContainerColor: dyna_ui_styles_1.EColor.WHITE_RED
       };
 
-    case EColor.GREY_RED_GREEN_CALENDAR_CYAN:
+    case EColor.GREY_ORANGE_GREEN_CALENDAR_CYAN:
       return {
         calendarColor: DynaMonthCalendar_1.EColor.GREY_CYAN,
         fieldColor: dyna_ui_styles_1.EColor.ORANGE_WHITE,

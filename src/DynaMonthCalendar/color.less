@@ -10,6 +10,7 @@
         /*@day-name-background*/ #353535,
         /*@day-name-weekend-background*/ #4c4c4c,
         // Cell in the month, out means from prev or next month
+        /*@today-color*/ red,
         /*@month-in-color*/ #9c9c9c,
         /*@month-in-weekend-color*/ #676666,
         /*@month-in-background*/ #c3c3c3,
@@ -37,6 +38,7 @@
         /*@day-name-background*/ #353535,
         /*@day-name-weekend-background*/ #4c4c4c,
         // Cell in the month, out means from prev or next month
+        /*@today-color*/ red,
         /*@month-in-color*/ #9c9c9c,
         /*@month-in-weekend-color*/ #676666,
         /*@month-in-background*/ #c3c3c3,
@@ -64,6 +66,7 @@
   @day-name-background,
   @day-name-weekend-background,
   // Cell in the month, out means from prev or next month
+  @today-color,
   @month-in-color,
   @month-in-weekend-color,
   @month-in-background,
@@ -241,6 +244,10 @@
           &.dmc--calendar--cell--weekend {
             background-color: @range-color--weekend;
           }
+        }
+
+        &--today {
+          color: @today-color;
         }
       }
     }
