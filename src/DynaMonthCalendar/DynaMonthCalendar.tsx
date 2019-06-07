@@ -21,6 +21,7 @@ import "./color.less";
 
 export enum EColor {
   GREY_GREEN = "GREY_GREEN",
+  GREY_CYAN = "GREY_CYAN",
 }
 
 export enum ERangePointMode {

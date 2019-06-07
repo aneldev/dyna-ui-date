@@ -5,7 +5,8 @@ import { TContent } from "../interfaces/interfaces";
 import "./layout.less";
 import "./color.less";
 export declare enum EColor {
-    GREY_GREEN = "GREY_GREEN"
+    GREY_GREEN = "GREY_GREEN",
+    GREY_CYAN = "GREY_CYAN"
 }
 export declare enum ERangePointMode {
     START = "START",

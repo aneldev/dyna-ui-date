@@ -109,7 +109,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".dyna-date-picker .dyna-ui-field-wrapper-container .ddp-input-control {\n  outline: none;\n  border: 0;\n  font-size: 16px;\n  line-height: 16px;\n  font-weight: bold;\n  background-color: transparent;\n}\n.dyna-date-picker.dyna-date-picker {\n  outline: none;\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container {\n  z-index: 1;\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--label {\n  display: none;\n}\n@media (max-width: 768px) {\n  .dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--label {\n    display: block;\n  }\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--button-bar {\n  padding: 0 8px 8px 8px;\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--button-bar .dyna-button button {\n  margin-top: 8px;\n  width: 100%;\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--double-calendar-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--double-calendar-container .ddp--double-calendar-A .dmc--header--nav-next {\n  visibility: hidden;\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--double-calendar-container .ddp--double-calendar-B {\n  padding-left: 0;\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--double-calendar-container .ddp--double-calendar-B .dmc--header--nav-prev {\n  visibility: hidden;\n}\n@media (max-width: 768px) {\n  .dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container {\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between;\n    width: 100%;\n  }\n  .dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--label {\n    display: none;\n  }\n  .dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--button-bar {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: end;\n        -ms-flex-pack: end;\n            justify-content: flex-end;\n  }\n}\n@media (max-width: 768px) and (max-width: 768px) {\n  .dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--label {\n    display: block;\n  }\n  .dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--label h2 {\n    margin: 8px 8px 0 8px;\n  }\n}\n@media (min-width: 768px) {\n  .dyna-date-picker.dyna-date-picker-size-XSMALL .dyna-ui-picker-container {\n    font-size: 11px;\n  }\n  .dyna-date-picker.dyna-date-picker-size-XSMALL .dyna-ui-picker-container .dyna-month-calendar {\n    width: 192px;\n    height: 192px;\n  }\n}\n@media (min-width: 768px) {\n  .dyna-date-picker.dyna-date-picker-size-SMALL .dyna-ui-picker-container {\n    font-size: 14px;\n  }\n  .dyna-date-picker.dyna-date-picker-size-SMALL .dyna-ui-picker-container .dyna-month-calendar {\n    width: 256px;\n    height: 256px;\n  }\n}\n@media (min-width: 768px) {\n  .dyna-date-picker.dyna-date-picker-size-MEDIUM .dyna-ui-picker-container {\n    font-size: 16px;\n  }\n  .dyna-date-picker.dyna-date-picker-size-MEDIUM .dyna-ui-picker-container .dyna-month-calendar {\n    width: 320px;\n    height: 320px;\n  }\n}\n@media (min-width: 768px) {\n  .dyna-date-picker.dyna-date-picker-size-LARGE .dyna-ui-picker-container {\n    font-size: 18px;\n  }\n  .dyna-date-picker.dyna-date-picker-size-LARGE .dyna-ui-picker-container .dyna-month-calendar {\n    width: 448px;\n    height: 448px;\n  }\n}\n@media (max-width: 768px) {\n  .dyna-date-picker.dyna-date-picker .ddp--double-calendar-container {\n    width: 98%;\n    padding: 1%;\n    height: 50%;\n  }\n  .dyna-date-picker.dyna-date-picker .ddp--double-calendar-A .dmc--header--nav-next {\n    visibility: visible !important;\n  }\n  .dyna-date-picker.dyna-date-picker .ddp--double-calendar-B {\n    display: none;\n  }\n}\n", ""]);
+exports.push([module.i, ".dyna-date-picker .dyna-ui-field-wrapper-container .ddp-input-control {\n  outline: none;\n  border: 0;\n  font-size: 16px;\n  line-height: 16px;\n  font-weight: bold;\n  background-color: transparent;\n}\n.dyna-date-picker.dyna-date-picker {\n  outline: none;\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container {\n  z-index: 1;\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--label {\n  display: none;\n}\n@media (max-width: 768px) {\n  .dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--label {\n    display: block;\n  }\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--button-bar {\n  padding: 0 8px 8px 8px;\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--button-bar .dyna-button button {\n  margin-top: 8px;\n  width: 100%;\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--double-calendar-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--double-calendar-container .ddp--double-calendar-A .dmc--header--nav-next {\n  visibility: hidden;\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--double-calendar-container .ddp--double-calendar-B {\n  padding-left: 0;\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--double-calendar-container .ddp--double-calendar-B .dmc--header--nav-prev {\n  visibility: hidden;\n}\n@media (max-width: 768px) {\n  .dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container {\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between;\n    width: 100%;\n  }\n  .dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--label {\n    display: none;\n  }\n  .dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--button-bar {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: end;\n        -ms-flex-pack: end;\n            justify-content: flex-end;\n  }\n}\n@media (max-width: 768px) and (max-width: 768px) {\n  .dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--label {\n    display: block;\n  }\n  .dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--label h2 {\n    margin: 8px 8px 0 8px;\n  }\n}\n@media (min-width: 768px + 1px) {\n  .dyna-date-picker.dyna-date-picker-size-XSMALL .dyna-ui-picker-container {\n    font-size: 11px;\n  }\n  .dyna-date-picker.dyna-date-picker-size-XSMALL .dyna-ui-picker-container .dyna-month-calendar {\n    width: 192px;\n    height: 192px;\n  }\n}\n@media (min-width: 769px) {\n  .dyna-date-picker.dyna-date-picker-size-SMALL .dyna-ui-picker-container {\n    font-size: 14px;\n  }\n  .dyna-date-picker.dyna-date-picker-size-SMALL .dyna-ui-picker-container .dyna-month-calendar {\n    width: 256px;\n    height: 256px;\n  }\n}\n@media (min-width: 769px) {\n  .dyna-date-picker.dyna-date-picker-size-MEDIUM .dyna-ui-picker-container {\n    font-size: 16px;\n  }\n  .dyna-date-picker.dyna-date-picker-size-MEDIUM .dyna-ui-picker-container .dyna-month-calendar {\n    width: 320px;\n    height: 320px;\n  }\n}\n@media (min-width: 769px) {\n  .dyna-date-picker.dyna-date-picker-size-LARGE .dyna-ui-picker-container {\n    font-size: 18px;\n  }\n  .dyna-date-picker.dyna-date-picker-size-LARGE .dyna-ui-picker-container .dyna-month-calendar {\n    width: 448px;\n    height: 448px;\n  }\n}\n@media (max-width: 768px) {\n  .dyna-date-picker.dyna-date-picker .ddp--double-calendar-container {\n    width: 98%;\n    padding: 1%;\n    height: 50%;\n  }\n  .dyna-date-picker.dyna-date-picker .ddp--double-calendar-A .dmc--header--nav-next {\n    visibility: visible !important;\n  }\n  .dyna-date-picker.dyna-date-picker .ddp--double-calendar-B {\n    display: none;\n  }\n}\n", ""]);
 
 // exports
 
@@ -129,7 +129,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".dyna-month-calendar--color-GREY_GREEN .dmc--header {\n  background-color: #191919;\n  color: white;\n  margin: 1px;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--header--nav-prev,\n.dyna-month-calendar--color-GREY_GREEN .dmc--header--nav-next {\n  background-color: #313131;\n  margin: 2px;\n  padding: 0 5px;\n  -webkit-transition: opacity ease-in-out 200ms;\n  transition: opacity ease-in-out 200ms;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--header--nav-prev:hover,\n.dyna-month-calendar--color-GREY_GREEN .dmc--header--nav-next:hover {\n  opacity: 0.7;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--header--label {\n  font-weight: bold;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--week-days-header .dmc--calendar--cell {\n  background-color: #353535;\n  margin: 1px;\n  color: white;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--week-days-header .dmc--calendar--cell:nth-child(6),\n.dyna-month-calendar--color-GREY_GREEN .dmc--week-days-header .dmc--calendar--cell:nth-child(7) {\n  background-color: #4c4c4c;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell {\n  margin: 1px;\n  color: black;\n  -webkit-transition: border-radius 150ms ease-in-out, color 150ms ease-in-out, background-color 150ms ease-in-out, opacity ease-in-out 200ms;\n  transition: border-radius 150ms ease-in-out, color 150ms ease-in-out, background-color 150ms ease-in-out, opacity ease-in-out 200ms;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--month-in {\n  font-weight: bold;\n  background-color: #c3c3c3;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--month-in:hover {\n  opacity: 0.7;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--month-out {\n  background-color: #f5f5f5;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--month-out:hover {\n  opacity: 0.7;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell.dmc--calendar--cell--weekend {\n  background-color: #ccbd88;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--disabled {\n  color: #9c9c9c;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--range-START {\n  border-radius: 16px 0 0 16px;\n  background-color: #3bad3b;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--range-START.dmc--calendar--cell--weekend {\n  background-color: #44c844;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--range-MIDDLE {\n  background-color: #3bad3b;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--range-MIDDLE.dmc--calendar--cell--weekend {\n  background-color: #44c844;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--range-END {\n  border-radius: 0 16px 16px 0;\n  background-color: #3bad3b;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--range-END.dmc--calendar--cell--weekend {\n  background-color: #44c844;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--range-START_END {\n  border-radius: 16px;\n  background-color: #3bad3b;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--range-START_END.dmc--calendar--cell--weekend {\n  background-color: #44c844;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--hover-START {\n  background-color: #45cb45;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--hover-START.dmc--calendar--cell--weekend {\n  background-color: #4ce04c;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--hover-MIDDLE {\n  background-color: #45cb45;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--hover-MIDDLE.dmc--calendar--cell--weekend {\n  background-color: #4ce04c;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--hover-END {\n  background-color: #45cb45;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--hover-END.dmc--calendar--cell--weekend {\n  background-color: #4ce04c;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--hover-START_END {\n  background-color: #45cb45;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--hover-START_END.dmc--calendar--cell--weekend {\n  background-color: #4ce04c;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--selected {\n  color: white;\n  background-color: #2c7e2c;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--selected.dmc--calendar--cell--weekend {\n  background-color: #44c844;\n}\n", ""]);
+exports.push([module.i, ".dyna-month-calendar--color-GREY_GREEN .dmc--header {\n  background-color: #191919;\n  color: white;\n  margin: 1px;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--header--nav-prev,\n.dyna-month-calendar--color-GREY_GREEN .dmc--header--nav-next {\n  background-color: #313131;\n  margin: 2px;\n  padding: 0 5px;\n  -webkit-transition: opacity ease-in-out 200ms;\n  transition: opacity ease-in-out 200ms;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--header--nav-prev:hover,\n.dyna-month-calendar--color-GREY_GREEN .dmc--header--nav-next:hover {\n  opacity: 0.7;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--header--label {\n  font-weight: bold;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--week-days-header .dmc--calendar--cell {\n  background-color: #353535;\n  margin: 1px;\n  color: white;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--week-days-header .dmc--calendar--cell:nth-child(6),\n.dyna-month-calendar--color-GREY_GREEN .dmc--week-days-header .dmc--calendar--cell:nth-child(7) {\n  background-color: #4c4c4c;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell {\n  margin: 1px;\n  color: black;\n  -webkit-transition: border-radius 150ms ease-in-out, color 150ms ease-in-out, background-color 150ms ease-in-out, opacity ease-in-out 200ms;\n  transition: border-radius 150ms ease-in-out, color 150ms ease-in-out, background-color 150ms ease-in-out, opacity ease-in-out 200ms;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--month-in {\n  font-weight: bold;\n  background-color: #c3c3c3;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--month-in:hover {\n  opacity: 0.7;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--month-in.dmc--calendar--cell--weekend {\n  background-color: #ccbd88;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--month-out {\n  background-color: #f5f5f5;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--month-out:hover {\n  opacity: 0.7;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--month-out.dmc--calendar--cell--weekend {\n  background-color: #eddb9e;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--disabled {\n  color: #9c9c9c;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--disabled.dmc--calendar--cell--weekend {\n  color: #676666;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--range-START {\n  border-radius: 16px 0 0 16px;\n  background-color: #3bad3b;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--range-START.dmc--calendar--cell--weekend {\n  background-color: #44c844;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--range-MIDDLE {\n  background-color: #3bad3b;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--range-MIDDLE.dmc--calendar--cell--weekend {\n  background-color: #44c844;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--range-END {\n  border-radius: 0 16px 16px 0;\n  background-color: #3bad3b;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--range-END.dmc--calendar--cell--weekend {\n  background-color: #44c844;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--range-START_END {\n  border-radius: 16px;\n  background-color: #3bad3b;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--range-START_END.dmc--calendar--cell--weekend {\n  background-color: #44c844;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--hover-START {\n  background-color: #45cb45;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--hover-START.dmc--calendar--cell--weekend {\n  background-color: #4ce04c;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--hover-MIDDLE {\n  background-color: #45cb45;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--hover-MIDDLE.dmc--calendar--cell--weekend {\n  background-color: #4ce04c;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--hover-END {\n  background-color: #45cb45;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--hover-END.dmc--calendar--cell--weekend {\n  background-color: #4ce04c;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--hover-START_END {\n  background-color: #45cb45;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--hover-START_END.dmc--calendar--cell--weekend {\n  background-color: #4ce04c;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--selected {\n  color: white;\n  background-color: #2c7e2c;\n}\n.dyna-month-calendar--color-GREY_GREEN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--selected.dmc--calendar--cell--weekend {\n  background-color: #44c844;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--header {\n  background-color: #191919;\n  color: white;\n  margin: 1px;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--header--nav-prev,\n.dyna-month-calendar--color-GREY_CYAN .dmc--header--nav-next {\n  background-color: #313131;\n  margin: 2px;\n  padding: 0 5px;\n  -webkit-transition: opacity ease-in-out 200ms;\n  transition: opacity ease-in-out 200ms;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--header--nav-prev:hover,\n.dyna-month-calendar--color-GREY_CYAN .dmc--header--nav-next:hover {\n  opacity: 0.7;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--header--label {\n  font-weight: bold;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--week-days-header .dmc--calendar--cell {\n  background-color: #353535;\n  margin: 1px;\n  color: white;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--week-days-header .dmc--calendar--cell:nth-child(6),\n.dyna-month-calendar--color-GREY_CYAN .dmc--week-days-header .dmc--calendar--cell:nth-child(7) {\n  background-color: #4c4c4c;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell {\n  margin: 1px;\n  color: black;\n  -webkit-transition: border-radius 150ms ease-in-out, color 150ms ease-in-out, background-color 150ms ease-in-out, opacity ease-in-out 200ms;\n  transition: border-radius 150ms ease-in-out, color 150ms ease-in-out, background-color 150ms ease-in-out, opacity ease-in-out 200ms;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--month-in {\n  font-weight: bold;\n  background-color: #c3c3c3;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--month-in:hover {\n  opacity: 0.7;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--month-in.dmc--calendar--cell--weekend {\n  background-color: #ccbd88;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--month-out {\n  background-color: #f5f5f5;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--month-out:hover {\n  opacity: 0.7;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--month-out.dmc--calendar--cell--weekend {\n  background-color: #eddb9e;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--disabled {\n  color: #9c9c9c;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--disabled.dmc--calendar--cell--weekend {\n  color: #676666;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--range-START {\n  border-radius: 16px 0 0 16px;\n  background-color: #3EB1C8;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--range-START.dmc--calendar--cell--weekend {\n  background-color: #3EB1C8;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--range-MIDDLE {\n  background-color: #3EB1C8;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--range-MIDDLE.dmc--calendar--cell--weekend {\n  background-color: #3EB1C8;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--range-END {\n  border-radius: 0 16px 16px 0;\n  background-color: #3EB1C8;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--range-END.dmc--calendar--cell--weekend {\n  background-color: #3EB1C8;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--range-START_END {\n  border-radius: 16px;\n  background-color: #3EB1C8;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--range-START_END.dmc--calendar--cell--weekend {\n  background-color: #3EB1C8;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--hover-START {\n  background-color: #46c8e1;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--hover-START.dmc--calendar--cell--weekend {\n  background-color: #46c8e1;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--hover-MIDDLE {\n  background-color: #46c8e1;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--hover-MIDDLE.dmc--calendar--cell--weekend {\n  background-color: #46c8e1;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--hover-END {\n  background-color: #46c8e1;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--hover-END.dmc--calendar--cell--weekend {\n  background-color: #46c8e1;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--hover-START_END {\n  background-color: #46c8e1;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--hover-START_END.dmc--calendar--cell--weekend {\n  background-color: #46c8e1;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--selected {\n  color: white;\n  background-color: #3699ad;\n}\n.dyna-month-calendar--color-GREY_CYAN .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--selected.dmc--calendar--cell--weekend {\n  background-color: #3EB1C8;\n}\n", ""]);
 
 // exports
 
@@ -950,8 +950,6 @@ var faIcon_1 = __webpack_require__(/*! ../utils/faIcon */ "./src/utils/faIcon.ts
 
 var utils_2 = __webpack_require__(/*! ./utils */ "./src/DynaDatePickers/utils.ts");
 
-var getButtonOneSizeUp_1 = __webpack_require__(/*! ../utils/getButtonOneSizeUp */ "./src/utils/getButtonOneSizeUp.ts");
-
 __webpack_require__(/*! ./style.less */ "./src/DynaDatePickers/style.less");
 
 var DynaDatePicker =
@@ -1045,7 +1043,7 @@ function (_super) {
     var show = mode === dyna_ui_field_wrapper_1.EMode.EDIT && showPicker;
     var colors = colorMixer_1.colorMixer(color);
     var todayButtonDisabled = moment().isBefore(min || new Date()) || moment().isAfter(max || new Date());
-    var buttonSize = getButtonOneSizeUp_1.getButtonOneSizeUp(pickerSize || size);
+    var buttonSize = utils_2.getPickerButtonSize(pickerSize || size);
     return React.createElement(dyna_ui_picker_container_1.DynaPickerContainer, {
       style: dyna_ui_picker_container_1.EStyle.ROUNDED,
       color: colors.pickerContainerColor,
@@ -1273,8 +1271,6 @@ var faIcon_1 = __webpack_require__(/*! ../utils/faIcon */ "./src/utils/faIcon.ts
 
 var utils_2 = __webpack_require__(/*! ./utils */ "./src/DynaDatePickers/utils.ts");
 
-var getButtonOneSizeUp_1 = __webpack_require__(/*! ../utils/getButtonOneSizeUp */ "./src/utils/getButtonOneSizeUp.ts");
-
 __webpack_require__(/*! ./style.less */ "./src/DynaDatePickers/style.less"); // borrow the styles from the DynaDatePicker since the component is almost the same
 
 
@@ -1452,7 +1448,7 @@ function (_super) {
         hoverOn = _b.hoverOn;
     var show = mode === dyna_ui_field_wrapper_1.EMode.EDIT && showPicker;
     var colors = colorMixer_1.colorMixer(color);
-    var buttonSize = getButtonOneSizeUp_1.getButtonOneSizeUp(pickerSize || size);
+    var buttonSize = utils_2.getPickerButtonSize(pickerSize || size);
     return React.createElement(dyna_ui_picker_container_1.DynaPickerContainer, {
       style: dyna_ui_picker_container_1.EStyle.ROUNDED,
       color: colors.pickerContainerColor,
@@ -1680,6 +1676,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var dyna_ui_field_wrapper_1 = __webpack_require__(/*! dyna-ui-field-wrapper */ "dyna-ui-field-wrapper");
+
+var dyna_ui_button_1 = __webpack_require__(/*! dyna-ui-button */ "dyna-ui-button");
+
 exports.getShowPickerOnKeyPress = function (event, showPicker) {
   if (event.keyCode !== undefined) {
     switch (event.keyCode) {
@@ -1711,6 +1711,22 @@ exports.getShowPickerOnKeyPress = function (event, showPicker) {
       default:
         return null;
     }
+  }
+};
+
+exports.getPickerButtonSize = function (fieldSize) {
+  switch (fieldSize) {
+    case dyna_ui_field_wrapper_1.ESize.XSMALL:
+      return dyna_ui_button_1.ESize.MEDIUM;
+
+    case dyna_ui_field_wrapper_1.ESize.SMALL:
+      return dyna_ui_button_1.ESize.LARGE;
+
+    case dyna_ui_field_wrapper_1.ESize.MEDIUM:
+      return dyna_ui_button_1.ESize.LARGE;
+
+    case dyna_ui_field_wrapper_1.ESize.LARGE:
+      return dyna_ui_button_1.ESize.LARGE;
   }
 };
 
@@ -1781,6 +1797,7 @@ var EColor;
 
 (function (EColor) {
   EColor["GREY_GREEN"] = "GREY_GREEN";
+  EColor["GREY_CYAN"] = "GREY_CYAN";
 })(EColor = exports.EColor || (exports.EColor = {}));
 
 var ERangePointMode;
@@ -2191,6 +2208,13 @@ var DynaMonthCalendar_1 = __webpack_require__(/*! ./DynaMonthCalendar/DynaMonthC
 var EColor;
 
 (function (EColor) {
+  EColor["GREY_ORANGE_GREEN_CALENDAR_GREEN"] = "GREY_ORANGE_GREEN_CALENDAR_GREEN";
+  EColor["GREY_RED_GREEN_CALENDAR_GREEN"] = "GREY_RED_GREEN_CALENDAR_GREEN";
+  EColor["WHITE_BLACK_CALENDAR_GREEN"] = "WHITE_BLACK_CALENDAR_GREEN";
+  EColor["GREY_ORANGE_GREEN_CALENDAR_CYAN"] = "GREY_ORANGE_GREEN_CALENDAR_CYAN";
+  EColor["GREY_RED_GREEN_CALENDAR_CYAN"] = "GREY_RED_GREEN_CALENDAR_CYAN";
+  EColor["WHITE_BLACK_CALENDAR_CYAN"] = "WHITE_BLACK_CALENDAR_CYAN"; // this is the same with the xxx_CALENDAR_GREEN, is kept for backward compatibility
+
   EColor["GREY_ORANGE_GREEN"] = "GREY_ORANGE_GREEN";
   EColor["GREY_RED_GREEN"] = "GREY_RED_GREEN";
   EColor["WHITE_BLACK"] = "WHITE_BLACK";
@@ -2198,7 +2222,9 @@ var EColor;
 
 exports.colorMixer = function (color) {
   switch (color) {
+    // green calendar
     case EColor.GREY_RED_GREEN:
+    case EColor.GREY_ORANGE_GREEN_CALENDAR_GREEN:
       return {
         calendarColor: DynaMonthCalendar_1.EColor.GREY_GREEN,
         fieldColor: dyna_ui_styles_1.EColor.RED_WHITE,
@@ -2207,6 +2233,7 @@ exports.colorMixer = function (color) {
       };
 
     case EColor.GREY_ORANGE_GREEN:
+    case EColor.GREY_RED_GREEN_CALENDAR_GREEN:
       return {
         calendarColor: DynaMonthCalendar_1.EColor.GREY_GREEN,
         fieldColor: dyna_ui_styles_1.EColor.ORANGE_WHITE,
@@ -2214,13 +2241,38 @@ exports.colorMixer = function (color) {
         pickerContainerColor: dyna_ui_styles_1.EColor.WHITE_ORANGE
       };
 
-    default:
     case EColor.WHITE_BLACK:
+    case EColor.WHITE_BLACK_CALENDAR_GREEN:
       return {
         calendarColor: DynaMonthCalendar_1.EColor.GREY_GREEN,
+        fieldColor: dyna_ui_styles_1.EColor.BLACK_WHITE,
+        pickerButtonColor: dyna_ui_styles_1.EColor.BLACK_WHITE,
+        pickerContainerColor: dyna_ui_styles_1.EColor.WHITE_BLACK
+      };
+    // clean calendar
+
+    case EColor.GREY_ORANGE_GREEN_CALENDAR_CYAN:
+      return {
+        calendarColor: DynaMonthCalendar_1.EColor.GREY_CYAN,
+        fieldColor: dyna_ui_styles_1.EColor.RED_WHITE,
+        pickerButtonColor: dyna_ui_styles_1.EColor.RED_WHITE,
+        pickerContainerColor: dyna_ui_styles_1.EColor.WHITE_RED
+      };
+
+    case EColor.GREY_RED_GREEN_CALENDAR_CYAN:
+      return {
+        calendarColor: DynaMonthCalendar_1.EColor.GREY_CYAN,
         fieldColor: dyna_ui_styles_1.EColor.ORANGE_WHITE,
-        pickerButtonColor: dyna_ui_styles_1.EColor.WHITE_BLACK,
+        pickerButtonColor: dyna_ui_styles_1.EColor.ORANGE_WHITE,
         pickerContainerColor: dyna_ui_styles_1.EColor.WHITE_ORANGE
+      };
+
+    case EColor.WHITE_BLACK_CALENDAR_CYAN:
+      return {
+        calendarColor: DynaMonthCalendar_1.EColor.GREY_CYAN,
+        fieldColor: dyna_ui_styles_1.EColor.BLACK_WHITE,
+        pickerButtonColor: dyna_ui_styles_1.EColor.BLACK_WHITE,
+        pickerContainerColor: dyna_ui_styles_1.EColor.WHITE_BLACK
       };
   }
 };
@@ -2310,33 +2362,6 @@ exports.faIcon = function (awesomeFontIconName, className) {
     className: ("fa fa-" + awesomeFontIconName + " " + className).trim(),
     "aria-hidden": "true"
   });
-};
-
-/***/ }),
-
-/***/ "./src/utils/getButtonOneSizeUp.ts":
-/*!*****************************************!*\
-  !*** ./src/utils/getButtonOneSizeUp.ts ***!
-  \*****************************************/
-/*! no static exports found */
-/*! all exports used */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var dyna_ui_button_1 = __webpack_require__(/*! dyna-ui-button */ "dyna-ui-button");
-
-exports.getButtonOneSizeUp = function (size) {
-  var sizes = Object.keys(dyna_ui_button_1.ESize);
-  var index = sizes.indexOf(size);
-  var newIndex = index + 1;
-  if (newIndex > sizes.length - 1) newIndex = sizes.length - 1;
-  return sizes[newIndex];
 };
 
 /***/ }),
