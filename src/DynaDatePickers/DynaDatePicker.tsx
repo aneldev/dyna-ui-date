@@ -10,8 +10,7 @@ import {DynaMonthCalendar, ERangePointMode} from "../DynaMonthCalendar/DynaMonth
 import {startOfDayDate, monthsLongNames, weekDaysShortNames} from "../utils/utils";
 import {colorMixer, EColor, IColorMixer} from "../colorMixer";
 import {faIcon} from "../utils/faIcon";
-import {getShowPickerOnKeyPress} from "./utils";
-import {getButtonOneSizeUp} from "../utils/getButtonOneSizeUp";
+import {getPickerButtonSize, getShowPickerOnKeyPress} from "./utils";
 
 import "./style.less";
 
@@ -114,7 +113,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
     const show: boolean = mode === EMode.EDIT && showPicker;
     const colors: IColorMixer = colorMixer(color);
     const todayButtonDisabled: boolean = moment().isBefore(min || new Date) || moment().isAfter(max || new Date);
-    const buttonSize = getButtonOneSizeUp(pickerSize || size);
+    const buttonSize = getPickerButtonSize(pickerSize || size);
 
     return (
       <DynaPickerContainer

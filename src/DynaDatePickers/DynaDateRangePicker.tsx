@@ -11,8 +11,8 @@ import {monthsLongNames, weekDaysShortNames} from "../utils/utils";
 import {colorMixer, EColor, IColorMixer} from "../colorMixer";
 import {faIcon} from "../utils/faIcon";
 
-import {getShowPickerOnKeyPress} from "./utils";
-import {getButtonOneSizeUp} from "../utils/getButtonOneSizeUp";
+import {getPickerButtonSize, getShowPickerOnKeyPress} from "./utils";
+
 
 import "./style.less"; // borrow the styles from the DynaDatePicker since the component is almost the same
 
@@ -177,7 +177,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
     } = this.state;
     const show: boolean = mode === EMode.EDIT && showPicker;
     const colors: IColorMixer = colorMixer(color);
-    const buttonSize = getButtonOneSizeUp(pickerSize || size);
+    const buttonSize = getPickerButtonSize(pickerSize || size);
 
     return (
       <DynaPickerContainer
