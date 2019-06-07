@@ -74,7 +74,7 @@ export const monthCalendar: IShowcaseView = {
 
   })(),
   wrapperStyle: {
-    width: "50%",
+    width: "70%",
     height: "50%",
   },
   props: (() => {
