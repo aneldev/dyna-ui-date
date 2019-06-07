@@ -43,6 +43,7 @@ export interface IDynaMonthCalendarState {
 export declare type TUICalendarTable = Array<Array<IUICalendarTableDayCell>>;
 export interface IUICalendarTableDayCell {
     date: Date;
+    isToday: boolean;
     selected: boolean;
     disabled: boolean;
     weekend: boolean;
