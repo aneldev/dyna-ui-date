@@ -5,6 +5,7 @@ import moment = require("moment");
 import {DynaFieldWrapper, EMode, EStyle, ESize} from "dyna-ui-field-wrapper";
 import {DynaButton, EStyle as EButtonStyle} from "dyna-ui-button";
 import {DynaPickerContainer, EStyle as EPickerContainerStyle} from "dyna-ui-picker-container";
+import { ETooltipDirection } from "dyna-ui-tooltip";
 
 import {DynaMonthCalendar, ERangePointMode} from "../DynaMonthCalendar/DynaMonthCalendar";
 import {startOfDayDate, monthsLongNames, weekDaysShortNames} from "../utils/utils";
@@ -18,7 +19,7 @@ export {
   EMode,
   ESize, EStyle,
   ERangePointMode,
-}
+};
 
 export type TContent = JSX.Element | string;
 
@@ -41,16 +42,18 @@ export interface IDynaDatePickerProps {
   values?: Date[];
   min?: Date;
   max?: Date;
-  showTodayButton?: boolean,
-  showCloseButton?: boolean,
+  showTodayButton?: boolean;
+  showCloseButton?: boolean;
   closeOnSelect?: boolean;
-  closeButtonLabel?: TContent,
-  todayButtonLabel?: TContent,
+  closeButtonLabel?: TContent;
+  todayButtonLabel?: TContent;
   staringFromWeekDay?: number; // 0 = Sunday... default = 1 (Monday)
   renderInputDate?: (value: Date) => string;
   renderPickerMonthYear?: (month: number, year: number) => TContent;
   renderPickerWeekDay?: (weekDay: number) => TContent;
   renderPickerDay?: (date: Date, dayInMonth: number, dayInWeek: number, inRange: ERangePointMode) => TContent;
+  renderTooltip?: (date: Date) => JSX.Element | string | number | null;
+  tooltipDirection?: ETooltipDirection;
   onChange: (name: string, date: Date) => void;
 }
 
@@ -96,7 +99,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
     super(props);
     this.state = {
       showPicker: false,
-    }
+    };
   }
 
   private handleDaySelect = (name: string, date: Date): void => {
@@ -109,6 +112,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
     const {color, showTodayButton, showCloseButton, todayButtonLabel, closeButtonLabel} = this.props;
     const {mode, label, size, pickerSize, name, value, values, start, end, min, max, pickerHeader, pickerFooter} = this.props;
     const {staringFromWeekDay, renderPickerMonthYear, renderPickerWeekDay, renderPickerDay} = this.props;
+    const {renderTooltip, tooltipDirection} = this.props;
     const {showPicker} = this.state;
     const show: boolean = mode === EMode.EDIT && showPicker;
     const colors: IColorMixer = colorMixer(color);
@@ -141,6 +145,8 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
             renderPickerDay={renderPickerDay}
             renderPickerWeekDay={renderPickerWeekDay}
             renderPickerMonthYear={renderPickerMonthYear}
+            renderTooltip={renderTooltip}
+            tooltipDirection={tooltipDirection}
           />
           <div className="ddp--calendar--button-bar">
             {showTodayButton ?
@@ -168,7 +174,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
           {pickerFooter}
         </div>
       </DynaPickerContainer>
-    )
+    );
   }
 
   private lastFocused: Date = null;
@@ -197,13 +203,13 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
 
   private handlerOutsideClick = (): void => {
     this.setState({
-      showPicker:false,
+      showPicker: false,
     });
   };
 
   private handlerInputKeyPress = (event: KeyboardEvent<HTMLInputElement>): void => {
     const showPicker = getShowPickerOnKeyPress(event, this.state.showPicker);
-    if (showPicker!==null) this.setState({showPicker});
+    if (showPicker !== null) this.setState({showPicker});
   };
 
   private renderInputDates(): string {

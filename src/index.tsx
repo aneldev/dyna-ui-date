@@ -1,12 +1,15 @@
 export {
   TContent,
-}from "./interfaces/interfaces"
+}from "./interfaces";
 
 export {
   DynaMonthCalendar,
   IDynaMonthCalendarProps,
-  EColor as EDynaMonthCalendarColor,
 } from "./DynaMonthCalendar/DynaMonthCalendar";
+
+export {
+  EMonthCalendarColor as EDynaMonthCalendarColor,
+} from "./interfaces";
 
 export {
   EMode,

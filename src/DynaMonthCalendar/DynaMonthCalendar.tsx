@@ -3,7 +3,16 @@ import moment = require("moment");
 import {Moment} from "moment";
 import {EMode} from "dyna-ui-field-wrapper";
 
-import {TContent} from "../interfaces/interfaces";
+import {
+  TContent,
+  EMonthCalendarColor,
+} from "../interfaces";
+
+import {
+  ETooltipDirection,
+} from "dyna-ui-tooltip";
+
+import { Tooltip } from "./Tooltip";
 
 import {
   createCalendarTable,
@@ -19,11 +28,6 @@ import {faIcon} from "../utils/faIcon";
 import "./layout.less";
 import "./color.less";
 
-export enum EColor {
-  GREY_GREEN = "GREY_GREEN",
-  GREY_CYAN = "GREY_CYAN",
-}
-
 export enum ERangePointMode {
   START = "START",
   END = "END",
@@ -36,7 +40,7 @@ export interface IDynaMonthCalendarProps {
   className?: string;
   name: string;
   mode?: EMode;
-  color?: EColor;
+  color?: EMonthCalendarColor;
   start?: Date;
   end?: Date;
   min?: Date;
@@ -49,6 +53,8 @@ export interface IDynaMonthCalendarProps {
   renderPickerMonthYear?: (month: number, year: number) => TContent;
   renderPickerWeekDay?: (weekDay: number) => TContent;
   renderPickerDay?: (date: Date, dayInMonth: number, dayInWeek: number, inRange: ERangePointMode, hovered: ERangePointMode) => TContent;
+  renderTooltip?: (date: Date) => JSX.Element | string | number | null;
+  tooltipDirection?: ETooltipDirection;
   onViewportChange: (name: string, date: Date) => void;
   onHover: (name: string, date: Date) => void;
   onChange: (name: string, date: Date) => void;
@@ -76,7 +82,7 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
   static defaultProps: IDynaMonthCalendarProps = {
     name: null,
     mode: EMode.EDIT,
-    color: EColor.GREY_GREEN,
+    color: EMonthCalendarColor.GREY_GREEN,
     start: null,
     end: null,
     value: null,
@@ -100,7 +106,7 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
     this.state = {
       viewport: null,
       calendarTable: null,
-    }
+    };
   }
 
   public componentDidMount(): void {
@@ -273,7 +279,7 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
       onHover,
     } = this.props;
     onHover(name, calendarCell.date);
-  };
+  }
 
   private handleDaySelect(calendarCell: IUICalendarTableDayCell): void {
     if (this.props.mode === EMode.VIEW) return;
@@ -291,6 +297,8 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
       renderPickerWeekDay,
       renderPickerMonthYear,
       renderPickerDay,
+      renderTooltip,
+      tooltipDirection,
     } = this.props;
 
     const {
@@ -321,10 +329,10 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
           })}
         </div>
         <div className="dmc--calendar">
-          {calendarTable && calendarTable.map((calendarLine: Array<IUICalendarTableDayCell>, index:number) => {
+          {calendarTable && calendarTable.map((calendarLine: Array<IUICalendarTableDayCell>, index: number) => {
             return (
               <div key={index} className="dmc--calendar--line">
-                {calendarLine.map((calendarCell: IUICalendarTableDayCell, index:number) => {
+                {calendarLine.map((calendarCell: IUICalendarTableDayCell, index: number) => {
                   const date: Moment = moment(calendarCell.date);
                   const className: string = [
                     "dmc--calendar--cell",
@@ -343,7 +351,14 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
                       onMouseEnter={() => this.handleHoverDayCell(calendarCell)}
                       onClick={() => this.handleDaySelect(calendarCell)}
                     >
-                      {renderPickerDay(date.toDate(), date.get('D'), date.day(), calendarCell.inRange, calendarCell.hovered)}
+                      <Tooltip
+                        date={date.toDate()}
+                        color={color}
+                        tooltipDirection={tooltipDirection}
+                        renderTooltip={renderTooltip}
+                      >
+                        {renderPickerDay(date.toDate(), date.get('D'), date.day(), calendarCell.inRange, calendarCell.hovered)}
+                      </Tooltip>
                     </div>
                   );
                 })}

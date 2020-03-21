@@ -13,10 +13,17 @@
 	}
 
 	&--mode-VIEW {
-		pointer-events: none;
 		.dmc--header {
 			&--nav-prev, &--nav-next {
 				display: none !important;
+			}
+		}
+
+		.dmc--calendar {
+			.dmc--calendar--line {
+				.dmc--calendar--cell {
+					cursor: default !important;
+				}
 			}
 		}
 	}

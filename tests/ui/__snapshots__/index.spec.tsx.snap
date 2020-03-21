@@ -2,7 +2,7 @@
 
 exports[`Home has expected content with deep render 1`] = `
 <div
-  className="dyna-date-picker  dyna-date-picker-mode-EDIT dyna-date-picker-style-INLINE_ROUNDED dyna-date-picker-size-MEDIUM"
+  className="dyna-date-picker dyna-date-picker-mode-EDIT dyna-date-picker-style-INLINE_ROUNDED dyna-date-picker-size-MEDIUM"
 >
   <DynaFieldWrapper
     className={null}
@@ -10,6 +10,7 @@ exports[`Home has expected content with deep render 1`] = `
     footer={
       <DynaPickerContainer
         color="WHITE_ORANGE"
+        pointerPosition="MIDDLE"
         responsive={true}
         show={false}
         style="INLINE_ROUNDED"
@@ -25,11 +26,15 @@ exports[`Home has expected content with deep render 1`] = `
           <DynaMonthCalendar
             color="GREY_GREEN"
             end={null}
+            hoverOn={null}
+            hoverStart={null}
             max={null}
             min={null}
             mode="EDIT"
             name="Departure date"
             onChange={[Function]}
+            onHover={[Function]}
+            onViewportChange={[Function]}
             renderPickerDay={[Function]}
             renderPickerMonthYear={[Function]}
             renderPickerWeekDay={[Function]}
@@ -41,23 +46,48 @@ exports[`Home has expected content with deep render 1`] = `
           <div
             className="ddp--calendar--button-bar"
           >
-            <DynaButton
-              className=""
-              color="ORANGE_WHITE"
-              disabled={false}
-  href={null}
-  onClick={[Function]}
-              size="MEDIUM"
-              style="ROUNDED"
->
-              <span>
-                <i
-                  aria-hidden="true"
-                  className="fa fa-check"
-                />
-                 Ok
-              </span>
-            </DynaButton>
+            <div>
+              <DynaButton
+                className=""
+                color="ORANGE_WHITE"
+                disabled={false}
+                ghost={false}
+                href={null}
+                onClick={[Function]}
+                size="LARGE"
+                style="ROUNDED"
+                target="_blank"
+              >
+                <span>
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-calendar"
+                  />
+                   Today
+                </span>
+              </DynaButton>
+            </div>
+            <div>
+              <DynaButton
+                className=""
+                color="ORANGE_WHITE"
+                disabled={false}
+                ghost={false}
+                href={null}
+                onClick={[Function]}
+                size="LARGE"
+                style="ROUNDED"
+                target="_blank"
+              >
+                <span>
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-check"
+                  />
+                   Ok
+                </span>
+              </DynaButton>
+            </div>
           </div>
         </div>
       </DynaPickerContainer>

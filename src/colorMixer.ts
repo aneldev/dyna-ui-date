@@ -1,9 +1,9 @@
 import {EColor as EPickerContainerColor, EColor as EPickerButtonColor, EColor as EFieldColor} from "dyna-ui-styles";
-import {EColor as ECalendarColor} from "./DynaMonthCalendar/DynaMonthCalendar";
+import {EMonthCalendarColor} from "./interfaces";
 
 export interface IColorMixer {
   fieldColor?: EFieldColor;
-  calendarColor?: ECalendarColor,
+  calendarColor?: EMonthCalendarColor,
   pickerButtonColor?: EPickerButtonColor,
   pickerContainerColor?: EPickerContainerColor,
 }
@@ -31,7 +31,7 @@ export const colorMixer = (color: EColor): IColorMixer => {
     case EColor.GREY_RED_GREEN_CALENDAR_GREEN:
     case EColor.GREY_RED_GREEN:
       return {
-        calendarColor: ECalendarColor.GREY_GREEN,
+        calendarColor: EMonthCalendarColor.GREY_GREEN,
         fieldColor: EFieldColor.RED_WHITE,
         pickerButtonColor: EPickerButtonColor.RED_WHITE,
         pickerContainerColor: EPickerContainerColor.WHITE_RED,
@@ -39,7 +39,7 @@ export const colorMixer = (color: EColor): IColorMixer => {
     case EColor.GREY_ORANGE_GREEN_CALENDAR_GREEN:
     case EColor.GREY_ORANGE_GREEN:
       return {
-        calendarColor: ECalendarColor.GREY_GREEN,
+        calendarColor: EMonthCalendarColor.GREY_GREEN,
         fieldColor: EFieldColor.ORANGE_WHITE,
         pickerButtonColor: EPickerButtonColor.ORANGE_WHITE,
         pickerContainerColor: EPickerContainerColor.WHITE_ORANGE,
@@ -47,7 +47,7 @@ export const colorMixer = (color: EColor): IColorMixer => {
     case EColor.WHITE_BLACK_CALENDAR_GREEN:
     case EColor.WHITE_BLACK:
       return {
-        calendarColor: ECalendarColor.GREY_GREEN,
+        calendarColor: EMonthCalendarColor.GREY_GREEN,
         fieldColor: EFieldColor.BLACK_WHITE,
         pickerButtonColor: EPickerButtonColor.BLACK_WHITE,
         pickerContainerColor: EPickerContainerColor.WHITE_BLACK,
@@ -56,21 +56,21 @@ export const colorMixer = (color: EColor): IColorMixer => {
     // clean calendar
     case EColor.GREY_RED_GREEN_CALENDAR_CYAN:
       return {
-        calendarColor: ECalendarColor.GREY_CYAN,
+        calendarColor: EMonthCalendarColor.GREY_CYAN,
         fieldColor: EFieldColor.RED_WHITE,
         pickerButtonColor: EPickerButtonColor.RED_WHITE,
         pickerContainerColor: EPickerContainerColor.WHITE_RED,
       };
     case EColor.GREY_ORANGE_GREEN_CALENDAR_CYAN:
       return {
-        calendarColor: ECalendarColor.GREY_CYAN,
+        calendarColor: EMonthCalendarColor.GREY_CYAN,
         fieldColor: EFieldColor.ORANGE_WHITE,
         pickerButtonColor: EPickerButtonColor.ORANGE_WHITE,
         pickerContainerColor: EPickerContainerColor.WHITE_ORANGE,
       };
     case EColor.WHITE_BLACK_CALENDAR_CYAN:
       return {
-        calendarColor: ECalendarColor.GREY_CYAN,
+        calendarColor: EMonthCalendarColor.GREY_CYAN,
         fieldColor: EFieldColor.BLACK_WHITE,
         pickerButtonColor: EPickerButtonColor.BLACK_WHITE,
         pickerContainerColor: EPickerContainerColor.WHITE_BLACK,

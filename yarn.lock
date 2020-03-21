@@ -3085,6 +3085,13 @@ duplexify@^3.2.0, duplexify@^3.4.2, duplexify@^3.6.0:
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
 
+dyna-debounce@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/dyna-debounce/-/dyna-debounce-1.0.3.tgz#87ff07967add863879c46ca0bb540244d0bca7de"
+  integrity sha512-KVkUG2j5LM8Y2hWWQ2PrUxc5NH/GNbGWnttd/ERrGn12vCVz+gcAp7qThgrvjPZyobZR7beUvChwBskfcQbSVw==
+  dependencies:
+    lodash.debounce "^4.0.8"
+
 dyna-guid@^1.0.10, dyna-guid@^1.0.5:
   version "1.0.10"
   resolved "https://registry.yarnpkg.com/dyna-guid/-/dyna-guid-1.0.10.tgz#0aab519f22ef399ef43aed44f9bf905d609b4bc8"
@@ -3150,6 +3157,16 @@ dyna-ui-picker-container@^1.2.3:
 dyna-ui-styles@^1.3.16:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/dyna-ui-styles/-/dyna-ui-styles-1.4.1.tgz#32c2762efe84368bf2d618dd28fa4c49de030fb8"
+
+dyna-ui-tooltip@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/dyna-ui-tooltip/-/dyna-ui-tooltip-2.3.1.tgz#17f69baa4ac4b87607b08ed4f8ac0a1a2a5916a5"
+  integrity sha512-A6/4xoaxaxngVrKSPpXtuLb38wvd5c22OFiTqcKQDTLBMOXrs4I5iL/XZAnPFXtKCDEXQjnnBE9cd80OQ4UiRw==
+  dependencies:
+    dyna-debounce "^1.0.3"
+    dyna-ui-styles "^1.3.16"
+    react "^16.4.1"
+    react-dom "^16.4.1"
 
 each-async@^1.0.0, each-async@^1.1.1:
   version "1.1.1"

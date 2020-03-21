@@ -5,6 +5,7 @@ import moment = require("moment");
 import {DynaFieldWrapper, EMode, EStyle, ESize} from "dyna-ui-field-wrapper";
 import {DynaButton, EStyle as EButtonStyle} from "dyna-ui-button";
 import {DynaPickerContainer, EStyle as EPickerContainerStyle} from "dyna-ui-picker-container";
+import { ETooltipDirection } from "dyna-ui-tooltip"; // borrow the styles from the DynaDatePicker since the component is almost the same
 
 import {DynaMonthCalendar, ERangePointMode} from "../DynaMonthCalendar/DynaMonthCalendar";
 import {monthsLongNames, weekDaysShortNames} from "../utils/utils";
@@ -13,8 +14,7 @@ import {faIcon} from "../utils/faIcon";
 
 import {getPickerButtonSize, getShowPickerOnKeyPress} from "./utils";
 
-
-import "./style.less"; // borrow the styles from the DynaDatePicker since the component is almost the same
+import "./style.less";
 
 export type TContent = JSX.Element | string;
 
@@ -36,15 +36,17 @@ export interface IDynaDateRangePickerProps {
   min?: Date;
   max?: Date;
   editDate: EEditDate;    // For which date (Start or End) the component will work, this is the date will be shown on input field
-  showTodayButton?: boolean,
-  showCloseButton?: boolean,
-  closeButtonLabel?: TContent,
-  todayButtonLabel?: TContent,
+  showTodayButton?: boolean;
+  showCloseButton?: boolean;
+  closeButtonLabel?: TContent;
+  todayButtonLabel?: TContent;
   staringFromWeekDay?: number; // 0 = Sunday... default = 1 (Monday)
   renderInputDate?: (value: Date) => string;
   renderPickerMonthYear?: (month: number, year: number) => TContent;
   renderPickerWeekDay?: (weekDay: number) => TContent;
   renderPickerDay?: (date: Date, dayInMonth: number, dayInWeek: number, inRange: ERangePointMode) => TContent;
+  renderTooltip?: (date: Date) => JSX.Element | string | number | null;
+  tooltipDirection?: ETooltipDirection;
   onChange: (name: string, start: Date, end: Date) => void;
 }
 
@@ -98,7 +100,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
       showPicker: false,
       targetDate: props.editDate,
       hoverOn: undefined,
-    }
+    };
   }
 
   private handleHoverDate = (name: string, date: Date): void => {
@@ -171,6 +173,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
       color, showTodayButton, showCloseButton, todayButtonLabel, closeButtonLabel,
       mode, size, pickerSize, label, name, start, end, min, max, pickerHeader, pickerFooter,
       staringFromWeekDay, renderPickerMonthYear, renderPickerWeekDay, renderPickerDay,
+      renderTooltip, tooltipDirection,
     } = this.props;
     const {
       showPicker, hoverOn,
@@ -209,6 +212,8 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
               renderPickerDay={renderPickerDay}
               renderPickerWeekDay={renderPickerWeekDay}
               renderPickerMonthYear={renderPickerMonthYear}
+              renderTooltip={renderTooltip}
+              tooltipDirection={tooltipDirection}
             />
             <DynaMonthCalendar
               className="ddp--double-calendar-B"
@@ -228,6 +233,8 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
               renderPickerDay={renderPickerDay}
               renderPickerWeekDay={renderPickerWeekDay}
               renderPickerMonthYear={renderPickerMonthYear}
+              renderTooltip={renderTooltip}
+              tooltipDirection={tooltipDirection}
             />
           </div>
           <div className="ddp--calendar--button-bar">
@@ -255,7 +262,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
           {pickerFooter}
         </div>
       </DynaPickerContainer>
-    )
+    );
   }
 
   private lastFocused: Date = null;
