@@ -16,6 +16,7 @@ export interface IDynaDatePickerProps {
     required?: TContent;
     validationMessage?: TContent;
     pickerHeader?: TContent;
+    pickerBody?: TContent;
     pickerFooter?: TContent;
     style?: EStyle;
     color?: EColor;

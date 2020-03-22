@@ -109,7 +109,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".dyna-date-picker .dyna-ui-field-wrapper-container .ddp-input-control {\n  outline: none;\n  border: 0;\n  font-size: 16px;\n  line-height: 16px;\n  font-weight: bold;\n  background-color: transparent;\n}\n.dyna-date-picker.dyna-date-picker {\n  outline: none;\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container {\n  z-index: 1;\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--label {\n  display: none;\n}\n@media (max-width: 768px) {\n  .dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--label {\n    display: block;\n  }\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--button-bar {\n  padding: 0 8px 8px 8px;\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--button-bar .dyna-button button {\n  margin-top: 8px;\n  width: 100%;\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--double-calendar-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--double-calendar-container .ddp--double-calendar-A .dmc--header--nav-next {\n  visibility: hidden;\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--double-calendar-container .ddp--double-calendar-B {\n  padding-left: 0;\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--double-calendar-container .ddp--double-calendar-B .dmc--header--nav-prev {\n  visibility: hidden;\n}\n@media (max-width: 768px) {\n  .dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container {\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between;\n    width: 100%;\n  }\n  .dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--label {\n    display: none;\n  }\n  .dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--button-bar {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: end;\n        -ms-flex-pack: end;\n            justify-content: flex-end;\n  }\n}\n@media (max-width: 768px) and (max-width: 768px) {\n  .dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--label {\n    display: block;\n  }\n  .dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--label h2 {\n    margin: 8px 8px 0 8px;\n  }\n}\n@media (min-width: 768px + 1px) {\n  .dyna-date-picker.dyna-date-picker-size-XSMALL .dyna-ui-picker-container {\n    font-size: 11px;\n  }\n  .dyna-date-picker.dyna-date-picker-size-XSMALL .dyna-ui-picker-container .dyna-month-calendar {\n    width: 192px;\n    height: 192px;\n  }\n}\n@media (min-width: 769px) {\n  .dyna-date-picker.dyna-date-picker-size-SMALL .dyna-ui-picker-container {\n    font-size: 14px;\n  }\n  .dyna-date-picker.dyna-date-picker-size-SMALL .dyna-ui-picker-container .dyna-month-calendar {\n    width: 256px;\n    height: 256px;\n  }\n}\n@media (min-width: 769px) {\n  .dyna-date-picker.dyna-date-picker-size-MEDIUM .dyna-ui-picker-container {\n    font-size: 16px;\n  }\n  .dyna-date-picker.dyna-date-picker-size-MEDIUM .dyna-ui-picker-container .dyna-month-calendar {\n    width: 320px;\n    height: 320px;\n  }\n}\n@media (min-width: 769px) {\n  .dyna-date-picker.dyna-date-picker-size-LARGE .dyna-ui-picker-container {\n    font-size: 18px;\n  }\n  .dyna-date-picker.dyna-date-picker-size-LARGE .dyna-ui-picker-container .dyna-month-calendar {\n    width: 448px;\n    height: 448px;\n  }\n}\n@media (max-width: 768px) {\n  .dyna-date-picker.dyna-date-picker .ddp--double-calendar-container {\n    width: 98%;\n    padding: 1%;\n    height: 50%;\n  }\n  .dyna-date-picker.dyna-date-picker .ddp--double-calendar-A .dmc--header--nav-next {\n    visibility: visible !important;\n  }\n  .dyna-date-picker.dyna-date-picker .ddp--double-calendar-B {\n    display: none;\n  }\n}\n", ""]);
+exports.push([module.i, ".dyna-date-picker .dyna-ui-field-wrapper-container .ddp-input-control {\n  outline: none;\n  border: 0;\n  font-size: 16px;\n  line-height: 16px;\n  font-weight: bold;\n  background-color: transparent;\n}\n.dyna-date-picker.dyna-date-picker {\n  outline: none;\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container {\n  z-index: 1;\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--label {\n  display: none;\n}\n@media (max-width: 768px) {\n  .dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--label {\n    display: block;\n  }\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--picker-custom-content {\n  padding: 8px;\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--button-bar {\n  padding: 0 8px 8px 8px;\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--button-bar .dyna-button button {\n  margin-top: 8px;\n  width: 100%;\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--double-calendar-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--double-calendar-container .ddp--double-calendar-A .dmc--header--nav-next {\n  visibility: hidden;\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--double-calendar-container .ddp--double-calendar-B {\n  padding-left: 0;\n}\n.dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--double-calendar-container .ddp--double-calendar-B .dmc--header--nav-prev {\n  visibility: hidden;\n}\n@media (max-width: 768px) {\n  .dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container {\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between;\n    width: 100%;\n  }\n  .dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--label {\n    display: none;\n  }\n  .dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--button-bar {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: end;\n        -ms-flex-pack: end;\n            justify-content: flex-end;\n  }\n}\n@media (max-width: 768px) and (max-width: 768px) {\n  .dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--label {\n    display: block;\n  }\n  .dyna-date-picker.dyna-date-picker .dyna-ui-field-wrapper-footer .dyna-ui-picker-container .ddp-picker-container .ddp--calendar--label h2 {\n    margin: 8px 8px 0 8px;\n  }\n}\n@media (min-width: 768px + 1px) {\n  .dyna-date-picker.dyna-date-picker-size-XSMALL .dyna-ui-picker-container {\n    font-size: 11px;\n  }\n  .dyna-date-picker.dyna-date-picker-size-XSMALL .dyna-ui-picker-container .dyna-month-calendar {\n    width: 192px;\n    height: 192px;\n  }\n}\n@media (min-width: 769px) {\n  .dyna-date-picker.dyna-date-picker-size-SMALL .dyna-ui-picker-container {\n    font-size: 14px;\n  }\n  .dyna-date-picker.dyna-date-picker-size-SMALL .dyna-ui-picker-container .dyna-month-calendar {\n    width: 256px;\n    height: 256px;\n  }\n}\n@media (min-width: 769px) {\n  .dyna-date-picker.dyna-date-picker-size-MEDIUM .dyna-ui-picker-container {\n    font-size: 16px;\n  }\n  .dyna-date-picker.dyna-date-picker-size-MEDIUM .dyna-ui-picker-container .dyna-month-calendar {\n    width: 320px;\n    height: 320px;\n  }\n}\n@media (min-width: 769px) {\n  .dyna-date-picker.dyna-date-picker-size-LARGE .dyna-ui-picker-container {\n    font-size: 18px;\n  }\n  .dyna-date-picker.dyna-date-picker-size-LARGE .dyna-ui-picker-container .dyna-month-calendar {\n    width: 448px;\n    height: 448px;\n  }\n}\n@media (max-width: 768px) {\n  .dyna-date-picker.dyna-date-picker .ddp--double-calendar-container {\n    width: 98%;\n    padding: 1%;\n    height: 50%;\n  }\n  .dyna-date-picker.dyna-date-picker .ddp--double-calendar-A .dmc--header--nav-next {\n    visibility: visible !important;\n  }\n  .dyna-date-picker.dyna-date-picker .ddp--double-calendar-B {\n    display: none;\n  }\n}\n", ""]);
 
 // exports
 
@@ -1055,6 +1055,7 @@ function (_super) {
         min = _b.min,
         max = _b.max,
         pickerHeader = _b.pickerHeader,
+        pickerBody = _b.pickerBody,
         pickerFooter = _b.pickerFooter;
     var _c = this.props,
         staringFromWeekDay = _c.staringFromWeekDay,
@@ -1077,7 +1078,9 @@ function (_super) {
       className: "ddp-picker-container"
     }, React.createElement("div", {
       className: "ddp--calendar--label"
-    }, React.createElement("h2", null, label)), pickerHeader, React.createElement(DynaMonthCalendar_1.DynaMonthCalendar, {
+    }, React.createElement("h2", null, label)), !!pickerHeader && React.createElement("div", {
+      className: "ddp--picker-custom-content"
+    }, pickerHeader), React.createElement(DynaMonthCalendar_1.DynaMonthCalendar, {
       ref: function ref(component) {
         return _this.monthCalendar = component;
       },
@@ -1096,7 +1099,9 @@ function (_super) {
       renderPickerMonthYear: renderPickerMonthYear,
       renderTooltip: renderTooltip,
       tooltipDirection: tooltipDirection
-    }), React.createElement("div", {
+    }), !!pickerBody && React.createElement("div", {
+      className: "ddp--picker-custom-content"
+    }, pickerBody), React.createElement("div", {
       className: "ddp--calendar--button-bar"
     }, showTodayButton ? React.createElement("div", null, React.createElement(dyna_ui_button_1.DynaButton, {
       style: dyna_ui_button_1.EStyle.ROUNDED,
@@ -1109,7 +1114,9 @@ function (_super) {
       color: colors.pickerButtonColor,
       size: buttonSize,
       onClick: this.handlerUserCame
-    }, closeButtonLabel)) : null), pickerFooter));
+    }, closeButtonLabel)) : null), !!pickerFooter && React.createElement("div", {
+      className: "ddp--picker-custom-content"
+    }, pickerFooter)));
   };
 
   DynaDatePicker.prototype.renderInputDates = function () {
@@ -1175,6 +1182,7 @@ function (_super) {
     required: null,
     validationMessage: null,
     pickerHeader: null,
+    pickerBody: null,
     pickerFooter: null,
     style: dyna_ui_field_wrapper_1.EStyle.INLINE_ROUNDED,
     color: colorMixer_1.EColor.GREY_ORANGE_GREEN,
@@ -1464,6 +1472,7 @@ function (_super) {
         min = _a.min,
         max = _a.max,
         pickerHeader = _a.pickerHeader,
+        pickerBody = _a.pickerBody,
         pickerFooter = _a.pickerFooter,
         staringFromWeekDay = _a.staringFromWeekDay,
         renderPickerMonthYear = _a.renderPickerMonthYear,
@@ -1485,7 +1494,9 @@ function (_super) {
       className: "ddp-picker-container"
     }, React.createElement("div", {
       className: "ddp--calendar--label"
-    }, React.createElement("h2", null, label)), pickerHeader, React.createElement("div", {
+    }, React.createElement("h2", null, label)), !!pickerHeader && React.createElement("div", {
+      className: "ddp--picker-custom-content"
+    }, pickerHeader), React.createElement("div", {
       className: "ddp--double-calendar-container",
       onMouseLeave: this.handleCalendarsMouseLeave
     }, React.createElement(DynaMonthCalendar_1.DynaMonthCalendar, {
@@ -1532,7 +1543,9 @@ function (_super) {
       renderPickerMonthYear: renderPickerMonthYear,
       renderTooltip: renderTooltip,
       tooltipDirection: tooltipDirection
-    })), React.createElement("div", {
+    })), !!pickerBody && React.createElement("div", {
+      className: "ddp--picker-custom-content"
+    }, pickerBody), React.createElement("div", {
       className: "ddp--calendar--button-bar"
     }, showTodayButton ? React.createElement("div", null, React.createElement(dyna_ui_button_1.DynaButton, {
       style: dyna_ui_button_1.EStyle.ROUNDED,
@@ -1544,7 +1557,9 @@ function (_super) {
       color: colors.pickerButtonColor,
       size: buttonSize,
       onClick: this.handlerUserCame
-    }, closeButtonLabel)) : null), pickerFooter));
+    }, closeButtonLabel)) : null), !!pickerFooter && React.createElement("div", {
+      className: "ddp--picker-custom-content"
+    }, pickerFooter)));
   };
 
   DynaDateRangePicker.prototype.renderInputDates = function () {
@@ -1608,6 +1623,7 @@ function (_super) {
     required: null,
     validationMessage: null,
     pickerHeader: null,
+    pickerBody: null,
     pickerFooter: null,
     style: dyna_ui_field_wrapper_1.EStyle.INLINE_ROUNDED,
     color: colorMixer_1.EColor.GREY_ORANGE_GREEN,
