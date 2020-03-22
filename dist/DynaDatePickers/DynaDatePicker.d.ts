@@ -1,5 +1,6 @@
 import * as React from "react";
 import { EMode, EStyle, ESize } from "dyna-ui-field-wrapper";
+import { ETooltipDirection } from "dyna-ui-tooltip";
 import { ERangePointMode } from "../DynaMonthCalendar/DynaMonthCalendar";
 import { EColor } from "../colorMixer";
 import "./style.less";
@@ -34,6 +35,8 @@ export interface IDynaDatePickerProps {
     renderPickerMonthYear?: (month: number, year: number) => TContent;
     renderPickerWeekDay?: (weekDay: number) => TContent;
     renderPickerDay?: (date: Date, dayInMonth: number, dayInWeek: number, inRange: ERangePointMode) => TContent;
+    renderTooltip?: (date: Date) => JSX.Element | string | number | null;
+    tooltipDirection?: ETooltipDirection;
     onChange: (name: string, date: Date) => void;
 }
 export interface IDynaDatePickerState {

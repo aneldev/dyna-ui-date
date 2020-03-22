@@ -1,13 +1,10 @@
 import * as React from "react";
 import { Moment } from "moment";
 import { EMode } from "dyna-ui-field-wrapper";
-import { TContent } from "../interfaces/interfaces";
+import { TContent, EMonthCalendarColor } from "../interfaces";
+import { ETooltipDirection } from "dyna-ui-tooltip";
 import "./layout.less";
 import "./color.less";
-export declare enum EColor {
-    GREY_GREEN = "GREY_GREEN",
-    GREY_CYAN = "GREY_CYAN"
-}
 export declare enum ERangePointMode {
     START = "START",
     END = "END",
@@ -19,7 +16,7 @@ export interface IDynaMonthCalendarProps {
     className?: string;
     name: string;
     mode?: EMode;
-    color?: EColor;
+    color?: EMonthCalendarColor;
     start?: Date;
     end?: Date;
     min?: Date;
@@ -32,6 +29,8 @@ export interface IDynaMonthCalendarProps {
     renderPickerMonthYear?: (month: number, year: number) => TContent;
     renderPickerWeekDay?: (weekDay: number) => TContent;
     renderPickerDay?: (date: Date, dayInMonth: number, dayInWeek: number, inRange: ERangePointMode, hovered: ERangePointMode) => TContent;
+    renderTooltip?: (date: Date) => JSX.Element | string | number | null;
+    tooltipDirection?: ETooltipDirection;
     onViewportChange: (name: string, date: Date) => void;
     onHover: (name: string, date: Date) => void;
     onChange: (name: string, date: Date) => void;

@@ -1,8 +1,8 @@
 import { EColor as EPickerContainerColor, EColor as EPickerButtonColor, EColor as EFieldColor } from "dyna-ui-styles";
-import { EColor as ECalendarColor } from "./DynaMonthCalendar/DynaMonthCalendar";
+import { EMonthCalendarColor } from "./interfaces";
 export interface IColorMixer {
     fieldColor?: EFieldColor;
-    calendarColor?: ECalendarColor;
+    calendarColor?: EMonthCalendarColor;
     pickerButtonColor?: EPickerButtonColor;
     pickerContainerColor?: EPickerContainerColor;
 }

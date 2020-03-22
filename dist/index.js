@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("react"), require("moment"), require("dyna-ui-field-wrapper"), require("dyna-ui-button"), require("dyna-ui-picker-container"), require("dyna-ui-styles"));
+		module.exports = factory(require("react"), require("moment"), require("dyna-ui-field-wrapper"), require("dyna-ui-tooltip"), require("dyna-ui-button"), require("dyna-ui-picker-container"), require("dyna-ui-styles"));
 	else if(typeof define === 'function' && define.amd)
-		define("dyna-ui-date", ["react", "moment", "dyna-ui-field-wrapper", "dyna-ui-button", "dyna-ui-picker-container", "dyna-ui-styles"], factory);
+		define("dyna-ui-date", ["react", "moment", "dyna-ui-field-wrapper", "dyna-ui-tooltip", "dyna-ui-button", "dyna-ui-picker-container", "dyna-ui-styles"], factory);
 	else if(typeof exports === 'object')
-		exports["dyna-ui-date"] = factory(require("react"), require("moment"), require("dyna-ui-field-wrapper"), require("dyna-ui-button"), require("dyna-ui-picker-container"), require("dyna-ui-styles"));
+		exports["dyna-ui-date"] = factory(require("react"), require("moment"), require("dyna-ui-field-wrapper"), require("dyna-ui-tooltip"), require("dyna-ui-button"), require("dyna-ui-picker-container"), require("dyna-ui-styles"));
 	else
-		root["dyna-ui-date"] = factory(root["react"], root["moment"], root["dyna-ui-field-wrapper"], root["dyna-ui-button"], root["dyna-ui-picker-container"], root["dyna-ui-styles"]);
-})(window, function(__WEBPACK_EXTERNAL_MODULE_react__, __WEBPACK_EXTERNAL_MODULE_moment__, __WEBPACK_EXTERNAL_MODULE_dyna_ui_field_wrapper__, __WEBPACK_EXTERNAL_MODULE_dyna_ui_button__, __WEBPACK_EXTERNAL_MODULE_dyna_ui_picker_container__, __WEBPACK_EXTERNAL_MODULE_dyna_ui_styles__) {
+		root["dyna-ui-date"] = factory(root["react"], root["moment"], root["dyna-ui-field-wrapper"], root["dyna-ui-tooltip"], root["dyna-ui-button"], root["dyna-ui-picker-container"], root["dyna-ui-styles"]);
+})(window, function(__WEBPACK_EXTERNAL_MODULE_react__, __WEBPACK_EXTERNAL_MODULE_moment__, __WEBPACK_EXTERNAL_MODULE_dyna_ui_field_wrapper__, __WEBPACK_EXTERNAL_MODULE_dyna_ui_tooltip__, __WEBPACK_EXTERNAL_MODULE_dyna_ui_button__, __WEBPACK_EXTERNAL_MODULE_dyna_ui_picker_container__, __WEBPACK_EXTERNAL_MODULE_dyna_ui_styles__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -149,10 +149,32 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".dyna-month-calendar {\n  padding: 8px;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  width: calc(100% - 16px);\n  height: 100%;\n}\n@media (max-width: 768px) {\n  .dyna-month-calendar {\n    width: 100%;\n  }\n}\n.dyna-month-calendar--mode-VIEW {\n  pointer-events: none;\n}\n.dyna-month-calendar--mode-VIEW .dmc--header--nav-prev,\n.dyna-month-calendar--mode-VIEW .dmc--header--nav-next {\n  display: none !important;\n}\n.dyna-month-calendar .dmc--header {\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 15%;\n          flex: 1 1 15%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.dyna-month-calendar .dmc--header > * {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n.dyna-month-calendar .dmc--header--nav-prev,\n.dyna-month-calendar .dmc--header--nav-next {\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 14.2857%;\n          flex: 1 1 14.2857%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  cursor: pointer;\n  font-size: 16px;\n}\n.dyna-month-calendar .dmc--header--label {\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 85.7143%;\n          flex: 1 1 85.7143%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.dyna-month-calendar .dmc--week-days-header {\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 10%;\n          flex: 1 1 10%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.dyna-month-calendar .dmc--week-days-header .dmc--calendar--cell {\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 100%;\n          flex: 1 1 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n}\n.dyna-month-calendar .dmc--calendar {\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 75%;\n          flex: 1 1 75%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.dyna-month-calendar .dmc--calendar .dmc--calendar--line {\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 100%;\n          flex: 1 1 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.dyna-month-calendar .dmc--calendar .dmc--calendar--line .dmc--calendar--cell {\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 100%;\n          flex: 1 1 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  cursor: pointer;\n}\n.dyna-month-calendar .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--disabled {\n  cursor: default;\n}\n", ""]);
+exports.push([module.i, ".dyna-month-calendar {\n  padding: 8px;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  width: calc(100% - 16px);\n  height: 100%;\n}\n@media (max-width: 768px) {\n  .dyna-month-calendar {\n    width: 100%;\n  }\n}\n.dyna-month-calendar--mode-VIEW .dmc--header--nav-prev,\n.dyna-month-calendar--mode-VIEW .dmc--header--nav-next {\n  display: none !important;\n}\n.dyna-month-calendar--mode-VIEW .dmc--calendar .dmc--calendar--line .dmc--calendar--cell {\n  cursor: default !important;\n}\n.dyna-month-calendar .dmc--header {\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 15%;\n          flex: 1 1 15%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.dyna-month-calendar .dmc--header > * {\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n.dyna-month-calendar .dmc--header--nav-prev,\n.dyna-month-calendar .dmc--header--nav-next {\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 14.2857%;\n          flex: 1 1 14.2857%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  cursor: pointer;\n  font-size: 16px;\n}\n.dyna-month-calendar .dmc--header--label {\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 85.7143%;\n          flex: 1 1 85.7143%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.dyna-month-calendar .dmc--week-days-header {\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 10%;\n          flex: 1 1 10%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.dyna-month-calendar .dmc--week-days-header .dmc--calendar--cell {\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 100%;\n          flex: 1 1 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n}\n.dyna-month-calendar .dmc--calendar {\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 75%;\n          flex: 1 1 75%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.dyna-month-calendar .dmc--calendar .dmc--calendar--line {\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 100%;\n          flex: 1 1 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.dyna-month-calendar .dmc--calendar .dmc--calendar--line .dmc--calendar--cell {\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 100%;\n          flex: 1 1 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  cursor: pointer;\n}\n.dyna-month-calendar .dmc--calendar .dmc--calendar--line .dmc--calendar--cell--disabled {\n  cursor: default;\n}\n", ""]);
 
 // exports
 
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?modules&localIdentName=less-[name]---[local]---[hash:base64:5]!./node_modules/postcss-loader/lib/index.js?!./node_modules/less-loader/dist/cjs.js!./src/DynaMonthCalendar/Tooltip.module.less":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader?modules&localIdentName=less-[name]---[local]---[hash:base64:5]!./node_modules/postcss-loader/lib??ref--7-2!./node_modules/less-loader/dist/cjs.js!./src/DynaMonthCalendar/Tooltip.module.less ***!
+  \*******************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".less-Tooltip-module---root---13ruo {\n  width: 100%;\n  height: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n", ""]);
+
+// exports
+exports.locals = {
+	"root": "less-Tooltip-module---root---13ruo"
+};
 
 /***/ }),
 
@@ -1039,6 +1061,9 @@ function (_super) {
         renderPickerMonthYear = _c.renderPickerMonthYear,
         renderPickerWeekDay = _c.renderPickerWeekDay,
         renderPickerDay = _c.renderPickerDay;
+    var _d = this.props,
+        renderTooltip = _d.renderTooltip,
+        tooltipDirection = _d.tooltipDirection;
     var showPicker = this.state.showPicker;
     var show = mode === dyna_ui_field_wrapper_1.EMode.EDIT && showPicker;
     var colors = colorMixer_1.colorMixer(color);
@@ -1068,7 +1093,9 @@ function (_super) {
       onChange: this.handleDaySelect,
       renderPickerDay: renderPickerDay,
       renderPickerWeekDay: renderPickerWeekDay,
-      renderPickerMonthYear: renderPickerMonthYear
+      renderPickerMonthYear: renderPickerMonthYear,
+      renderTooltip: renderTooltip,
+      tooltipDirection: tooltipDirection
     }), React.createElement("div", {
       className: "ddp--calendar--button-bar"
     }, showTodayButton ? React.createElement("div", null, React.createElement(dyna_ui_button_1.DynaButton, {
@@ -1194,8 +1221,8 @@ exports.DynaDatePicker = DynaDatePicker;
     return;
   }
 
-  reactHotLoader.register(__extends, "__extends", "/Users/dennis/dev/dyna/dyna-ui-date/src/DynaDatePickers/DynaDatePicker.tsx");
-  reactHotLoader.register(DynaDatePicker, "DynaDatePicker", "/Users/dennis/dev/dyna/dyna-ui-date/src/DynaDatePickers/DynaDatePicker.tsx");
+  reactHotLoader.register(__extends, "__extends", "/Users/dennisat/dev/dyna/dyna-ui-date/src/DynaDatePickers/DynaDatePicker.tsx");
+  reactHotLoader.register(DynaDatePicker, "DynaDatePicker", "/Users/dennisat/dev/dyna/dyna-ui-date/src/DynaDatePickers/DynaDatePicker.tsx");
   leaveModule(module);
 })();
 
@@ -1271,8 +1298,7 @@ var faIcon_1 = __webpack_require__(/*! ../utils/faIcon */ "./src/utils/faIcon.ts
 
 var utils_2 = __webpack_require__(/*! ./utils */ "./src/DynaDatePickers/utils.ts");
 
-__webpack_require__(/*! ./style.less */ "./src/DynaDatePickers/style.less"); // borrow the styles from the DynaDatePicker since the component is almost the same
-
+__webpack_require__(/*! ./style.less */ "./src/DynaDatePickers/style.less");
 
 var EEditDate;
 
@@ -1442,7 +1468,9 @@ function (_super) {
         staringFromWeekDay = _a.staringFromWeekDay,
         renderPickerMonthYear = _a.renderPickerMonthYear,
         renderPickerWeekDay = _a.renderPickerWeekDay,
-        renderPickerDay = _a.renderPickerDay;
+        renderPickerDay = _a.renderPickerDay,
+        renderTooltip = _a.renderTooltip,
+        tooltipDirection = _a.tooltipDirection;
     var _b = this.state,
         showPicker = _b.showPicker,
         hoverOn = _b.hoverOn;
@@ -1479,7 +1507,9 @@ function (_super) {
       onChange: this.handleDaySelect,
       renderPickerDay: renderPickerDay,
       renderPickerWeekDay: renderPickerWeekDay,
-      renderPickerMonthYear: renderPickerMonthYear
+      renderPickerMonthYear: renderPickerMonthYear,
+      renderTooltip: renderTooltip,
+      tooltipDirection: tooltipDirection
     }), React.createElement(DynaMonthCalendar_1.DynaMonthCalendar, {
       className: "ddp--double-calendar-B",
       ref: function ref(component) {
@@ -1499,7 +1529,9 @@ function (_super) {
       onChange: this.handleDaySelect,
       renderPickerDay: renderPickerDay,
       renderPickerWeekDay: renderPickerWeekDay,
-      renderPickerMonthYear: renderPickerMonthYear
+      renderPickerMonthYear: renderPickerMonthYear,
+      renderTooltip: renderTooltip,
+      tooltipDirection: tooltipDirection
     })), React.createElement("div", {
       className: "ddp--calendar--button-bar"
     }, showTodayButton ? React.createElement("div", null, React.createElement(dyna_ui_button_1.DynaButton, {
@@ -1619,9 +1651,9 @@ exports.DynaDateRangePicker = DynaDateRangePicker;
     return;
   }
 
-  reactHotLoader.register(__extends, "__extends", "/Users/dennis/dev/dyna/dyna-ui-date/src/DynaDatePickers/DynaDateRangePicker.tsx");
-  reactHotLoader.register(EEditDate, "EEditDate", "/Users/dennis/dev/dyna/dyna-ui-date/src/DynaDatePickers/DynaDateRangePicker.tsx");
-  reactHotLoader.register(DynaDateRangePicker, "DynaDateRangePicker", "/Users/dennis/dev/dyna/dyna-ui-date/src/DynaDatePickers/DynaDateRangePicker.tsx");
+  reactHotLoader.register(__extends, "__extends", "/Users/dennisat/dev/dyna/dyna-ui-date/src/DynaDatePickers/DynaDateRangePicker.tsx");
+  reactHotLoader.register(EEditDate, "EEditDate", "/Users/dennisat/dev/dyna/dyna-ui-date/src/DynaDatePickers/DynaDateRangePicker.tsx");
+  reactHotLoader.register(DynaDateRangePicker, "DynaDateRangePicker", "/Users/dennisat/dev/dyna/dyna-ui-date/src/DynaDatePickers/DynaDateRangePicker.tsx");
   leaveModule(module);
 })();
 
@@ -1785,6 +1817,10 @@ var moment = __webpack_require__(/*! moment */ "moment");
 
 var dyna_ui_field_wrapper_1 = __webpack_require__(/*! dyna-ui-field-wrapper */ "dyna-ui-field-wrapper");
 
+var interfaces_1 = __webpack_require__(/*! ../interfaces */ "./src/interfaces.ts");
+
+var Tooltip_1 = __webpack_require__(/*! ./Tooltip */ "./src/DynaMonthCalendar/Tooltip.tsx");
+
 var utils_1 = __webpack_require__(/*! ../utils/utils */ "./src/utils/utils.tsx");
 
 var faIcon_1 = __webpack_require__(/*! ../utils/faIcon */ "./src/utils/faIcon.tsx");
@@ -1792,13 +1828,6 @@ var faIcon_1 = __webpack_require__(/*! ../utils/faIcon */ "./src/utils/faIcon.ts
 __webpack_require__(/*! ./layout.less */ "./src/DynaMonthCalendar/layout.less");
 
 __webpack_require__(/*! ./color.less */ "./src/DynaMonthCalendar/color.less");
-
-var EColor;
-
-(function (EColor) {
-  EColor["GREY_GREEN"] = "GREY_GREEN";
-  EColor["GREY_CYAN"] = "GREY_CYAN";
-})(EColor = exports.EColor || (exports.EColor = {}));
 
 var ERangePointMode;
 
@@ -1992,8 +2021,6 @@ function (_super) {
     onHover(name, calendarCell.date);
   };
 
-  ;
-
   DynaMonthCalendar.prototype.handleDaySelect = function (calendarCell) {
     if (this.props.mode === dyna_ui_field_wrapper_1.EMode.VIEW) return;
     if (calendarCell.disabled) return;
@@ -2013,7 +2040,9 @@ function (_super) {
         staringFromWeekDay = _a.staringFromWeekDay,
         renderPickerWeekDay = _a.renderPickerWeekDay,
         renderPickerMonthYear = _a.renderPickerMonthYear,
-        renderPickerDay = _a.renderPickerDay;
+        renderPickerDay = _a.renderPickerDay,
+        renderTooltip = _a.renderTooltip,
+        tooltipDirection = _a.tooltipDirection;
     var _b = this.state,
         viewport = _b.viewport,
         calendarTable = _b.calendarTable;
@@ -2057,7 +2086,12 @@ function (_super) {
           onClick: function onClick() {
             return _this.handleDaySelect(calendarCell);
           }
-        }, renderPickerDay(date.toDate(), date.get('D'), date.day(), calendarCell.inRange, calendarCell.hovered));
+        }, React.createElement(Tooltip_1.Tooltip, {
+          date: date.toDate(),
+          color: color,
+          tooltipDirection: tooltipDirection,
+          renderTooltip: renderTooltip
+        }, renderPickerDay(date.toDate(), date.get('D'), date.day(), calendarCell.inRange, calendarCell.hovered)));
       }));
     })));
   };
@@ -2065,7 +2099,7 @@ function (_super) {
   DynaMonthCalendar.defaultProps = {
     name: null,
     mode: dyna_ui_field_wrapper_1.EMode.EDIT,
-    color: EColor.GREY_GREEN,
+    color: interfaces_1.EMonthCalendarColor.GREY_GREEN,
     start: null,
     end: null,
     value: null,
@@ -2109,15 +2143,101 @@ exports.DynaMonthCalendar = DynaMonthCalendar;
     return;
   }
 
-  reactHotLoader.register(__extends, "__extends", "/Users/dennis/dev/dyna/dyna-ui-date/src/DynaMonthCalendar/DynaMonthCalendar.tsx");
-  reactHotLoader.register(EColor, "EColor", "/Users/dennis/dev/dyna/dyna-ui-date/src/DynaMonthCalendar/DynaMonthCalendar.tsx");
-  reactHotLoader.register(ERangePointMode, "ERangePointMode", "/Users/dennis/dev/dyna/dyna-ui-date/src/DynaMonthCalendar/DynaMonthCalendar.tsx");
-  reactHotLoader.register(DynaMonthCalendar, "DynaMonthCalendar", "/Users/dennis/dev/dyna/dyna-ui-date/src/DynaMonthCalendar/DynaMonthCalendar.tsx");
+  reactHotLoader.register(__extends, "__extends", "/Users/dennisat/dev/dyna/dyna-ui-date/src/DynaMonthCalendar/DynaMonthCalendar.tsx");
+  reactHotLoader.register(ERangePointMode, "ERangePointMode", "/Users/dennisat/dev/dyna/dyna-ui-date/src/DynaMonthCalendar/DynaMonthCalendar.tsx");
+  reactHotLoader.register(DynaMonthCalendar, "DynaMonthCalendar", "/Users/dennisat/dev/dyna/dyna-ui-date/src/DynaMonthCalendar/DynaMonthCalendar.tsx");
   leaveModule(module);
 })();
 
 ;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
+
+/***/ }),
+
+/***/ "./src/DynaMonthCalendar/Tooltip.module.less":
+/*!***************************************************!*\
+  !*** ./src/DynaMonthCalendar/Tooltip.module.less ***!
+  \***************************************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader?modules&localIdentName=less-[name]---[local]---[hash:base64:5]!../../node_modules/postcss-loader/lib??ref--7-2!../../node_modules/less-loader/dist/cjs.js!./Tooltip.module.less */ "./node_modules/css-loader/index.js?modules&localIdentName=less-[name]---[local]---[hash:base64:5]!./node_modules/postcss-loader/lib/index.js?!./node_modules/less-loader/dist/cjs.js!./src/DynaMonthCalendar/Tooltip.module.less");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./src/DynaMonthCalendar/Tooltip.tsx":
+/*!*******************************************!*\
+  !*** ./src/DynaMonthCalendar/Tooltip.tsx ***!
+  \*******************************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var React = __webpack_require__(/*! react */ "react");
+
+var dyna_ui_tooltip_1 = __webpack_require__(/*! dyna-ui-tooltip */ "dyna-ui-tooltip");
+
+var interfaces_1 = __webpack_require__(/*! ../interfaces */ "./src/interfaces.ts");
+
+var styles = __webpack_require__(/*! ./Tooltip.module.less */ "./src/DynaMonthCalendar/Tooltip.module.less");
+
+exports.Tooltip = function (props) {
+  var className = props.className,
+      date = props.date,
+      calendarColor = props.color,
+      renderTooltip = props.renderTooltip,
+      tooltipDirection = props.tooltipDirection,
+      children = props.children;
+  if (!renderTooltip) return children;
+
+  var color = function () {
+    switch (calendarColor) {
+      case interfaces_1.EMonthCalendarColor.GREY_CYAN:
+        return dyna_ui_tooltip_1.EColor.WHITE_ORANGE;
+
+      case interfaces_1.EMonthCalendarColor.GREY_GREEN:
+        return dyna_ui_tooltip_1.EColor.WHITE_ORANGE;
+
+      default:
+        return dyna_ui_tooltip_1.EColor.WHITE_ORANGE;
+    }
+  }();
+
+  return React.createElement(dyna_ui_tooltip_1.DynaTooltip, {
+    className: [className, styles.root].filter(Boolean).join(' '),
+    nodeType: "div",
+    color: color,
+    tooltipContent: renderTooltip(date),
+    tooltipDirection: tooltipDirection
+  }, children);
+};
 
 /***/ }),
 
@@ -2206,7 +2326,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var dyna_ui_styles_1 = __webpack_require__(/*! dyna-ui-styles */ "dyna-ui-styles");
 
-var DynaMonthCalendar_1 = __webpack_require__(/*! ./DynaMonthCalendar/DynaMonthCalendar */ "./src/DynaMonthCalendar/DynaMonthCalendar.tsx");
+var interfaces_1 = __webpack_require__(/*! ./interfaces */ "./src/interfaces.ts");
 
 var EColor;
 
@@ -2229,7 +2349,7 @@ exports.colorMixer = function (color) {
     case EColor.GREY_RED_GREEN_CALENDAR_GREEN:
     case EColor.GREY_RED_GREEN:
       return {
-        calendarColor: DynaMonthCalendar_1.EColor.GREY_GREEN,
+        calendarColor: interfaces_1.EMonthCalendarColor.GREY_GREEN,
         fieldColor: dyna_ui_styles_1.EColor.RED_WHITE,
         pickerButtonColor: dyna_ui_styles_1.EColor.RED_WHITE,
         pickerContainerColor: dyna_ui_styles_1.EColor.WHITE_RED
@@ -2238,7 +2358,7 @@ exports.colorMixer = function (color) {
     case EColor.GREY_ORANGE_GREEN_CALENDAR_GREEN:
     case EColor.GREY_ORANGE_GREEN:
       return {
-        calendarColor: DynaMonthCalendar_1.EColor.GREY_GREEN,
+        calendarColor: interfaces_1.EMonthCalendarColor.GREY_GREEN,
         fieldColor: dyna_ui_styles_1.EColor.ORANGE_WHITE,
         pickerButtonColor: dyna_ui_styles_1.EColor.ORANGE_WHITE,
         pickerContainerColor: dyna_ui_styles_1.EColor.WHITE_ORANGE
@@ -2247,7 +2367,7 @@ exports.colorMixer = function (color) {
     case EColor.WHITE_BLACK_CALENDAR_GREEN:
     case EColor.WHITE_BLACK:
       return {
-        calendarColor: DynaMonthCalendar_1.EColor.GREY_GREEN,
+        calendarColor: interfaces_1.EMonthCalendarColor.GREY_GREEN,
         fieldColor: dyna_ui_styles_1.EColor.BLACK_WHITE,
         pickerButtonColor: dyna_ui_styles_1.EColor.BLACK_WHITE,
         pickerContainerColor: dyna_ui_styles_1.EColor.WHITE_BLACK
@@ -2256,7 +2376,7 @@ exports.colorMixer = function (color) {
 
     case EColor.GREY_RED_GREEN_CALENDAR_CYAN:
       return {
-        calendarColor: DynaMonthCalendar_1.EColor.GREY_CYAN,
+        calendarColor: interfaces_1.EMonthCalendarColor.GREY_CYAN,
         fieldColor: dyna_ui_styles_1.EColor.RED_WHITE,
         pickerButtonColor: dyna_ui_styles_1.EColor.RED_WHITE,
         pickerContainerColor: dyna_ui_styles_1.EColor.WHITE_RED
@@ -2264,7 +2384,7 @@ exports.colorMixer = function (color) {
 
     case EColor.GREY_ORANGE_GREEN_CALENDAR_CYAN:
       return {
-        calendarColor: DynaMonthCalendar_1.EColor.GREY_CYAN,
+        calendarColor: interfaces_1.EMonthCalendarColor.GREY_CYAN,
         fieldColor: dyna_ui_styles_1.EColor.ORANGE_WHITE,
         pickerButtonColor: dyna_ui_styles_1.EColor.ORANGE_WHITE,
         pickerContainerColor: dyna_ui_styles_1.EColor.WHITE_ORANGE
@@ -2272,7 +2392,7 @@ exports.colorMixer = function (color) {
 
     case EColor.WHITE_BLACK_CALENDAR_CYAN:
       return {
-        calendarColor: DynaMonthCalendar_1.EColor.GREY_CYAN,
+        calendarColor: interfaces_1.EMonthCalendarColor.GREY_CYAN,
         fieldColor: dyna_ui_styles_1.EColor.BLACK_WHITE,
         pickerButtonColor: dyna_ui_styles_1.EColor.BLACK_WHITE,
         pickerContainerColor: dyna_ui_styles_1.EColor.WHITE_BLACK
@@ -2291,7 +2411,7 @@ exports.colorMixer = function (color) {
     return;
   }
 
-  reactHotLoader.register(EColor, "EColor", "/Users/dennis/dev/dyna/dyna-ui-date/src/colorMixer.ts");
+  reactHotLoader.register(EColor, "EColor", "/Users/dennisat/dev/dyna/dyna-ui-date/src/colorMixer.ts");
   leaveModule(module);
 })();
 
@@ -2318,7 +2438,10 @@ Object.defineProperty(exports, "__esModule", {
 var DynaMonthCalendar_1 = __webpack_require__(/*! ./DynaMonthCalendar/DynaMonthCalendar */ "./src/DynaMonthCalendar/DynaMonthCalendar.tsx");
 
 exports.DynaMonthCalendar = DynaMonthCalendar_1.DynaMonthCalendar;
-exports.EDynaMonthCalendarColor = DynaMonthCalendar_1.EColor;
+
+var interfaces_1 = __webpack_require__(/*! ./interfaces */ "./src/interfaces.ts");
+
+exports.EDynaMonthCalendarColor = interfaces_1.EMonthCalendarColor;
 
 var DynaDatePicker_1 = __webpack_require__(/*! ./DynaDatePickers/DynaDatePicker */ "./src/DynaDatePickers/DynaDatePicker.tsx");
 
@@ -2336,6 +2459,53 @@ var colorMixer_1 = __webpack_require__(/*! ./colorMixer */ "./src/colorMixer.ts"
 
 exports.EColor = colorMixer_1.EColor;
 exports.EDynaDatePickerColor = colorMixer_1.EColor;
+
+/***/ }),
+
+/***/ "./src/interfaces.ts":
+/*!***************************!*\
+  !*** ./src/interfaces.ts ***!
+  \***************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(module) {
+
+(function () {
+  var enterModule = __webpack_require__(/*! react-hot-loader */ "./node_modules/react-hot-loader/index.js").enterModule;
+
+  enterModule && enterModule(module);
+})();
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var EMonthCalendarColor;
+
+(function (EMonthCalendarColor) {
+  EMonthCalendarColor["GREY_GREEN"] = "GREY_GREEN";
+  EMonthCalendarColor["GREY_CYAN"] = "GREY_CYAN";
+})(EMonthCalendarColor = exports.EMonthCalendarColor || (exports.EMonthCalendarColor = {}));
+
+;
+
+(function () {
+  var reactHotLoader = __webpack_require__(/*! react-hot-loader */ "./node_modules/react-hot-loader/index.js").default;
+
+  var leaveModule = __webpack_require__(/*! react-hot-loader */ "./node_modules/react-hot-loader/index.js").leaveModule;
+
+  if (!reactHotLoader) {
+    return;
+  }
+
+  reactHotLoader.register(EMonthCalendarColor, "EMonthCalendarColor", "/Users/dennisat/dev/dyna/dyna-ui-date/src/interfaces.ts");
+  leaveModule(module);
+})();
+
+;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node_modules/webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
 
 /***/ }),
 
@@ -2479,9 +2649,9 @@ exports.createCalendarTable = createCalendarTable;
     return;
   }
 
-  reactHotLoader.register(getFirstDateOfMonth, "getFirstDateOfMonth", "/Users/dennis/dev/dyna/dyna-ui-date/src/utils/utils.tsx");
-  reactHotLoader.register(getDaysArray, "getDaysArray", "/Users/dennis/dev/dyna/dyna-ui-date/src/utils/utils.tsx");
-  reactHotLoader.register(createCalendarTable, "createCalendarTable", "/Users/dennis/dev/dyna/dyna-ui-date/src/utils/utils.tsx");
+  reactHotLoader.register(getFirstDateOfMonth, "getFirstDateOfMonth", "/Users/dennisat/dev/dyna/dyna-ui-date/src/utils/utils.tsx");
+  reactHotLoader.register(getDaysArray, "getDaysArray", "/Users/dennisat/dev/dyna/dyna-ui-date/src/utils/utils.tsx");
+  reactHotLoader.register(createCalendarTable, "createCalendarTable", "/Users/dennisat/dev/dyna/dyna-ui-date/src/utils/utils.tsx");
   leaveModule(module);
 })();
 
@@ -2498,7 +2668,7 @@ exports.createCalendarTable = createCalendarTable;
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/dennis/dev/dyna/dyna-ui-date/src/index.tsx */"./src/index.tsx");
+module.exports = __webpack_require__(/*! /Users/dennisat/dev/dyna/dyna-ui-date/src/index.tsx */"./src/index.tsx");
 
 
 /***/ }),
@@ -2548,6 +2718,18 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_dyna_ui_picker_container__;
 /***/ (function(module, exports) {
 
 module.exports = __WEBPACK_EXTERNAL_MODULE_dyna_ui_styles__;
+
+/***/ }),
+
+/***/ "dyna-ui-tooltip":
+/*!**********************************!*\
+  !*** external "dyna-ui-tooltip" ***!
+  \**********************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_dyna_ui_tooltip__;
 
 /***/ }),
 
