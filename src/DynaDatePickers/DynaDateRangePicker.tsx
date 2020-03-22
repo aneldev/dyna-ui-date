@@ -28,6 +28,7 @@ export interface IDynaDateRangePickerProps {
   required?: TContent;
   validationMessage?: TContent;
   pickerHeader?: TContent;
+  pickerBody?: TContent;
   pickerFooter?: TContent;
   style?: EStyle;
   color?: EColor;
@@ -71,6 +72,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
     required: null,
     validationMessage: null,
     pickerHeader: null,
+    pickerBody: null,
     pickerFooter: null,
     style: EStyle.INLINE_ROUNDED,
     color: EColor.GREY_ORANGE_GREEN,
@@ -86,8 +88,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
     renderInputDate: (date: Date) => moment(date).format('dd DD MMM YY'),
     renderPickerMonthYear: (month: number, year: number) => <div>{monthsLongNames[month]} {year}</div>,
     renderPickerWeekDay: (weekDay: number) => <div>{weekDaysShortNames[weekDay]}</div>,
-    renderPickerDay: (date: Date, dayInMonth: number, dayInWeek: number, inRange: ERangePointMode) =>
-      <div>{dayInMonth}</div>,
+    renderPickerDay: (date: Date, dayInMonth: number, dayInWeek: number, inRange: ERangePointMode) => <div>{dayInMonth}</div>,
     onChange: (name: string, date: Date) => undefined,
   };
 
@@ -171,7 +172,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
   private renderPicker(): JSX.Element {
     const {
       color, showTodayButton, showCloseButton, todayButtonLabel, closeButtonLabel,
-      mode, size, pickerSize, label, name, start, end, min, max, pickerHeader, pickerFooter,
+      mode, size, pickerSize, label, name, start, end, min, max, pickerHeader, pickerBody, pickerFooter,
       staringFromWeekDay, renderPickerMonthYear, renderPickerWeekDay, renderPickerDay,
       renderTooltip, tooltipDirection,
     } = this.props;
@@ -192,7 +193,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
           <div className="ddp--calendar--label">
             <h2>{label}</h2>
           </div>
-          {pickerHeader}
+          {!!pickerHeader && <div className="ddp--picker-custom-content">{pickerHeader}</div>}
           <div className="ddp--double-calendar-container" onMouseLeave={this.handleCalendarsMouseLeave}>
             <DynaMonthCalendar
               className="ddp--double-calendar-A"
@@ -237,6 +238,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
               tooltipDirection={tooltipDirection}
             />
           </div>
+          {!!pickerBody && <div className="ddp--picker-custom-content">{pickerBody}</div>}
           <div className="ddp--calendar--button-bar">
             {showTodayButton ?
               <div>
@@ -259,7 +261,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
               </div>
               : null}
           </div>
-          {pickerFooter}
+          {!!pickerFooter && <div className="ddp--picker-custom-content">{pickerFooter}</div>}
         </div>
       </DynaPickerContainer>
     );

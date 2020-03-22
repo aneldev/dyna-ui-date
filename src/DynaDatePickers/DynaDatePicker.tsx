@@ -33,6 +33,7 @@ export interface IDynaDatePickerProps {
   required?: TContent;
   validationMessage?: TContent;
   pickerHeader?: TContent;
+  pickerBody?: TContent;
   pickerFooter?: TContent;
   style?: EStyle;
   color?: EColor;
@@ -71,6 +72,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
     required: null,
     validationMessage: null,
     pickerHeader: null,
+    pickerBody: null,
     pickerFooter: null,
     style: EStyle.INLINE_ROUNDED,
     color: EColor.GREY_ORANGE_GREEN,
@@ -110,7 +112,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
 
   private renderPicker(): JSX.Element {
     const {color, showTodayButton, showCloseButton, todayButtonLabel, closeButtonLabel} = this.props;
-    const {mode, label, size, pickerSize, name, value, values, start, end, min, max, pickerHeader, pickerFooter} = this.props;
+    const {mode, label, size, pickerSize, name, value, values, start, end, min, max, pickerHeader, pickerBody, pickerFooter} = this.props;
     const {staringFromWeekDay, renderPickerMonthYear, renderPickerWeekDay, renderPickerDay} = this.props;
     const {renderTooltip, tooltipDirection} = this.props;
     const {showPicker} = this.state;
@@ -129,7 +131,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
           <div className="ddp--calendar--label">
             <h2>{label}</h2>
           </div>
-          {pickerHeader}
+          {!!pickerHeader && <div className="ddp--picker-custom-content">{pickerHeader}</div>}
           <DynaMonthCalendar
             ref={(component: DynaMonthCalendar) => this.monthCalendar = component}
             name={name}
@@ -148,6 +150,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
             renderTooltip={renderTooltip}
             tooltipDirection={tooltipDirection}
           />
+          {!!pickerBody && <div className="ddp--picker-custom-content">{pickerBody}</div>}
           <div className="ddp--calendar--button-bar">
             {showTodayButton ?
               <div>
@@ -171,7 +174,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
               </div>
               : null}
           </div>
-          {pickerFooter}
+          {!!pickerFooter && <div className="ddp--picker-custom-content">{pickerFooter}</div>}
         </div>
       </DynaPickerContainer>
     );
