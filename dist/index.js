@@ -1003,7 +1003,9 @@ function (_super) {
     _this.handlerUserCame = function () {
       if (_this.props.mode === dyna_ui_field_wrapper_1.EMode.VIEW) return;
       if (_this.lastFocused && Number(new Date()) - Number(_this.lastFocused) < 300) return;
-      var value = _this.props.value;
+      var _a = _this.props,
+          value = _a.value,
+          onShowPicker = _a.onShowPicker;
       var showPicker = !_this.state.showPicker;
 
       _this.setState({
@@ -1011,6 +1013,7 @@ function (_super) {
       });
 
       if (showPicker) _this.monthCalendar.setViewport(value);
+      if (showPicker && onShowPicker) onShowPicker();
       _this.lastFocused = new Date();
     };
 
@@ -1021,10 +1024,12 @@ function (_super) {
     };
 
     _this.handlerInputKeyPress = function (event) {
+      var onShowPicker = _this.props.onShowPicker;
       var showPicker = utils_2.getShowPickerOnKeyPress(event, _this.state.showPicker);
       if (showPicker !== null) _this.setState({
         showPicker: showPicker
       });
+      if (showPicker === true && onShowPicker) onShowPicker();
     };
 
     _this.state = {

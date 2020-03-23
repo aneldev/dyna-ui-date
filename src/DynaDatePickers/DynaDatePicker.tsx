@@ -55,6 +55,7 @@ export interface IDynaDatePickerProps {
   renderPickerDay?: (date: Date, dayInMonth: number, dayInWeek: number, inRange: ERangePointMode) => TContent;
   renderTooltip?: (date: Date) => JSX.Element | string | number | null;
   tooltipDirection?: ETooltipDirection;
+  onShowPicker?: () => void;
   onChange: (name: string, date: Date) => void;
 }
 
@@ -192,7 +193,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
     if (this.props.mode === EMode.VIEW) return;
     if (this.lastFocused && Number(new Date) - Number(this.lastFocused) < 300) return;
 
-    const {value} = this.props;
+    const {value, onShowPicker} = this.props;
     const showPicker: boolean = !this.state.showPicker;
 
     this.setState({
@@ -200,6 +201,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
     });
 
     if (showPicker) this.monthCalendar.setViewport(value);
+    if (showPicker && onShowPicker) onShowPicker();
 
     this.lastFocused = new Date;
   };
@@ -211,8 +213,10 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
   };
 
   private handlerInputKeyPress = (event: KeyboardEvent<HTMLInputElement>): void => {
+    const {onShowPicker} = this.props;
     const showPicker = getShowPickerOnKeyPress(event, this.state.showPicker);
     if (showPicker !== null) this.setState({showPicker});
+    if (showPicker === true && onShowPicker) onShowPicker();
   };
 
   private renderInputDates(): string {
@@ -229,7 +233,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
       .sort((a: number, b: number) => a - b)
       .map((n: number) => new Date(n))
       .map(renderInputDate)
-      .join(', ')
+      .join(', ');
   }
 
   public render(): JSX.Element {
