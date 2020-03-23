@@ -12,10 +12,10 @@ export const calendarPicker: IShowcaseView = {
   component: (() => {
 
     interface IMyTestComponentProps {
-      mode?: EMode,
-      style?: EStyle,
-      color?: EDynaDatePickerColor,
-      size?: ESize,
+      mode?: EMode;
+      style?: EStyle;
+      color?: EDynaDatePickerColor;
+      size?: ESize;
     }
 
     interface IMyTestComponentState {
@@ -29,7 +29,7 @@ export const calendarPicker: IShowcaseView = {
         this.state = {
           start: new Date('2017-12-13'),
           end: new Date('2018-01-10'),
-        }
+        };
       }
 
       private handleChange = (name: string, start: Date, end: Date): void => {
@@ -71,11 +71,11 @@ export const calendarPicker: IShowcaseView = {
               onChange={this.handleChange}
             />
           </div>
-        )
+        );
       }
     }
 
-    return <MyTestComponent/>
+    return <MyTestComponent/>;
 
   })(),
   wrapperStyle: {
@@ -101,6 +101,6 @@ export const calendarPicker: IShowcaseView = {
         });
       });
     });
-    return output
+    return output;
   })(),
 };

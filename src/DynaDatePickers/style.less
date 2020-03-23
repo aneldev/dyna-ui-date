@@ -22,6 +22,7 @@
         z-index: 1;
 
         .ddp-picker-container {
+          padding: 8px;
 
           .ddp--calendar--label {
             display: none;
@@ -31,11 +32,10 @@
           }
 
           .ddp--picker-custom-content {
-            padding: 8px;
+            padding-bottom: 8px;
           }
 
           .ddp--calendar--button-bar {
-            padding: 0 8px 8px 8px;
             .dyna-button button {
               margin-top: 8px;
               width: 100%;
@@ -46,6 +46,7 @@
             display: flex;
 
             .ddp--double-calendar-A {
+              padding-right: 8px;
               .dmc--header--nav-next {
                 visibility: hidden;
               }
@@ -71,14 +72,14 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            width: 100%;
+            padding: 8px;
 
             .ddp--calendar--label {
               display: none;
               @media (max-width: @media-tablet) {
                 display: block;
                 h2 {
-                  margin: 8px 8px 0 8px;
+                  margin: 0 0 8px 0;
                 }
               }
             }
@@ -147,12 +148,11 @@
     }
     @media (max-width: @media-tablet) {
       .ddp--double-calendar-container {
-        width: 98%;
-        padding: 1%;
-        height: 50%;
+        height: 70%;
       }
 
       .ddp--double-calendar-A {
+        padding-right: 0 !important;
         .dmc--header--nav-next {
           visibility: visible !important;
         }
