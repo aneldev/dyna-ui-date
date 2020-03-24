@@ -2459,6 +2459,7 @@ Object.defineProperty(exports, "__esModule", {
 var DynaMonthCalendar_1 = __webpack_require__(/*! ./DynaMonthCalendar/DynaMonthCalendar */ "./src/DynaMonthCalendar/DynaMonthCalendar.tsx");
 
 exports.DynaMonthCalendar = DynaMonthCalendar_1.DynaMonthCalendar;
+exports.ERangePointMode = DynaMonthCalendar_1.ERangePointMode;
 
 var interfaces_1 = __webpack_require__(/*! ./interfaces */ "./src/interfaces.ts");
 

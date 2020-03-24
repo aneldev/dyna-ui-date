@@ -35,11 +35,11 @@ export interface IDynaMonthCalendarProps {
     onHover: (name: string, date: Date) => void;
     onChange: (name: string, date: Date) => void;
 }
-export interface IDynaMonthCalendarState {
+interface IDynaMonthCalendarState {
     viewport: Date;
     calendarTable: TUICalendarTable;
 }
-export declare type TUICalendarTable = Array<Array<IUICalendarTableDayCell>>;
+declare type TUICalendarTable = Array<Array<IUICalendarTableDayCell>>;
 export interface IUICalendarTableDayCell {
     date: Date;
     isToday: boolean;
@@ -66,3 +66,4 @@ export declare class DynaMonthCalendar extends React.Component<IDynaMonthCalenda
     private handleDaySelect;
     render(): JSX.Element;
 }
+export {};

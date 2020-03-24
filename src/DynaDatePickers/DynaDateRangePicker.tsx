@@ -16,8 +16,6 @@ import {getPickerButtonSize, getShowPickerOnKeyPress} from "./utils";
 
 import "./style.less";
 
-export type TContent = JSX.Element | string;
-
 export interface IDynaDateRangePickerProps {
   className?: string;
   name: string;
@@ -51,15 +49,17 @@ export interface IDynaDateRangePickerProps {
   onChange: (name: string, start: Date, end: Date) => void;
 }
 
-export interface IDynaDatePickerState {
-  showPicker: boolean;
-  targetDate: EEditDate;
-  hoverOn: Date;
-}
+export type TContent = JSX.Element | string;
 
 export enum EEditDate {
   START = "START",
   END = "END",
+}
+
+interface IDynaDatePickerState {
+  showPicker: boolean;
+  targetDate: EEditDate;
+  hoverOn: Date;
 }
 
 export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerProps, IDynaDatePickerState> {

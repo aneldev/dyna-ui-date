@@ -5,6 +5,7 @@ export {
 export {
   DynaMonthCalendar,
   IDynaMonthCalendarProps,
+  ERangePointMode,
 } from "./DynaMonthCalendar/DynaMonthCalendar";
 
 export {

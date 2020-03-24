@@ -4,7 +4,6 @@ import { ETooltipDirection } from "dyna-ui-tooltip";
 import { ERangePointMode } from "../DynaMonthCalendar/DynaMonthCalendar";
 import { EColor } from "../colorMixer";
 import "./style.less";
-export declare type TContent = JSX.Element | string;
 export interface IDynaDateRangePickerProps {
     className?: string;
     name: string;
@@ -37,14 +36,15 @@ export interface IDynaDateRangePickerProps {
     tooltipDirection?: ETooltipDirection;
     onChange: (name: string, start: Date, end: Date) => void;
 }
-export interface IDynaDatePickerState {
-    showPicker: boolean;
-    targetDate: EEditDate;
-    hoverOn: Date;
-}
+export declare type TContent = JSX.Element | string;
 export declare enum EEditDate {
     START = "START",
     END = "END"
+}
+interface IDynaDatePickerState {
+    showPicker: boolean;
+    targetDate: EEditDate;
+    hoverOn: Date;
 }
 export declare class DynaDateRangePicker extends React.Component<IDynaDateRangePickerProps, IDynaDatePickerState> {
     static defaultProps: Partial<IDynaDateRangePickerProps>;
@@ -67,3 +67,4 @@ export declare class DynaDateRangePicker extends React.Component<IDynaDateRangeP
     private renderInputDates;
     render(): JSX.Element;
 }
+export {};

@@ -60,12 +60,12 @@ export interface IDynaMonthCalendarProps {
   onChange: (name: string, date: Date) => void;
 }
 
-export interface IDynaMonthCalendarState {
+interface IDynaMonthCalendarState {
   viewport: Date;
   calendarTable: TUICalendarTable;
 }
 
-export type TUICalendarTable = Array<Array<IUICalendarTableDayCell>>;
+type TUICalendarTable = Array<Array<IUICalendarTableDayCell>>;
 
 export interface IUICalendarTableDayCell {
   date: Date;
