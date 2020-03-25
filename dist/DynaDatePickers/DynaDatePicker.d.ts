@@ -39,6 +39,7 @@ export interface IDynaDatePickerProps {
     renderTooltip?: (date: Date) => JSX.Element | string | number | null;
     tooltipDirection?: ETooltipDirection;
     onShowPicker?: () => void;
+    onViewportChange?: (name: string, date: Date) => void;
     onChange: (name: string, date: Date) => void;
 }
 export interface IDynaDatePickerState {

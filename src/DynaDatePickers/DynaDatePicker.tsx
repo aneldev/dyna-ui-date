@@ -56,6 +56,7 @@ export interface IDynaDatePickerProps {
   renderTooltip?: (date: Date) => JSX.Element | string | number | null;
   tooltipDirection?: ETooltipDirection;
   onShowPicker?: () => void;
+  onViewportChange?: (name: string, date: Date) => void;
   onChange: (name: string, date: Date) => void;
 }
 
@@ -116,6 +117,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
     const {mode, label, size, pickerSize, name, value, values, start, end, min, max, pickerHeader, pickerBody, pickerFooter} = this.props;
     const {staringFromWeekDay, renderPickerMonthYear, renderPickerWeekDay, renderPickerDay} = this.props;
     const {renderTooltip, tooltipDirection} = this.props;
+    const {onViewportChange} = this.props;
     const {showPicker} = this.state;
     const show: boolean = mode === EMode.EDIT && showPicker;
     const colors: IColorMixer = colorMixer(color);
@@ -144,6 +146,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
             value={value}
             values={values}
             staringFromWeekDay={staringFromWeekDay}
+            onViewportChange={onViewportChange}
             onChange={this.handleDaySelect}
             renderPickerDay={renderPickerDay}
             renderPickerWeekDay={renderPickerWeekDay}
@@ -200,7 +203,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
       showPicker,
     });
 
-    if (showPicker) this.monthCalendar.setViewport(value);
+    if (showPicker) this.monthCalendar.setViewport(value || new Date); // value might be null if not passed in the props
     if (showPicker && onShowPicker) onShowPicker();
 
     this.lastFocused = new Date;

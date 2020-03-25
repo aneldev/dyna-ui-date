@@ -34,6 +34,8 @@ export interface IDynaDateRangePickerProps {
     renderPickerDay?: (date: Date, dayInMonth: number, dayInWeek: number, inRange: ERangePointMode) => TContent;
     renderTooltip?: (date: Date) => JSX.Element | string | number | null;
     tooltipDirection?: ETooltipDirection;
+    onShowPicker?: () => void;
+    onViewportChange?: (name: string, date: Date) => void;
     onChange: (name: string, start: Date, end: Date) => void;
 }
 export declare type TContent = JSX.Element | string;

@@ -46,6 +46,8 @@ export interface IDynaDateRangePickerProps {
   renderPickerDay?: (date: Date, dayInMonth: number, dayInWeek: number, inRange: ERangePointMode) => TContent;
   renderTooltip?: (date: Date) => JSX.Element | string | number | null;
   tooltipDirection?: ETooltipDirection;
+  onShowPicker?: () => void;
+  onViewportChange?: (name: string, date: Date) => void;
   onChange: (name: string, start: Date, end: Date) => void;
 }
 
@@ -162,7 +164,9 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
   };
 
   private handleMonthCalendarBViewportChange = (name: string, date: Date): void => {
+    const {onViewportChange} = this.props;
     this.monthCalendarA.setViewport(moment(date).add(-1, 'month').toDate());
+    onViewportChange && onViewportChange(name, date);
   };
 
   private handleCalendarsMouseLeave = (): void => {
@@ -277,7 +281,10 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
     if (this.props.mode === EMode.VIEW) return;
     if (this.lastFocused && Number(new Date) - Number(this.lastFocused) < 300) return;
 
-    const { editDate } = this.props;
+    const {
+      editDate,
+      onShowPicker,
+    } = this.props;
     const showPicker = !this.state.showPicker;
 
     this.setState({
@@ -285,6 +292,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
       targetDate: editDate,
     });
 
+    if (showPicker && onShowPicker) onShowPicker();
     this.setViewport(this.viewport);
 
     this.lastFocused = new Date;
@@ -299,7 +307,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
   };
 
   private handlerInputKeyPress = (event: KeyboardEvent<HTMLInputElement>): void => {
-    const { editDate } = this.props;
+    const {editDate, onShowPicker} = this.props;
     const { targetDate } = this.state;
     const showPicker = getShowPickerOnKeyPress(event, this.state.showPicker);
     if (showPicker !== null) this.setState({
@@ -308,6 +316,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
         ? targetDate  // do not change it
         : editDate,   // reset it passing the prop value
     });
+    if (showPicker === true && onShowPicker) onShowPicker();
   };
 
   private renderInputDates(): string {
