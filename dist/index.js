@@ -1409,8 +1409,7 @@ function (_super) {
       if (_this.lastFocused && Number(new Date()) - Number(_this.lastFocused) < 300) return;
       var _a = _this.props,
           editDate = _a.editDate,
-          onShowPicker = _a.onShowPicker,
-          onViewportChange = _a.onViewportChange;
+          onShowPicker = _a.onShowPicker;
       var showPicker = !_this.state.showPicker;
 
       _this.setState({
@@ -1469,12 +1468,8 @@ function (_super) {
   });
 
   DynaDateRangePicker.prototype.setViewport = function (date) {
-    var _a = this.props,
-        name = _a.name,
-        onViewportChange = _a.onViewportChange;
     this.monthCalendarA.setViewport(date);
     this.monthCalendarB.setViewport(moment(date).add(1, 'month').toDate());
-    onViewportChange && onViewportChange(name, date);
   };
 
   DynaDateRangePicker.prototype.renderPicker = function () {
