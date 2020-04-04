@@ -40,7 +40,7 @@ export interface IDynaDateRangePickerProps {
   closeButtonLabel?: TContent;
   todayButtonLabel?: TContent;
   staringFromWeekDay?: number; // 0 = Sunday... default = 1 (Monday)
-  renderInputDate?: (value: Date) => string;
+  renderInputDate?: (value?: Date) => string;
   renderPickerMonthYear?: (month: number, year: number) => TContent;
   renderPickerWeekDay?: (weekDay: number) => TContent;
   renderPickerDay?: (date: Date, dayInMonth: number, dayInWeek: number, inRange: ERangePointMode) => TContent;
@@ -87,7 +87,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
     showCloseButton: true,
     todayButtonLabel: <span>{faIcon('calendar')} Today</span>,
     closeButtonLabel: <span>{faIcon('check')} Ok</span>,
-    renderInputDate: (date: Date) => moment(date).format('dd DD MMM YY'),
+    renderInputDate: (date?: Date) => date && moment(date).format('dd DD MMM YY') || '',
     renderPickerMonthYear: (month: number, year: number) => <div>{monthsLongNames[month]} {year}</div>,
     renderPickerWeekDay: (weekDay: number) => <div>{weekDaysShortNames[weekDay]}</div>,
     renderPickerDay: (date: Date, dayInMonth: number, dayInWeek: number, inRange: ERangePointMode) => <div>{dayInMonth}</div>,
@@ -293,7 +293,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
     });
 
     if (showPicker && onShowPicker) onShowPicker();
-    this.setViewport(this.viewport);
+    this.setViewport(this.viewport || this.props.min || new Date);
 
     this.lastFocused = new Date;
   };

@@ -1012,7 +1012,7 @@ function (_super) {
         showPicker: showPicker
       });
 
-      if (showPicker) _this.monthCalendar.setViewport(value || new Date()); // value might be null if not passed in the props
+      if (showPicker) _this.monthCalendar.setViewport(value || _this.props.min || new Date()); // value might be null if not passed in the props
 
       if (showPicker && onShowPicker) onShowPicker();
       _this.lastFocused = new Date();
@@ -1207,7 +1207,7 @@ function (_super) {
     todayButtonLabel: React.createElement("span", null, faIcon_1.faIcon('calendar'), " Today"),
     closeButtonLabel: React.createElement("span", null, faIcon_1.faIcon('check'), " Ok"),
     renderInputDate: function renderInputDate(date) {
-      return moment(date).format('dd DD MMM YY');
+      return date && moment(date).format("dd DD MMM YY") || "";
     },
     renderPickerMonthYear: function renderPickerMonthYear(month, year) {
       return React.createElement("div", null, utils_1.monthsLongNames[month], " ", year);
@@ -1419,7 +1419,7 @@ function (_super) {
 
       if (showPicker && onShowPicker) onShowPicker();
 
-      _this.setViewport(_this.viewport);
+      _this.setViewport(_this.viewport || _this.props.min || new Date());
 
       _this.lastFocused = new Date();
     };
@@ -1656,7 +1656,7 @@ function (_super) {
     todayButtonLabel: React.createElement("span", null, faIcon_1.faIcon('calendar'), " Today"),
     closeButtonLabel: React.createElement("span", null, faIcon_1.faIcon('check'), " Ok"),
     renderInputDate: function renderInputDate(date) {
-      return moment(date).format('dd DD MMM YY');
+      return date && moment(date).format('dd DD MMM YY') || '';
     },
     renderPickerMonthYear: function renderPickerMonthYear(month, year) {
       return React.createElement("div", null, utils_1.monthsLongNames[month], " ", year);

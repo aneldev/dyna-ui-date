@@ -32,7 +32,7 @@ export interface IDynaDatePickerProps {
     closeButtonLabel?: TContent;
     todayButtonLabel?: TContent;
     staringFromWeekDay?: number;
-    renderInputDate?: (value: Date) => string;
+    renderInputDate?: (value?: Date) => string;
     renderPickerMonthYear?: (month: number, year: number) => TContent;
     renderPickerWeekDay?: (weekDay: number) => TContent;
     renderPickerDay?: (date: Date, dayInMonth: number, dayInWeek: number, inRange: ERangePointMode) => TContent;

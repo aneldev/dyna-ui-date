@@ -49,7 +49,7 @@ export interface IDynaDatePickerProps {
   closeButtonLabel?: TContent;
   todayButtonLabel?: TContent;
   staringFromWeekDay?: number; // 0 = Sunday... default = 1 (Monday)
-  renderInputDate?: (value: Date) => string;
+  renderInputDate?: (value?: Date) => string;
   renderPickerMonthYear?: (month: number, year: number) => TContent;
   renderPickerWeekDay?: (weekDay: number) => TContent;
   renderPickerDay?: (date: Date, dayInMonth: number, dayInWeek: number, inRange: ERangePointMode) => TContent;
@@ -90,7 +90,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
     closeOnSelect: true,
     todayButtonLabel: <span>{faIcon('calendar')} Today</span>,
     closeButtonLabel: <span>{faIcon('check')} Ok</span>,
-    renderInputDate: (date: Date) => moment(date).format('dd DD MMM YY'),
+    renderInputDate: (date?: Date) => date && moment(date).format("dd DD MMM YY") || "",
     renderPickerMonthYear: (month: number, year: number) => <div>{monthsLongNames[month]} {year}</div>,
     renderPickerWeekDay: (weekDay: number) => <div>{weekDaysShortNames[weekDay]}</div>,
     renderPickerDay: (date: Date, dayInMonth: number, dayInWeek: number, inRange: ERangePointMode) => <div>{dayInMonth}</div>,
@@ -203,7 +203,7 @@ export class DynaDatePicker extends React.Component<IDynaDatePickerProps, IDynaD
       showPicker,
     });
 
-    if (showPicker) this.monthCalendar.setViewport(value || new Date); // value might be null if not passed in the props
+    if (showPicker) this.monthCalendar.setViewport(value || this.props.min || new Date); // value might be null if not passed in the props
     if (showPicker && onShowPicker) onShowPicker();
 
     this.lastFocused = new Date;
