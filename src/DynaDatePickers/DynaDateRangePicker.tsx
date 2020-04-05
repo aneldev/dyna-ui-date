@@ -43,7 +43,7 @@ export interface IDynaDateRangePickerProps {
   renderInputDate?: (value?: Date) => string;
   renderPickerMonthYear?: (month: number, year: number) => TContent;
   renderPickerWeekDay?: (weekDay: number) => TContent;
-  renderPickerDay?: (date: Date, dayInMonth: number, dayInWeek: number, inRange: ERangePointMode) => TContent;
+  renderPickerDay?: (date: Date, dayNumber: number, dayInWeek: number, inRange: ERangePointMode, hovered: ERangePointMode, inMonth: boolean) => TContent;
   renderTooltip?: (date: Date) => JSX.Element | string | number | null;
   tooltipDirection?: ETooltipDirection;
   onShowPicker?: () => void;
@@ -90,7 +90,7 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
     renderInputDate: (date?: Date) => date && moment(date).format('dd DD MMM YY') || '',
     renderPickerMonthYear: (month: number, year: number) => <div>{monthsLongNames[month]} {year}</div>,
     renderPickerWeekDay: (weekDay: number) => <div>{weekDaysShortNames[weekDay]}</div>,
-    renderPickerDay: (date: Date, dayInMonth: number, dayInWeek: number, inRange: ERangePointMode) => <div>{dayInMonth}</div>,
+    renderPickerDay: (date, dayNumber) => <div>{dayNumber}</div>,
     onChange: (name: string, date: Date) => undefined,
   };
 

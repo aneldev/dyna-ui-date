@@ -31,7 +31,7 @@ export interface IDynaDateRangePickerProps {
     renderInputDate?: (value?: Date) => string;
     renderPickerMonthYear?: (month: number, year: number) => TContent;
     renderPickerWeekDay?: (weekDay: number) => TContent;
-    renderPickerDay?: (date: Date, dayInMonth: number, dayInWeek: number, inRange: ERangePointMode) => TContent;
+    renderPickerDay?: (date: Date, dayNumber: number, dayInWeek: number, inRange: ERangePointMode, hovered: ERangePointMode, inMonth: boolean) => TContent;
     renderTooltip?: (date: Date) => JSX.Element | string | number | null;
     tooltipDirection?: ETooltipDirection;
     onShowPicker?: () => void;

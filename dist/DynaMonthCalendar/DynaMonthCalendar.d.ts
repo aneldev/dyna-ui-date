@@ -28,7 +28,7 @@ export interface IDynaMonthCalendarProps {
     staringFromWeekDay?: number;
     renderPickerMonthYear?: (month: number, year: number) => TContent;
     renderPickerWeekDay?: (weekDay: number) => TContent;
-    renderPickerDay?: (date: Date, dayInMonth: number, dayInWeek: number, inRange: ERangePointMode, hovered: ERangePointMode) => TContent;
+    renderPickerDay?: (date: Date, dayNumber: number, dayInWeek: number, inRange: ERangePointMode, hovered: ERangePointMode, inMonth: boolean) => TContent;
     renderTooltip?: (date: Date) => JSX.Element | string | number | null;
     tooltipDirection?: ETooltipDirection;
     onViewportChange: (name: string, date: Date) => void;

@@ -1215,8 +1215,8 @@ function (_super) {
     renderPickerWeekDay: function renderPickerWeekDay(weekDay) {
       return React.createElement("div", null, utils_1.weekDaysShortNames[weekDay]);
     },
-    renderPickerDay: function renderPickerDay(date, dayInMonth, dayInWeek, inRange) {
-      return React.createElement("div", null, dayInMonth);
+    renderPickerDay: function renderPickerDay(date, dayNumber) {
+      return React.createElement("div", null, dayNumber);
     },
     onChange: function onChange(name, date) {
       return undefined;
@@ -1664,8 +1664,8 @@ function (_super) {
     renderPickerWeekDay: function renderPickerWeekDay(weekDay) {
       return React.createElement("div", null, utils_1.weekDaysShortNames[weekDay]);
     },
-    renderPickerDay: function renderPickerDay(date, dayInMonth, dayInWeek, inRange) {
-      return React.createElement("div", null, dayInMonth);
+    renderPickerDay: function renderPickerDay(date, dayNumber) {
+      return React.createElement("div", null, dayNumber);
     },
     onChange: function onChange(name, date) {
       return undefined;
@@ -2126,7 +2126,7 @@ function (_super) {
           color: color,
           tooltipDirection: tooltipDirection,
           renderTooltip: renderTooltip
-        }, renderPickerDay(date.toDate(), date.get('D'), date.day(), calendarCell.inRange, calendarCell.hovered)));
+        }, renderPickerDay(date.toDate(), date.get('D'), date.day(), calendarCell.inRange, calendarCell.hovered, calendarCell.inCurrentMonth)));
       }));
     })));
   };
@@ -2150,8 +2150,8 @@ function (_super) {
     renderPickerWeekDay: function renderPickerWeekDay(weekDay) {
       return React.createElement("div", null, utils_1.weekDaysShortNames[weekDay]);
     },
-    renderPickerDay: function renderPickerDay(date, dayInMonth, dayInWeek, inRange) {
-      return React.createElement("div", null, dayInMonth);
+    renderPickerDay: function renderPickerDay(date, dayNumber) {
+      return React.createElement("div", null, dayNumber);
     },
     onViewportChange: function onViewportChange(name, date) {
       return undefined;

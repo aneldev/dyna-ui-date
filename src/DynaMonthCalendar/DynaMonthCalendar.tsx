@@ -52,7 +52,7 @@ export interface IDynaMonthCalendarProps {
   staringFromWeekDay?: number; // 0 = Sunday... default = 1 (Monday)
   renderPickerMonthYear?: (month: number, year: number) => TContent;
   renderPickerWeekDay?: (weekDay: number) => TContent;
-  renderPickerDay?: (date: Date, dayInMonth: number, dayInWeek: number, inRange: ERangePointMode, hovered: ERangePointMode) => TContent;
+  renderPickerDay?: (date: Date, dayNumber: number, dayInWeek: number, inRange: ERangePointMode, hovered: ERangePointMode, inMonth: boolean) => TContent;
   renderTooltip?: (date: Date) => JSX.Element | string | number | null;
   tooltipDirection?: ETooltipDirection;
   onViewportChange: (name: string, date: Date) => void;
@@ -94,8 +94,7 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
     staringFromWeekDay: 1,
     renderPickerMonthYear: (month: number, year: number) => <div>{monthsLongNames[month]} {year}</div>,
     renderPickerWeekDay: (weekDay: number) => <div>{weekDaysShortNames[weekDay]}</div>,
-    renderPickerDay: (date: Date, dayInMonth: number, dayInWeek: number, inRange: ERangePointMode) =>
-      <div>{dayInMonth}</div>,
+    renderPickerDay: (date, dayNumber) => <div>{dayNumber}</div>,
     onViewportChange: (name: string, date: Date) => undefined,
     onHover: (name: string, date: Date) => undefined,
     onChange: (name: string, date: Date) => undefined,
@@ -357,7 +356,7 @@ export class DynaMonthCalendar extends React.Component<IDynaMonthCalendarProps, 
                         tooltipDirection={tooltipDirection}
                         renderTooltip={renderTooltip}
                       >
-                        {renderPickerDay(date.toDate(), date.get('D'), date.day(), calendarCell.inRange, calendarCell.hovered)}
+                        {renderPickerDay(date.toDate(), date.get('D'), date.day(), calendarCell.inRange, calendarCell.hovered, calendarCell.inCurrentMonth)}
                       </Tooltip>
                     </div>
                   );
