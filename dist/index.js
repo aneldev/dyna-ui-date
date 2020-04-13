@@ -1381,7 +1381,11 @@ function (_super) {
     };
 
     _this.handleMonthCalendarAViewportChange = function (name, date) {
+      var onViewportChange = _this.props.onViewportChange;
+
       _this.monthCalendarB.setViewport(moment(date).add(1, 'month').toDate());
+
+      onViewportChange && onViewportChange(name, date);
     };
 
     _this.handleMonthCalendarBViewportChange = function (name, date) {
