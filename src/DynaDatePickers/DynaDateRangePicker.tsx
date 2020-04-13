@@ -160,7 +160,9 @@ export class DynaDateRangePicker extends React.Component<IDynaDateRangePickerPro
   }
 
   private handleMonthCalendarAViewportChange = (name: string, date: Date): void => {
+    const {onViewportChange} = this.props;
     this.monthCalendarB.setViewport(moment(date).add(1, 'month').toDate());
+    onViewportChange && onViewportChange(name, date);
   };
 
   private handleMonthCalendarBViewportChange = (name: string, date: Date): void => {
