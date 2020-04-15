@@ -37,6 +37,10 @@ export const calendarPicker: IShowcaseView = {
         this.setState({start, end});
       };
 
+      private handleViewPortChange = (name: string, date: Date): void => {
+        console.log('on viewport change', name, date);
+      };
+
       public render(): JSX.Element {
         const {mode, style, color, size} = this.props;
         const {start, end} = this.state;
@@ -55,6 +59,7 @@ export const calendarPicker: IShowcaseView = {
               start={start}
               end={end}
               onChange={this.handleChange}
+              onViewportChange={this.handleViewPortChange}
             />
             <DynaDateRangePicker
               mode={mode}
@@ -69,6 +74,7 @@ export const calendarPicker: IShowcaseView = {
               start={start}
               end={end}
               onChange={this.handleChange}
+              onViewportChange={this.handleViewPortChange}
             />
           </div>
         );
