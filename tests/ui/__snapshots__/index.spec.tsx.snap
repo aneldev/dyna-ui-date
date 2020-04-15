@@ -5,6 +5,8 @@ exports[`Home has expected content with deep render 1`] = `
   className="dyna-date-picker dyna-date-picker-mode-EDIT dyna-date-picker-style-INLINE_ROUNDED dyna-date-picker-size-MEDIUM"
 >
   <DynaFieldWrapper
+    applyInputId={true}
+    applyLabelId={true}
     className={null}
     color="ORANGE_WHITE"
     footer={
@@ -92,6 +94,7 @@ exports[`Home has expected content with deep render 1`] = `
         </div>
       </DynaPickerContainer>
     }
+    id={null}
     inputElementSelector=".ddp-input-control"
     isLoading={null}
     label={null}
